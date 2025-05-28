@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CategoryNav = () => {
+const EventBoard = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const CategoryNav = () => {
   )
 }
 
-export default CategoryNav
+export default EventBoard
