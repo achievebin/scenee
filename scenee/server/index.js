@@ -28,28 +28,28 @@ async function testConnection() {
 }
 testConnection();
 
-async function createTables() {
-    const conn = await pool.getConnection();
-    try {
-        //영화 정보 테이블 생성
-        await conn.query(
-            `CREATE TABLE Movie (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            movieCd VARCHAR(20) UNIQUE,
-            movieNm VARCHAR(255),
-            openDt DATE,
-            genreNm VARCHAR(100),
-            directors TEXT,
-            actors TEXT,
-            showTm INT,
-            watchGradeNm VARCHAR(100),
-            rank INT,
-            salesAcc BIGINT,
-            audiAcc BIGINT
-            );`
-        )
-    } catch {
+// async function createTables() {
+//     const conn = await pool.getConnection();
+//     try {
+//         //영화 정보 테이블 생성
+//         await conn.query(
+//             `CREATE TABLE Movie (
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             movieCd VARCHAR(20) UNIQUE,
+//             movieNm VARCHAR(255),
+//             openDt DATE,
+//             genreNm VARCHAR(100),
+//             directors TEXT,
+//             actors TEXT,
+//             showTm INT,
+//             watchGradeNm VARCHAR(100),
+//             rank INT,
+//             salesAcc BIGINT,
+//             audiAcc BIGINT
+//             );`
+//         )
+//     } catch {
 
-    }
-}
-createTables();
+//     }
+// }
+// createTables();
