@@ -1,32 +1,38 @@
 require('dotenv').config(); //.env 파일
 const express = require('express');
-const mariadb = require('mariadb');
 const cors = require('cors');
 
 const app = express();
 app.use(cors()); // React와 연동 위해 필요
 app.use(express.json());
 
-//MariaDB 연결 풀 설정
-const pool = mariadb.createPool({
-  host: process.env.DB_Host,
-  user: process.env.DB_Username,
-  password: process.env.DB_Password,
-  database: process.env.DB_Name,
-  connectionLimit: 5,
-  port: process.env.DB_Port
-});
+const authRoutes = require("./routes/authRoutes.js")
+const movieRoutes = require("./routes/movieRoutes.js")
+const reviewRoutes = require("./routes/reviewRoutes.js")
+const noticeRoutes = require("./routes/noticeRoutes.js")
 
-async function testConnection() {
-    try {
-        const conn = await pool.getConnection();
-        console.log("mariaDB 연결 성공");
-        conn.release(); //연결 해제
-    } catch (err) {
-        console.error("mariaDB 연결 실패", err);
-    }
-}
-testConnection();
+app.use("/api/auth", authRoutes)
+app.use("/api/movies", movieRoutes)
+app.use("/api/reviews", reviewRoutes)
+app.use("/api/board", noticeRoutes)
+
+const Port = '5000'
+
+app.listen(Port,()=>{
+    console.log(`서버 연결됨${Port}`)
+})
+
+
+// async function testConnection() {
+//     try {
+//         const conn = await pool.getConnection();
+//         console.log("mariaDB 연결 성공");
+//         conn.release(); //연결 해제
+//     } catch (err) {
+//         console.error("mariaDB 연결 실패", err);
+//     }
+// }
+// testConnection();
 
 // async function createTables() {
 //     const conn = await pool.getConnection();
