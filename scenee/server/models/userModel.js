@@ -18,20 +18,6 @@ export const createUser = async (username, hashedPassword) => {
     }
 }
 
-export const findUserByUsername = async (username) => {
-    let conn;
-    try {
-        conn = await pool.getConnection();
-        const rows = await conn.query(
-            'SELECT * FROMS users WHERE username = ?', [username]
-        );
-        return rows[0] || null;
-
-    } finally {
-        conn.release();
-    }
-};
-
 export const getUserByUsername = async (username) => {
   const conn = await pool.getConnection();
   try {
@@ -39,7 +25,7 @@ export const getUserByUsername = async (username) => {
       'SELECT * FROM users WHERE username = ?',
       [username]
     );
-    return rows[0];
+    return rows[0] || null;
   } finally {
     conn.release();
   }

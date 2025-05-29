@@ -1,7 +1,7 @@
 //controller: 사용자 입력과 model, view 간의 상호작용을 제어함
 import bcrypt from 'bcrypt'
 //비밀번호 암호화를 위한 bcrypt 라이브러리 활용
-import { createUser,getUserByUsername } from '../models/userModel.js'
+import { createUser, getUserByUsername } from '../models/userModel.js'
 //상호작용할 userModel 호출
 const saltRound = 10;
 //비밀번호를 암호화하기 위한 salt 생성
