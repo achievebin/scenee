@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+//요청한 페이지를 찾을 수 없을 때 나오는 404 오류를 보여주는 페이지
 export default function NotFound() {
   return (
     <div style={{ textAlign: 'center', padding: '4rem' }}>

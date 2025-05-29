@@ -6,6 +6,7 @@ import DetailPage from '../pages/Detail/DetailPage';
 import SearchResultPage from '../pages/SearchResultPage';
 import NotFound from '../pages/NotFound/NotFound';
 
+//react-router-dom 라이브러리를 사용, Route 기능을 이용해 페이지별 path를 지정
 export default function AppRoutes() {
   return (
     <Routes>
