@@ -14,7 +14,7 @@ export const createUser = async (username, hashedPassword) => {
         return result.insertId;
     } finally {
         //연결 해제
-        if (conn) conn.release();
+        conn.release();
     }
 }
 
@@ -28,6 +28,19 @@ export const findUserByUsername = async (username) => {
         return rows[0] || null;
 
     } finally {
-        if (conn) conn.release();
+        conn.release();
     }
-}
+};
+
+export const getUserByUsername = async (username) => {
+  const conn = await pool.getConnection();
+  try {
+    const rows = await conn.query(
+      'SELECT * FROM users WHERE username = ?',
+      [username]
+    );
+    return rows[0];
+  } finally {
+    conn.release();
+  }
+};
