@@ -1,5 +1,5 @@
 //models: 데이터를 저장하고 관리하는 역할을 맡으며, 데이터베이스와 직접 상호작용함
-import pool from './db.js'
+import pool from '../config/db.js'
 //mariaDB와 연결하는 객체 호출
 
 //users 테이블에 이용자 내용 삽입

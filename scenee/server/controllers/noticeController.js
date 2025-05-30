@@ -1,7 +1,8 @@
 //controller: 사용자 입력과 model, view 간의 상호작용을 제어함
 //공지사항과 이벤트 관련 내용을 담당
-import pool from '../models/db.js'
+import pool from '../config/db.js'
 
+//전체 게시판 목록
 export const getBoards = async (req, res) => {
     try {
         const conn = await pool.getConnection();
@@ -13,6 +14,7 @@ export const getBoards = async (req, res) => {
     }
 }
 
+//게시판 글 조회회
 export const getBoardById = async (req, res) => {
     const {id} = req.params;
     try {
@@ -26,6 +28,7 @@ export const getBoardById = async (req, res) => {
     }
 }
 
+//공지사항 게시판
 export const getNoticeBoards = async (req, res) => {
     try {
         const conn = await pool.getConnection();
@@ -37,6 +40,7 @@ export const getNoticeBoards = async (req, res) => {
     }
 }
 
+//이벤트 게시판
 export const getEventBoards = async (req, res) => {
     try {
         const conn = await pool.getConnection();
@@ -48,6 +52,7 @@ export const getEventBoards = async (req, res) => {
     }
 }
 
+//공지사항 게시판 생성 (관리자)
 export const createNotice = async (req, res) => {
   const { title, content, type } = req.body;
   try {
