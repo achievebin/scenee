@@ -12,9 +12,12 @@ export default function RegisterPage() {
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,19}$/;
+  const pwRegex = /^(?=.*[A-Za-z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*]{8,19}$/;
+    pwRegex.test("Passw0rd!");  // true
+    pwRegex.test("Password");   
+    pwRegex.test("!@#$%^&*"); 
 
-
+  
   // 회원가입 처리
   const handleRegister = async () => {
     // 1) 비밀번호 일치 검증
@@ -28,11 +31,10 @@ export default function RegisterPage() {
       return;
     }
     // 비밀번호 자리 검사
-    if (!passwordRegex.test(password)) {
+    if (!pwRegex.test(password)) {
       setPasswordError(
         "비밀번호는 최소 8자 이상 20자 미만, 영문자와 특수문자 각각 1개 이상 포함"
       );
-      vaild = false;
     }else{
       setPasswordError('');
     }
@@ -73,7 +75,7 @@ export default function RegisterPage() {
             setUsernameError('');  // 입력 시 에러 초기화
           }}
           required
-          style={{ width: '100%', padding: 8 }}
+          style={{ width: '90%', padding: 8 }}
         />
         {usernameError && (
           <div style={{ color: 'red', fontSize: 12, marginTop: 4 }}>
@@ -92,8 +94,7 @@ export default function RegisterPage() {
             setPassword(e.target.value);
             setPasswordError('');
           }}
-          
-          style={{ width: '100%', padding: 8 }}
+          style={{ width: '90%', padding: 8 }}
         />
       </div>
 
@@ -107,7 +108,7 @@ export default function RegisterPage() {
             setConfirmPassword(e.target.value);
             setPasswordError('');
           }}
-          style={{ width: '100%', padding: 8 }}
+          style={{ width: '90%', padding: 8 }}
         />
         {passwordError && (
           <div style={{ color: 'red', fontSize: 12, marginTop: 4 }}>

@@ -27,9 +27,21 @@ export default function LoginPage() {
   return (
     <div>
       <h1>로그인</h1>
-      <input placeholder="아이디" value={u} onChange={e=>setU(e.target.value)} />
-      <input placeholder="비밀번호" type="password" value={p} onChange={e=>setP(e.target.value)} />
-      <button onClick={handleLogin}>로그인</button>
+      
+      <div>
+        <input placeholder="아이디" value={u} onChange={e=>setU(e.target.value)} />
+      </div>
+
+      <div>
+        <input placeholder="비밀번호" type="password" value={p} onChange={e=>setP(e.target.value)} />
+      </div>
+
+      <div>
+        <button onClick={handleLogin}>로그인</button>
+      </div>
+      
+      
+      
     </div>
   );
 }
