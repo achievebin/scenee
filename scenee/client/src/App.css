@@ -41,11 +41,3 @@
   color: #888;
 }
 
-#user{
-  position: absolute;
-  top: 0%;
-  right: 10px;
-  transform: translate(-40%);
-  display: flex;
-  gap: 10px;
-}
