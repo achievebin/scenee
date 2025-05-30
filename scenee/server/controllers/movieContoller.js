@@ -7,7 +7,7 @@ export const getPopularMovies = async (req, res) => {
         const movies = await fetchPopularMovies();
         res.json(movies);
     } catch (error) {
-        res.status(500).json({message: '인기 영화 실패'});
+        res.status(500).json({message: '인기 영화를 가져오는 데 실패하였습니다'});
     }
 };
 
@@ -32,7 +32,7 @@ export const searchMovies = async (req, res) => {
         res.json(results);
 
     } catch (error) {
-        res.status(500).json({message: '검색 실패'});
+        res.status(500).json({message: '검색하는 데 실패하였습니다'});
     }
 
 };

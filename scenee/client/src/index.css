@@ -66,11 +66,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-div{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-items: center;
-  align-items: center;
-
-}

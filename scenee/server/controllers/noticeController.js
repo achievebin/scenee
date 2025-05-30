@@ -1,6 +1,7 @@
 //controller: 사용자 입력과 model, view 간의 상호작용을 제어함
 //공지사항과 이벤트 관련 내용을 담당
 import pool from '../config/db.js'
+//mariaDB와 연결하는 객체 호출
 
 //전체 게시판 목록
 export const getBoards = async (req, res) => {
@@ -14,7 +15,7 @@ export const getBoards = async (req, res) => {
     }
 }
 
-//게시판 글 조회회
+//게시판 글 조회
 export const getBoardById = async (req, res) => {
     const {id} = req.params;
     try {

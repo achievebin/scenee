@@ -2,6 +2,7 @@
 import {getReviewsByMovieId, createReview, deleteReview} from '../models/reviewModel.js'
 //리뷰 작성과 조회 및 삭제 기능을 담당
 
+//리뷰 조회
 export const getReviews = async (req, res) => {
     const movieId = req.params.movieId;
     try {
@@ -13,6 +14,7 @@ export const getReviews = async (req, res) => {
     
 }
 
+//리뷰 작성
 export const postReview = async (req, res) => {
     const {userId, movieId, content, rating} = req.body
     try {
@@ -25,6 +27,7 @@ export const postReview = async (req, res) => {
     
 }
 
+//리뷰 삭제
 export const removeReview = async (req, res) => {
     const reviewId = req.params.reviewId;
     const {userId} = req.body;

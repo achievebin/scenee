@@ -12,10 +12,3 @@ export function registerUser(data) {
 export function loginUser(data) {
     return axios.post('auth/login', data);
 }
-
-//본인 정보 가져오기
-export function fetchUserProfile() {
-    return axios.get('/auth/me');
-    //axios.get(url, config)
-    //URL, 설정 객체(headers, params) 순
-}

@@ -1,6 +1,7 @@
 //models: 데이터를 저장하고 관리하는 역할을 맡으며, 데이터베이스와 직접 상호작용함
 //리뷰 관련 sql문 처리
 import pool from '../config/db.js'
+//mariaDB와 연결하는 객체 호출
 
 //영화 ID를 기준 삼아 리뷰 조회
 export async function getReviewsByMovieId(movieId) {
