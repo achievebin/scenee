@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 const TopNav = () => {
   return (
     <header id='user'>
-      <Link to="login"><button >Login</button></Link>
-      <Link to="register"><button>sign</button></Link>
+      <Link to="login">Login</Link>
+      <Link to="register">sign</Link>
     </header>
   )
 }
