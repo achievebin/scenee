@@ -12,12 +12,29 @@ export default function RegisterPage() {
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,19}$/;
+
+
   // 회원가입 처리
   const handleRegister = async () => {
     // 1) 비밀번호 일치 검증
     if (password !== confirmPassword) {
       setPasswordError('비밀번호가 일치하지 않습니다');
       return;
+    }
+    // 아이디 길이 검사
+    if (username.length < 8) {
+      setUsernameError('아이디는 최소 8자 이상이어야 합니다');
+      return;
+    }
+    // 비밀번호 자리 검사
+    if (!passwordRegex.test(password)) {
+      setPasswordError(
+        "비밀번호는 최소 8자 이상 20자 미만, 영문자와 특수문자 각각 1개 이상 포함"
+      );
+      vaild = false;
+    }else{
+      setPasswordError('');
     }
 
     // 2) 에러 초기화
@@ -55,7 +72,7 @@ export default function RegisterPage() {
             setUsername(e.target.value);
             setUsernameError('');  // 입력 시 에러 초기화
           }}
-          minLength="4"
+          required
           style={{ width: '100%', padding: 8 }}
         />
         {usernameError && (
@@ -71,8 +88,6 @@ export default function RegisterPage() {
           type="password"
           placeholder="비밀번호"
           value={password}
-          title='8~20자, 영문 숫자 특수문자 하나 이상 포함'
-          pattern='(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}'
           onChange={e => {
             setPassword(e.target.value);
             setPasswordError('');
