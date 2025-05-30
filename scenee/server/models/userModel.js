@@ -18,6 +18,7 @@ export const createUser = async (username, hashedPassword) => {
     }
 }
 
+//users 테이블에 userId를 사용하여 이용자 조회
 export const getUserByUsername = async (username) => {
   const conn = await pool.getConnection();
   try {
