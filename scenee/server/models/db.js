@@ -2,7 +2,7 @@
 import mariadb from 'mariadb';
 import dotenv from 'dotenv';
 //dotenv 라이브러리를 활용하여 정보를 감춤
-dotenv.config();
+import 'dotenv/config';
 
 //mariaDB와 연결하기 위한 객체 생성
 const pool = mariadb.createPool({

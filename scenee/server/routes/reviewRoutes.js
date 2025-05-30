@@ -1,7 +1,7 @@
 //routes: 클라이언트에서 오는 API 요청을 처리함
-const express = require('express');
-const router = express.Router();
-const { postReview, getReviews, removeReview } = require('../controllers/reviewController');
+import { Router } from 'express';
+import {postReview, getReviews, removeReview} from '../controllers/reviewController.js'
+const router = Router();
 //const { createReview, getReviewsByMovieId, getUserReviews, deleteReview, updateReview } = require('../controllers/reviewController');
 //리뷰를 작성하고 수정하고 갱신하고 지우는 라우팅
 
@@ -16,4 +16,4 @@ router.post('/', postReview);
 //리뷰 삭제
 router.delete('/:reviewId', removeReview);
 
-module.exports = router;
+export default router;

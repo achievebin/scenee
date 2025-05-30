@@ -1,7 +1,7 @@
 //routes: 클라이언트에서 오는 API 요청을 처리함
-const express = require('express');
-const router = express.Router();
-const { getPopularMovies, getMovieById, searchMovies } = require('../controllers/movieContoller');
+import { Router } from 'express';
+import { getPopularMovies, getMovieById, searchMovies } from '../controllers/movieContoller.js';
+const router = Router();
 //const { getPopularMovies, getMovieById, searchMovies, getMoviesByCategory, addReview, getReviewsByMovieId } = require('../controllers/movieController.js');
 //영화 검색과 상세정보 관련 라우팅
 
@@ -18,4 +18,4 @@ router.get('/search/:query', searchMovies);
 //영화 ID로 리뷰 조회
 //router.get('/:id/reviews', getReviewsByMovieId)
 
-module.exports = router;
+export default router;
