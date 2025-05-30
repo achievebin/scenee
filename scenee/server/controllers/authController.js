@@ -8,7 +8,7 @@ const saltRound = 10;
 
 import jwt from 'jsonwebtoken';
 
-//회원 가입
+//회원 가입 - api/auth/register
 export const registerUser = async (req, res) => {
     const {username, password} = req.body;
     try {
@@ -30,7 +30,7 @@ export const registerUser = async (req, res) => {
     }
 }
 
-//로그인
+//로그인 - api/auth/login
 export const loginUser = async (req, res) => {
   const { username, password } = req.body;
   const user = await getUserByUsername(username);
