@@ -55,6 +55,7 @@ export default function RegisterPage() {
             setUsername(e.target.value);
             setUsernameError('');  // 입력 시 에러 초기화
           }}
+          minLength="4"
           style={{ width: '100%', padding: 8 }}
         />
         {usernameError && (
@@ -70,10 +71,13 @@ export default function RegisterPage() {
           type="password"
           placeholder="비밀번호"
           value={password}
+          title='8~20자, 영문 숫자 특수문자 하나 이상 포함'
+          pattern='(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}'
           onChange={e => {
             setPassword(e.target.value);
             setPasswordError('');
           }}
+          
           style={{ width: '100%', padding: 8 }}
         />
       </div>
