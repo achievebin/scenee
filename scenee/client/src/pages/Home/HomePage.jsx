@@ -7,6 +7,7 @@ import PopularSection from '../../components/PopularSection'
 import MostReviewedSection from '../../components/MostReviewedSection'
 import MainSlider from '../../components/MainSlider'
 
+//이용자가 처음으로 맞이하는 홈페이지
 const HomePage = () => {
   return (
     <div>
@@ -17,7 +18,6 @@ const HomePage = () => {
       <NoticeBoard/>
       <EventBoard/>
       <Footer/>
-      
     </div>
   )
 }

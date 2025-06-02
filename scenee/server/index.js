@@ -1,55 +1,23 @@
-require('dotenv').config(); //.env 파일
-const express = require('express');
-const mariadb = require('mariadb');
-const cors = require('cors');
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import movieRoutes from './routes/movieRoutes.js';
+import reviewRoutes from './routes/reviewRoutes.js';
+import noticeRoutes from './routes/noticeRoutes.js';
 
 const app = express();
-app.use(cors()); // React와 연동 위해 필요
 app.use(express.json());
+app.use(cors({ origin: true, credentials: true }));
+app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
+app.use("/api/movies", movieRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/board", noticeRoutes);
 
-//MariaDB 연결 풀 설정
-const pool = mariadb.createPool({
-  host: process.env.DB_Host,
-  user: process.env.DB_Username,
-  password: process.env.DB_Password,
-  database: process.env.DB_Name,
-  connectionLimit: 5,
-  port: process.env.DB_Port
+const PORT = Number(process.env.PORT) || 4000;
+app.listen(PORT, () => {
+  console.log(`서버 연결됨: http://localhost:${PORT}`);
 });
 
-async function testConnection() {
-    try {
-        const conn = await pool.getConnection();
-        console.log("mariaDB 연결 성공");
-        conn.release(); //연결 해제
-    } catch (err) {
-        console.error("mariaDB 연결 실패", err);
-    }
-}
-testConnection();
-
-async function createTables() {
-    const conn = await pool.getConnection();
-    try {
-        //영화 정보 테이블 생성
-        await conn.query(
-            `CREATE TABLE Movie (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            movieCd VARCHAR(20) UNIQUE,
-            movieNm VARCHAR(255),
-            openDt DATE,
-            genreNm VARCHAR(100),
-            directors TEXT,
-            actors TEXT,
-            showTm INT,
-            watchGradeNm VARCHAR(100),
-            rank INT,
-            salesAcc BIGINT,
-            audiAcc BIGINT
-            );`
-        )
-    } catch {
-
-    }
-}
-createTables();

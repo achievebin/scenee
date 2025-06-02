@@ -1,6 +1,7 @@
 import React from 'react';
 import './Searchbar.css';
 
+//검색을 하기 위한 검색창을 출력하는 컴포넌트
 function SearchBar({ onSearch, className = '' }) {
 	return (
 		<div className={`searchbar ${className}`}>

@@ -1,9 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 const MostReviewedSection = () => {
-	return <div>
-		
-	</div>;
-};
+  return (
+    <div>
+      
+    </div>
+  )
+}
 
-export default MostReviewedSection;
+export default MostReviewedSection
