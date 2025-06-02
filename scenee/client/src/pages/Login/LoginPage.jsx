@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axiosInstance from '../../api/axiosInstance.js';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../api/authApi.js' 
+import AuthForm from '../../components/AuthForm.jsx';
 
 export default function LoginPage() {
   const nav = useNavigate();
-  const [u, setU] = useState('');
-  const [p, setP] = useState('');
   const [token, setToken] = useState(localStorage.getItem('token') || '');
 
   useEffect(() => {
@@ -13,9 +12,9 @@ export default function LoginPage() {
           : localStorage.removeItem('token');
   }, [token]);
 
-  const handleLogin = async () => {
+  const handleLogin = async (data) => {
     try {
-      const res = await axiosInstance.post('/api/auth/login', { username: u, password: p });
+      const res = await loginUser(data);
       setToken(res.data.token);
       alert('로그인 성공');
       nav('/');
@@ -24,24 +23,5 @@ export default function LoginPage() {
     }
   };
 
-  return (
-    <div>
-      <h1>로그인</h1>
-      
-      <div>
-        <input placeholder="아이디" value={u} onChange={e=>setU(e.target.value)} />
-      </div>
-
-      <div>
-        <input placeholder="비밀번호" type="password" value={p} onChange={e=>setP(e.target.value)} />
-      </div>
-
-      <div>
-        <button onClick={handleLogin}>로그인</button>
-      </div>
-      
-      
-      
-    </div>
-  );
+  return <AuthForm mode='login' onSubmit={handleLogin}/>;
 }

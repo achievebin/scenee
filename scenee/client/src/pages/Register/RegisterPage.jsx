@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../api/axiosInstance';
-import AuthForm from '../../components/AuthForm';
 
 export default function RegisterPage() {
   const navigate = useNavigate();
