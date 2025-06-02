@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import '../pages/Login/Login.css';
 
-export default function AuthForm({ mode = 'login', onSubmit, registerField = [] }) {
+export default function AuthForm({ mode = 'login', onSubmit, registerField = [], usernameError = '', passwordError = '', confirmPasswordError = '' }) {
   // 초기 formData에 username, password와 registerField에 정의된 필드 초기화
   const initialRegisterFields = Object.fromEntries(
     registerField.map(f => [f.name, ''])
@@ -67,6 +67,7 @@ export default function AuthForm({ mode = 'login', onSubmit, registerField = [] 
               onChange={handleChange}
               required
             />
+            {usernameError && <div className="field-error">{usernameError}</div>}
             <input
               className="login-input"
               name="password"
@@ -76,6 +77,7 @@ export default function AuthForm({ mode = 'login', onSubmit, registerField = [] 
               onChange={handleChange}
               required
             />
+            {passwordError && <div className="field-error">{passwordError}</div>}
             {mode === 'register' && registerField.map(field => (
               <input
                 key={field.name}
@@ -84,6 +86,9 @@ export default function AuthForm({ mode = 'login', onSubmit, registerField = [] 
                 value={formData[field.name]}
                 onChange={handleChange}
                 required={field.required || false}
+                {...field.name === 'confirmPassword' && confirmPasswordError && (
+                  <div className="field-error">{confirmPasswordError}</div>
+                )}
               />
             ))}
           </div>
