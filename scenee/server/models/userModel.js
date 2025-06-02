@@ -3,12 +3,12 @@ import pool from '../config/db.js'
 //mariaDB와 연결하는 객체 호출
 
 //users 테이블에 이용자 내용 삽입
-export const createUser = async (username, hashedPassword) => {
+export const createUser = async (email,nickname,username, hashedPassword) => {
     let conn;
     try {
         conn = await pool.getConnection();
         const result = await conn.query(
-            'INSERT INTO users (username, password) VALUES (?, ?)', [username, hashedPassword]
+            'INSERT INTO users (email,nickname,username, password) VALUES (?, ?, ?, ?)', [email,nickname,username, hashedPassword]
         );
         //성공한다면 이용자의 ID를 반환합니다.
         return result.insertId;
