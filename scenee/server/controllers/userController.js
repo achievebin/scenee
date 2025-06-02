@@ -1,6 +1,7 @@
 //controller: 사용자 입력과 model, view 간의 상호작용을 제어함
 import pool from '../config/db.js'
 //mariaDB와 연결하는 객체 호출
+
 //사용자 정보와 프로필 변경 기능을 담당
 
 //자신의 정보를 가져오기 - api/user/me

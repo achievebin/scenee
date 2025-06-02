@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 
 //회원 가입 - api/auth/register
 export const registerUser = async (req, res) => {
-    const {username, password} = req.body;
+    const {email,nickname, username, password} = req.body;
     if (!username || !password) {
       return res.status(400).json({success: false, message: '아이디와 비밀번호를 입력해야 합니다'});
     }
@@ -23,7 +23,7 @@ export const registerUser = async (req, res) => {
         //http 응답코드 409(Conflict)
     }
         const hashedPw = await bcrypt.hash(password, saltRound);
-        const userId = await createUser(username, hashedPw);
+        const userId = await createUser(email,nickname, username, hashedPw);
         return res.status(201).json({success: true, message: '회원가입 성공', userId: userId.toString()});
         //http 응답코드 201(Created)
     } catch (err) {
