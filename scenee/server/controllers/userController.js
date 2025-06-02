@@ -37,11 +37,11 @@ export const getInfoById = async (req, res) => {
 //이용자 정보 갱신
 export const updateUser = async (req, res) => {
     const {id} = req.params;
-    const {email} = req.body;
+    const {nickname, email} = req.body;
     try {
         const conn = await pool.getConnection();
         const [rows] = await conn.query(
-            'UPDATE users SET email = ? WHERE id = ?', [email]
+            'UPDATE users SET nickname =? AND email = ? WHERE id = ?', [nickname, email]
         )
         conn.release();
         res.json({message: '유저 정보 수정 완료'});
