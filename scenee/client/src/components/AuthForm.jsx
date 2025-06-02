@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import '../pages/Login/Login.css';
 
-export default function AuthForm({ mode = 'login', onSubmit, registerField = [] }) {
-  // 초기 formData에 username, password와 registerField에 정의된 필드 초기화
+export default function AuthForm({ initialMode = 'login', onSubmit, registerField = [] }) {
+  // 내부에서 mode를 관리
+  const [mode, setMode] = useState(initialMode);
+
+  // registerField에 정의된 추가 필드 초기화
   const initialRegisterFields = Object.fromEntries(
     registerField.map(f => [f.name, ''])
   );
@@ -27,10 +30,23 @@ export default function AuthForm({ mode = 'login', onSubmit, registerField = [] 
     e.preventDefault();
     try {
       setError(null);
-      await onSubmit(formData);
+      await onSubmit(formData, mode);
     } catch (err) {
       setError(err.message || '알 수 없는 오류가 발생했습니다.');
     }
+  };
+
+  // 푸터의 회원가입/로그인 토글 함수
+  const toggleMode = () => {
+    setError(null);
+    setMode(prev => (prev === 'login' ? 'register' : 'login'));
+    // formData 초기화 (필요하다면)
+    setFormData({
+      username: '',
+      password: '',
+      ...initialRegisterFields
+    });
+    setKeepLogin(false);
   };
 
   return (
@@ -107,21 +123,27 @@ export default function AuthForm({ mode = 'login', onSubmit, registerField = [] 
             <div className="login-error">{error}</div>
           )}
 
-          {/* 제출 버튼 */}
+          {/* 제출 버튼: 로그인 모드일 때 '로그인', 회원가입 모드일 때 '회원가입' */}
           <button className="login-button" type="submit">
             {mode === 'login' ? '로그인' : '회원가입'}
           </button>
         </div>
       </div>
 
-      {/* 카드 아래 푸터 링크 */}
+      {/* 카드 아래 푸터 링크 (아이디 찾기 / 비밀번호 찾기 / 토글 버튼 / 문의하기) */}
       <div className="login-footer">
         <a href="/find-id">아이디 찾기</a>
         <span className="divider">/</span>
         <a href="/find-password">비밀번호 찾기</a>
-        <span className="divider"> </span>
-        <a href="/register">회원가입하기</a>
-        <span className="divider"> </span>
+        <span className="divider">/</span>
+        <button 
+          type="button"
+          className="footer-toggle-button"
+          onClick={toggleMode}
+        >
+          {mode === 'login' ? '회원가입하기' : '로그인하기'}
+        </button>
+        <span className="divider">/</span>
         <a href="/contact">문의하기</a>
       </div>
 
