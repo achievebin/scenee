@@ -18,7 +18,6 @@ const HomePage = () => {
       <NoticeBoard/>
       <EventBoard/>
       <Footer/>
-      
     </div>
   )
 }
