@@ -1,17 +1,18 @@
 -- mariaDB
 -- 사용자 테이블 생성 (users)
-CREATE TABLE NOT EXISTS users{
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     nickname VARCHAR(255) NOT NULL,
     email VARCHAR(255),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
-};
+);
+
 -- 리뷰 테이블 생성 (reviews)
-CREATE TABLE NOT EXISTS reviews{
+CREATE TABLE IF NOT EXISTS reviews (
     id INT AUTO_INCREMENT,
     user_id INT NOT NULL,
     movie_id INT NOT NULL,
@@ -21,9 +22,10 @@ CREATE TABLE NOT EXISTS reviews{
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
-};
+);
+
 -- 즐겨찾기 테이블 생성 (favorites)
-CREATE TABLE NOT EXISTS favorites{
+CREATE TABLE IF NOT EXISTS favorites (
     id INT AUTO_INCREMENT,
     user_id INT NOT NULL,
     movie_id INT NOT NULL,
@@ -32,9 +34,10 @@ CREATE TABLE NOT EXISTS favorites{
     PRIMARY KEY(id),
     UNIQUE KEY unique_favorite (user_id, movie_id),
     FOREIGN KEY (user_id) REFERENCES users(id)
-};
+);
+
 -- 공지사항 및 이벤트 테이블 생성 (notices)
-CREATE TABLE NOT EXISTS notices{
+CREATE TABLE IF NOT EXISTS notices (
     id INT AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     type INT NOT NULL,
@@ -42,4 +45,4 @@ CREATE TABLE NOT EXISTS notices{
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
-}
+);
