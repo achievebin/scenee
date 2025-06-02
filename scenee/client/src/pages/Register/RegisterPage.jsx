@@ -8,8 +8,13 @@ export default function RegisterPage() {
   const navigate = useNavigate();
 
   const handleRegister = async (data) => {
-    await registerUser(data);
-    navigate('/login');
+    try {
+      const res = await registerUser(data);
+      alert('회원가입 성공');
+      navigate('/login');
+    } catch (err) {
+      alert('회원가입 실패:' + (e.response?.data?.message || e.message));
+    }
   }
 
   const registerField = [
