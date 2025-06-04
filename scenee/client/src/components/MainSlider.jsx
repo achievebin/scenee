@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './MainSlider.css';
+import styles from './MainSlider.module.css';
 
 const nextIcon = '/next.svg';
 function MainSlider (){
@@ -52,9 +52,9 @@ const handleNext=() =>{
     
 
   return (
-    <div className="slider-container">
+    <div className={styles["slider-container"]}>
       <div
-        className="slider-wrapper"
+        className={styles["slider-wrapper"]}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((src, idx) => (
@@ -65,21 +65,21 @@ const handleNext=() =>{
       </div>
 
     
-      <button className="arrow prev" onClick={handlePrev}>
-        <img src={nextIcon} alt="Previous" className="arrow-icon flipX" />
+      <button className={styles["arrow prev"]} onClick={handlePrev}>
+        <img src={nextIcon} alt="Previous" className={styles["arrow-icon flipX"]} />
       </button>
 
      
-      <button className="arrow next" onClick={handleNext}>
-        <img src={nextIcon} alt="Next" className="arrow-icon" />
+      <button className={styles["arrow next"]} onClick={handleNext}>
+        <img src={nextIcon} alt="Next" className={styles["arrow-icon"]} />
       </button>
 
    
-      <div className="dots">
+      <div className={styles["dots"]}>
         {images.map((_, idx) => (
           <span
             key={idx}
-            className={`dot ${idx === currentIndex ? 'active' : ''}`}
+            className={styles[`dot ${idx === currentIndex ? 'active' : ''}`]}
             onClick={() => {
               if (timeout.current) clearTimeout(timeout.current);
               setCurrentIndex(idx);
