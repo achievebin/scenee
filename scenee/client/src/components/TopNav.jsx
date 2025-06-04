@@ -2,14 +2,20 @@ import React from 'react'
 import LoginPage from '../pages/Login/LoginPage'
 import RegisterPage from '../pages/Register/RegisterPage'
 import { Link } from 'react-router-dom';
+import styles from '../components/Header.module.css'
 
 //Header에 들어가는 로그인 회원가입 페이지로 이동할 수 있는 공간을 담은 컴포넌트
 const TopNav = () => {
   return (
-    <nav id='user'>
-      <Link to="login">Login</Link>
-      <Link to="register">sign</Link>
-    </nav>
+	<nav className={styles['top-nav']}>
+		<div className={styles['top-nav__header']} id='user'>
+			<div className={styles['auth-links']}>
+				<Link to="login" className={styles["top-login"]}>로그인</Link>
+				<span className={styles["divider"]}>|</span>
+				<Link to="register" className={styles["top-sign"]}>회원가입</Link>
+			</div>
+		</div>
+	</nav>
   )
 }
 
