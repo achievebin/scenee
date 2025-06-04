@@ -5,13 +5,13 @@ const router = Router();
 //const { getPopularMovies, getMovieById, searchMovies, getMoviesByCategory, addReview, getReviewsByMovieId } = require('../controllers/movieController.js');
 //영화 검색과 상세정보 관련 라우팅
 
-//인기 영화 리스트
+//인기 영화 리스트 - /api/movies/popular
 router.get('/popular', getPopularMovies);
-//영화 ID로 정보 받아오기
+//영화 ID로 정보 받아오기 - /api/movies/:id
 router.get('/:id', getMovieById);
-//검색어로 영화 찾기
+//검색어로 영화 찾기 - /api/movies/search/:query
 router.get('/search/:query', searchMovies);
-//카테고리별 영화 목록
+//카테고리별 영화 목록 - /api/movies/category/:category
 //router.get('/category/:category', getMoviesByCategory)
 //리뷰 작성
 //router.post('/:id/review', addReview)

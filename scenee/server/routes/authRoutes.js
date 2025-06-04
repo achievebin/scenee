@@ -3,9 +3,9 @@ import { Router } from 'express';
 import { registerUser, loginUser } from '../controllers/authController.js';
 const router = Router();
 
-//회원가입
+//회원가입 - /api/auth/register
 router.post('/register', registerUser);
-//로그인
+//로그인 - /api/auth/login
 router.post('/login', loginUser);
 
 export default router;
