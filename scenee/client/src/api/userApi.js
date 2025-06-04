@@ -6,3 +6,15 @@ export function fetchUserProfile() {
     //axios.get(url, config)
     //URL, 설정 객체(headers, params) 순
 }
+
+export function fetchInfoById(){
+    return axios.get('/user/:id')
+}
+
+export function updateUser(){
+    return axios.put('/user/:id')
+}
+
+export function deleteUser(){
+    return axios.delete('user/:id')
+}

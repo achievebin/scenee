@@ -1,6 +1,7 @@
 // src/components/AuthForm.jsx
 import React, { useState } from 'react';
 import styles from './Authform.module.css';
+import { Link } from 'react-router-dom';
 
 export default function AuthForm({ initialMode = 'login', onSubmit, registerField = [], usernameError = '', passwordError = '', confirmPasswordError = '' }) {
   // 초기 formData에 username, password와 registerField에 정의된 필드 초기화
@@ -138,9 +139,9 @@ export default function AuthForm({ initialMode = 'login', onSubmit, registerFiel
 
       {/* 카드 아래 푸터 링크 (아이디 찾기 / 비밀번호 찾기 / 토글 버튼 / 문의하기) */}
       <div className={styles["login-footer"]}>
-        <a href="/find-id">아이디 찾기</a>
+        <Link to = "/find-id">아이디 찾기</Link>
         <span className={styles["divider"]}>/</span>
-        <a href="/find-password">비밀번호 찾기</a>
+        <Link to = "/find-password">비밀번호 찾기</Link>
         <span className={styles["divider"]}>/</span>
         <button 
           type="button"
@@ -150,7 +151,7 @@ export default function AuthForm({ initialMode = 'login', onSubmit, registerFiel
           {mode === 'login' ? '회원가입하기' : '로그인하기'}
         </button>
         <span className={styles["divider"]}>/</span>
-        <a href="/contact">문의하기</a>
+        <Link to="/contact">문의하기</Link>
       </div>
 
       {/* 저작권 표시 */}
