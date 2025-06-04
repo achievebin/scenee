@@ -13,6 +13,7 @@ router.get('/:id', getInfoById);
 router.put('/:id', authenticateJWT, (req, res, next) => {
     if (req.user.id !== parseInt(req.params.id)) {
         return res.status(403).json({message: '본인만 수정할 수 있습니다.'})
+        //http 응답코드 403(Forbidden)
     }
     next();
 }, updateUser);
@@ -20,6 +21,7 @@ router.put('/:id', authenticateJWT, (req, res, next) => {
 router.delete('/:id', authenticateJWT, (req, res, next) => {
     if (req.user.id !== parseInt(req.params.id)) {
         return res.status(403).json({message: '본인만 삭제제할 수 있습니다.'})
+        //http 응답코드 403(Forbidden)
     }
     next();
 }, deleteUser);

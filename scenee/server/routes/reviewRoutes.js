@@ -13,8 +13,20 @@ router.get('/movie/:movieId', getReviewsByMovieId);
 //리뷰 생성 - /api/reviews
 router.post('/', authenticateJWT, postReview);
 //리뷰 갱신 - /api/reviews/:reviewId
-router.put('/:reviewId', authenticateJWT, updateReview);
+router.put('/:reviewId', authenticateJWT, (req, res, next) => {
+    if (req.user.id !== parseInt(req.params.id)) {
+        return res.status(403).json({message: '본인만 수정할 수 있습니다.'})
+        //http 응답코드 403(Forbidden)
+    }
+    next();
+}, updateReview);
 //리뷰 삭제 - /api/reviews/:reviewId
-router.delete('/:reviewId', authenticateJWT, removeReview);
+router.delete('/:reviewId', authenticateJWT, (req, res, next) => {
+    if (req.user.id !== parseInt(req.params.id)) {
+        return res.status(403).json({message: '본인만 수정할 수 있습니다.'})
+        //http 응답코드 403(Forbidden)
+    }
+    next();
+}, removeReview);
 
 export default router;
