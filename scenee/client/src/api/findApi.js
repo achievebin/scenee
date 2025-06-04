@@ -1,3 +1,4 @@
+//client/src/api/findApi.js
 import axios from "./axiosInstance";
 
 export function getIdByEmail(data){

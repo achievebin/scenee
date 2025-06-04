@@ -1,8 +1,8 @@
 // src/pages/FindIdPage.jsx
 import React, { useState } from 'react';
 import styles from './FindPage.module.css';
-import axios from 'axios'; // axiosInstance를 쓰신다면 그것을 불러오세요.
 import { Link } from 'react-router-dom';
+import { getIdByEmail } from '../../api/findApi';
 
 export default function FindIdPage() {
   const [email, setEmail] = useState('');
@@ -21,8 +21,12 @@ export default function FindIdPage() {
 
     try {
       // 실제 API 경로가 다르다면 수정하세요.
-      const res = await axios.post('/api/find/id', { email });
-      setMessage(res.data.message || '가입된 아이디를 해당 이메일로 발송했습니다.');
+      const res = await getIdByEmail({email});
+      if (res.data.data && res.data.data.username) {
+        setMessage(`가입된 아이디: ${res.data.data.username}`);
+      } else {
+        setMessage(res.data.message);
+      }
     } catch (err) {
       setError(err.response?.data?.message || '아이디 찾기 중 오류가 발생했습니다.');
     }
@@ -67,7 +71,7 @@ export default function FindIdPage() {
 
       {/* 푸터 링크 */}
       <div className={styles.footer}>
-        <Link to='/login' className={styles.footerLink} >로그인으로 돌아가기</Link>
+        <Link to="/login" className={styles.footerLink} >로그인으로 돌아가기</Link>
         <span className={styles.divider}>/</span>
         <Link to="/find-password" className={styles.footerLink} >비밀번호 찾기</Link>
         <span className={styles.divider}>/</span>

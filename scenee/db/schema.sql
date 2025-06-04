@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(255),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+    UNIQUE KEY unique_email (email)
 );
 
 -- 리뷰 테이블 생성 (reviews)

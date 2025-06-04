@@ -8,9 +8,9 @@ export const validateUserName = (username) => {
 }
 //비밀번호 유효성 검증
 export const validatePassword =(password) => {
-    const pwRegex = /^(?=.*[A-Za-z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*]{8,19}$/;
+    const pwRegex = /^(?=.*[A-Za-z])(?=.*[!@#$%^&*])(?=.*[0-9])[A-Za-z!@#$%^&*0-9]{8,19}$/;
     if (!pwRegex.test(password)) {
-        return '비밀번호는 8~19자, 영문자·특수문자 각각 1개 이상 포함되어야 합니다.';
+        return '비밀번호는 8~19자, 영문자·특수문자·숫자 각각 1개 이상 포함되어야 합니다.';
     }
     return null;
 }
@@ -19,5 +19,5 @@ export const verifyPasswordMatch = (password, confirmPassword) => {
     if (password !== confirmPassword) {
         return '비밀번호가 일치하지 않습니다.'
     }
-    return null;
+    return null; 
 }

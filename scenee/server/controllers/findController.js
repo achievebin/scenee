@@ -10,7 +10,7 @@ import { format } from 'date-fns';
 // 클라이언트가 { email }을 보내면, DB에서 조회 → 이메일로 username 발송
 export async function findIdByEmail(req, res) {
   try {
-    const { email } = req.body;
+    const { email } = req.body; 
     if (!email) {
       return res.status(400).json({ message: '이메일을 입력하세요.' });
     }
@@ -33,7 +33,7 @@ export async function findIdByEmail(req, res) {
     };
 
     await transporter.sendMail(mailOptions);
-    return res.status(200).json({ message: '가입된 아이디를 해당 이메일로 발송했습니다.' });
+    return res.status(200).json({ message: '가입된 아이디를 해당 이메일로 발송했습니다.', data: { username: user.username } });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ message: '서버 오류로 인해 아이디를 찾을 수 없습니다.' });
@@ -131,6 +131,7 @@ export async function resetPassword(req, res) {
     await deleteToken(token);
 
     return res.status(200).json({ message: '비밀번호가 성공적으로 변경되었습니다.' });
+
   } catch (err) {
     console.error(err);
     return res.status(500).json({ message: '서버 오류로 인해 비밀번호를 재설정할 수 없습니다.' });
