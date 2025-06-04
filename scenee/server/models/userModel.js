@@ -18,7 +18,7 @@ export async function findUserByEmail(email) {
 
 // 비밀번호 해시 후, DB에 업데이트 (비밀번호 재설정에 사용)
 export async function updateUserPassword(userId, hashedPwd) {
-  const sql = `UPDATE users SET password = ?WHERE id = ?`;
+  const sql = `UPDATE users SET password = ? WHERE id = ?`;
   const [result] = await pool.query(sql, [hashedPwd, userId]);
   return result.affectedRows; // 정상 업데이트 시 1 이상 반환
 }
