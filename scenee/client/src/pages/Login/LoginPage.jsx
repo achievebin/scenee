@@ -23,5 +23,5 @@ export default function LoginPage() {
     }
   };
 
-  return <AuthForm mode='login' onSubmit={handleLogin}/>;
+  return <AuthForm initialMode='login' onSubmit={handleLogin}/>;
 }

@@ -10,8 +10,18 @@ router.get('/me', authenticateJWT, getMyInfo);
 //이용자 정보 조회 - api/user/:id
 router.get('/:id', getInfoById);
 //이용자 정보 갱신
-router.put('/:id', authenticateJWT, updateUser);
+router.put('/:id', authenticateJWT, (req, res, next) => {
+    if (req.user.id !== parseInt(req.params.id)) {
+        return res.status(403).json({message: '본인만 수정할 수 있습니다.'})
+    }
+    next();
+}, updateUser);
 //이용자 정보 삭제
-router.delete('/:id', authenticateJWT, deleteUser);
+router.delete('/:id', authenticateJWT, (req, res, next) => {
+    if (req.user.id !== parseInt(req.params.id)) {
+        return res.status(403).json({message: '본인만 삭제제할 수 있습니다.'})
+    }
+    next();
+}, deleteUser);
 
 export default router;
