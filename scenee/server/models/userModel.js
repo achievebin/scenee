@@ -4,9 +4,18 @@ import pool from '../config/db.js'
 
 //users 테이블에 이용자 내용 삽입
 export const createUser = async (username, hashedPassword, nickname, email) => {
-  const sql = 'INSERT INTO users (username, password, nickname, email) VALUES (?, ?, ?, ?)'
-  const [result] = await pool.query(sql, [username, hashedPassword, nickname, email]);
-  return result.insertId;
+  let conn;
+    try {
+        conn = await pool.getConnection();
+        const result = await conn.query(
+            'INSERT INTO users (username, password, nickname, email) VALUES (?, ?, ?, ?)', [username, hashedPassword, nickname, email]
+        );
+        //성공한다면 이용자의 ID를 반환합니다.
+        return result.insertId;
+    } finally {
+        //연결 해제
+        conn.release();
+    }
 }
 
 // 이메일로 유저 조회 (아이디 찾기에 사용)
@@ -25,7 +34,14 @@ export async function updateUserPassword(userId, hashedPwd) {
 
 //users 테이블에 userId를 사용하여 이용자 조회
 export const getUserByUsername = async (username) => {
-  const sql = 'SELECT * FROM users WHERE username = ?'
-  const [rows] = await pool.query(sql, [username]);
-  return rows[0] || null;
+  const conn = await pool.getConnection();
+  try {
+    const rows = await conn.query(
+      'SELECT * FROM users WHERE username = ?',
+      [username]
+    );
+    return rows[0] || null;
+  } finally {
+    conn.release();
+  }
 };
