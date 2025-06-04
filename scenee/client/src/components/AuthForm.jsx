@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from './Authform.module.css';
 import { Link } from 'react-router-dom';
 
-export default function AuthForm({ initialMode = 'login', onSubmit, registerField = [], usernameError = '', passwordError = '', confirmPasswordError = '' }) {
+export default function AuthForm({ initialmode = 'login', onSubmit, registerField = [], usernameError = '', passwordError = '', confirmPasswordError = '' }) {
   // 초기 formData에 username, password와 registerField에 정의된 필드 초기화
   // 내부에서 mode를 관리
   const [mode, setMode] = useState(initialMode);
