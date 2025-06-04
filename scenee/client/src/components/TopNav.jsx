@@ -16,45 +16,43 @@
 // export default TopNav
 
 import React, { useState } from 'react';
-import './TopNav.css';
+import styles from './TopNav.module.css';
 import SearchBar from './SearchBar';
-
-
 
 function TopNav() {
 	const [showSearch, setShowSearch] = useState(false);
 
 	return (
 	
-			<nav className="top-nav">
+			<nav className={styles["top-nav"]}>
 
 
 
 		
-			<div className="top-nav__header">
-				<div className="auth-links">
-					<a href="/login" className="top-login">
+			<div className={styles["top-nav__header"]}>
+				<div className={styles["auth-links"]}>
+					<a href="/login" className={styles["top-login"]}>
 						로그인
 					</a>
-					<span className="divider">|</span>
-					<a href="/signup" className="top-sign">
+					<span className={styles["divider"]}>|</span>
+					<a href="/register" className={styles["top-sign"]}>
 						회원가입
 					</a>
 				</div>
-				<div className='top-nav-center'	onMouseEnter={() => setShowSearch(true)}
+				<div className={styles['top-nav-center']}	onMouseEnter={() => setShowSearch(true)}
 				onMouseLeave={() => setShowSearch(false)}>	
-				<hr className="nav-divider" />
+				<hr className={styles["nav-divider"]} />
 			</div>
  				
 			
-			<div className="top-nav-menu">
-				<div className="top-nav-left">
-					<img src="images/logo.png" alt="Logo" className="top-nav-logo" />
+			<div className={styles["top-nav-menu"]}>
+				<div className={styles["top-nav-left"]}>
+					<img src="images/logo.png" alt="Logo" className={styles["top-nav-logo"]} />
 
 				</div>
 
-				<div className="top-nav-right">
-					<div className="menu-list">
+				<div className={styles["top-nav-right"]}>
+					<div className={styles["menu-list"]}>
 						<a href="/popular">주간베스트</a>
 						<a href="/category">드라마 · 영화 · 애니</a>
 						<a href="/notice">공지사항</a>

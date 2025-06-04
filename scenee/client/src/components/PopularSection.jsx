@@ -1,5 +1,5 @@
 import React from 'react'
-import './PopularSection.css';
+import styles from './PopularSection.module.css';
 
 const popularItem = [
 {
@@ -53,24 +53,24 @@ function PopularSection  () {
   
   return (
      
-       <section className="popular-section">
+        <section className={styles["popular-section"]}>
           
-       <h1 className="popular-section__title">WEEK BEST 🏆</h1>
+       <h1 className={styles["popular-section__title"]}>WEEK BEST 🏆</h1>
        
-        <div className="popular-section__list">
+        <div className={styles["popular-section__list"]}>
         
         {popularItem.map((item)=>(
-           <div className="popular-item" key={item.id}>
+           <div className={styles["popular-item"]} key={item.id}>
               
-             <div className="popular-card">
+             <div className={styles["popular-card"]}>
                <img
                 src={item.image}
                 alt={item.title}
-                className="popular-card__img"
+                className={styles["popular-card__img"]}
               />
              </div>
            
-             <p className='pupular-title'>{item.title}</p>
+             <p className={styles['pupular-title']}>{item.title}</p>
              </div>
 
         ))}
