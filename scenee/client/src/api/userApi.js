@@ -7,14 +7,17 @@ export function fetchUserProfile() {
     //URL, 설정 객체(headers, params) 순
 }
 
-export function fetchInfoById(){
-    return axios.get('/user/:id')
+//이용자 정보 가져오기
+export function getUserInfoById(id){
+    return axios.get(`/user/${id}`)
 }
 
-export function updateUser(){
-    return axios.put('/user/:id')
+//이용자 정보 수정하기
+export function updateUser(id, userData){
+    return axios.put(`/user/${id}`, userData)
 }
 
-export function deleteUser(){
-    return axios.delete('user/:id')
+//이용자 정보 삭제하기
+export function deleteUser(id){
+    return axios.delete(`/user/${id}`)
 }
