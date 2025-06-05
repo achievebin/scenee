@@ -15,12 +15,13 @@ export const createUser = async (username, hashedPassword, nickname, email) => {
   let conn;
     try {
         conn = await pool.getConnection();
-        const result = await conn.query(
+        const [result] = await conn.query(
             'INSERT INTO users (username, password, nickname, email) VALUES (?, ?, ?, ?)', [username, hashedPassword, nickname, email]
         );
         //성공한다면 이용자의 ID를 반환합니다.
         return result.insertId;
     } catch (err) {
+      console.error('createUser error:', err);
       throw err;
     } finally {
       //연결 해제
@@ -36,10 +37,9 @@ export async function findUserByEmail(email) {
     const [rows] = await conn.query(
       'SELECT * FROM users WHERE email = ?', [email]
     )
-    if (rows && rows.length > 0) {
-    return rows[0];
-    }
+    return rows.length > 0 ? rows[0] : null;
   } catch (err) {
+    console.error('findUserByEmail error:', err);
     throw err;
   } finally {
     conn.release();
@@ -56,13 +56,14 @@ export async function updateUserPassword(userId, hashedPwd) {
     );
     return result.affectedRows; // 정상 업데이트 시 1 이상 반환
   } catch (err) {
+    console.error('updateUserPassword error:', err);
     throw err;
   } finally {
     conn.release();
   }
 }
 
-//users 테이블에 userId를 사용하여 이용자 조회
+//users 테이블에 username를 사용하여 이용자 조회
 export const getUserByUsername = async (username) => {
   const conn = await pool.getConnection();
   try {
@@ -70,7 +71,10 @@ export const getUserByUsername = async (username) => {
       'SELECT * FROM users WHERE username = ?',
       [username]
     );
-    return rows[0] || null;
+    return rows.length > 0 ? rows[0] : null;
+  } catch (err) {
+    console.error('getUserByUsername error:', err);
+    throw err;
   } finally {
     conn.release();
   }
