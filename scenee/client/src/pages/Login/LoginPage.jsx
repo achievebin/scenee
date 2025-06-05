@@ -7,15 +7,20 @@ import AuthForm from '../../components/Auth/AuthForm';
 export default function LoginPage() {
   const nav = useNavigate();
 
-  const handleLogin = async (data) => {
+  const handleLogin = async (data, mode, keepLogin) => {
     try {
       const res = await loginUser(data);
-      const token = res.data.token;
-      const username = data.username;
+      const { token, username, userId } = res.data;
+
+    if (!token || !username || !userId) {
+      alert('로그인 실패: 응답 정보가 부족합니다.');
+      return;
+    }
 
       // localStorage 저장
       localStorage.setItem(LOCAL_STORAGE_KEYS.TOKEN_KEY, token);
-      localStorage.setItem(LOCAL_STORAGE_KEYS.USER_ID_KEY, username);
+      localStorage.setItem(LOCAL_STORAGE_KEYS.USERNAME_KEY, username);
+      localStorage.setItem(LOCAL_STORAGE_KEYS.USER_ID_KEY, userid);
 
       alert('로그인 성공');
       nav('/');
