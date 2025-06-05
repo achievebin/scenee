@@ -1,6 +1,7 @@
 import React from 'react'
-import ProfileInfo from '../components/MyPage/ProfileInfo'
 import UserReviews from '../components/MyPage/UserReviews'
+import ProfileInfo from '../components/MyPage/ProfileInfo'
+
 
 const MyPage = () => {
   return (
