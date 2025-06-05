@@ -1,6 +1,6 @@
 //routes: 클라이언트에서 오는 API 요청을 처리함
 import { Router } from 'express';
-import {getReviewsByMovieId, postReview, updateReview, removeReview} from '../controllers/reviewController.js'
+import { getReviewsByMovieId, postReview, updateReview, removeReview } from '../controllers/reviewController.js'
 import { authenticateJWT } from '../middlewares/authMiddleware.js';
 const router = Router();
 //const { createReview, getReviewsByMovieId, getUserReviews, deleteReview, updateReview } = require('../controllers/reviewController');
@@ -13,20 +13,8 @@ router.get('/movie/:movieId', getReviewsByMovieId);
 //리뷰 생성 - /api/reviews
 router.post('/', authenticateJWT, postReview);
 //리뷰 갱신 - /api/reviews/:reviewId
-router.put('/:reviewId', authenticateJWT, (req, res, next) => {
-    if (req.user.id !== parseInt(req.params.id)) {
-        return res.status(403).json({message: '본인만 수정할 수 있습니다.'})
-        //http 응답코드 403(Forbidden)
-    }
-    next();
-}, updateReview);
+router.put('/:reviewId', authenticateJWT, updateReview);
 //리뷰 삭제 - /api/reviews/:reviewId
-router.delete('/:reviewId', authenticateJWT, (req, res, next) => {
-    if (req.user.id !== parseInt(req.params.id)) {
-        return res.status(403).json({message: '본인만 수정할 수 있습니다.'})
-        //http 응답코드 403(Forbidden)
-    }
-    next();
-}, removeReview);
+router.delete('/:reviewId', authenticateJWT, removeReview);
 
 export default router;

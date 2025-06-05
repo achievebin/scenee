@@ -8,12 +8,12 @@ export function getReviews(movieId) {
 //리뷰 생성 요청 - /api/reviews/
 export function addReview(reviewData) {
     return axios.post('/reviews', reviewData);
-
+    //{movieId, content, rating}
 }
 //리뷰 수정 요청 - /api/reviews/:reviewId
 export function reviseReview(reviewId, updateData) {
     return axios.put(`/reviews/${reviewId}`, updateData);
-
+    //{content, rating}
 }
 //리뷰 삭제 요청 - /api/reviews/:reviewId
 export function deleteReview(reviewId) {

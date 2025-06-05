@@ -4,7 +4,7 @@ import pool from '../config/db.js'
 //mariaDB와 연결하는 객체 호출
 
 //영화 ID를 기준 삼아 리뷰 조회
-export async function getReviewsByMovieId(movieId) {
+export async function bringReviewsByMovieId(movieId) {
     let conn;
     try {
         conn = await pool.getConnection();

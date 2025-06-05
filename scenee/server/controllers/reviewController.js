@@ -9,7 +9,7 @@ export const getReviewsByMovieId = async (req, res) => {
         const reviews = await bringReviewsByMovieId(movieId);
         res.json(reviews);
     } catch (error) {
-        res.status(500).json({message: '리뷰 조회 성공'});
+        res.status(500).json({message: '리뷰 조회 실패'});
         //http 응답코드 500(Internet Server Error)
     }
     
@@ -21,7 +21,7 @@ export const postReview = async (req, res) => {
     const {movieId, content, rating} = req.body
     try {
         await createReview(userId, movieId, content, rating);
-        res.status(201).json({message: '리뷰 작성 성공'})
+        res.status(201).json({message: '리뷰 작성 성공', reviewId})
         //http 응답코드 201(Created)
     } catch (error) {
         res.status(500).json({message: '리뷰 작성 실패'});
@@ -33,10 +33,14 @@ export const postReview = async (req, res) => {
 //리뷰 수정 - api/reviews/:reviewId
 export const updateReview = async (req, res) => {
     const userId = req.user.id;
-    const reviewId = req.params.reviewId;
-    const {movieId, content, rating} = req.body
+    const { reviewId } = req.params;
+    const { content, rating} = req.body
     try {
-        await rewriteReview(reviewId, userId, movieId, content, rating);
+        const result = await rewriteReview(reviewId, userId, content, rating);
+        if (result === 0){
+            return res.status(403).json({message: '수정 권한이 없습니다. 본인만 수정할 수 있습니다.'})
+            //http 응답코드 403(Forbidden)
+        }
         res.status(201).json({message: '리뷰 작성 성공'})
         //http 응답코드 201(Created)
     } catch (error) {
@@ -51,7 +55,11 @@ export const removeReview = async (req, res) => {
     const userId = req.user.id;
     const reviewId = req.params.reviewId;
     try {
-        await deleteReview(reviewId, userId);
+        const result = await deleteReview(reviewId, userId);
+         if (result === 0){
+            return res.status(403).json({message: '삭제제 권한이 없습니다. 본인만 삭제할 수 있습니다.'})
+            //http 응답코드 403(Forbidden)
+        }
         res.json({message: '리뷰 삭제 성공'});
     } catch (error) {
         res.status(500).json({message: '리뷰 삭제 실패'});
