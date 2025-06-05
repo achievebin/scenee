@@ -2,13 +2,21 @@
 import pool from '../config/db.js'
 //mariaDB와 연결하는 객체 호출
 
+/**
+ * 사용자 생성
+ * @param {string} username
+ * @param {string} hashedPassword
+ * @param {string} nickname
+ * @param {string} email
+ * @returns {Promise<number>} 새로 생성된 user ID
+ */
 //users 테이블에 이용자 내용 삽입
 export const createUser = async (username, hashedPassword, nickname, email) => {
   let conn;
     try {
         conn = await pool.getConnection();
         const result = await conn.query(
-            'INSERT INTO users (username, password, nickname, email) VALUES (?, ?, ?, ?)', [username, hashedPassword, nickname, email.trim().toLower]
+            'INSERT INTO users (username, password, nickname, email) VALUES (?, ?, ?, ?)', [username, hashedPassword, nickname, email]
         );
         //성공한다면 이용자의 ID를 반환합니다.
         return result.insertId;
@@ -58,7 +66,7 @@ export async function updateUserPassword(userId, hashedPwd) {
 export const getUserByUsername = async (username) => {
   const conn = await pool.getConnection();
   try {
-    const rows = await conn.query(
+    const [rows] = await conn.query(
       'SELECT * FROM users WHERE username = ?',
       [username]
     );

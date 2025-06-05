@@ -8,7 +8,7 @@ import pool from '../config/db.js'
 export const getMyInfo = async (req, res) => {
     const userId = req.user.id;
     try {
-        const [rows] = await pool.query('SELECT id, username, email FROM users id = ?', [userId])
+        const [rows] = await pool.query('SELECT id, username, email FROM users WHERE id = ?', [userId])
         const user = rows[0];
         if (!user) {
             return res.status(404).json({message: '이용자를 찾을 수 없습니다.'});
@@ -37,6 +37,8 @@ export const getInfoById = async (req, res) => {
 
 //이용자 정보 갱신 - api/user/:id
 export const updateUser = async (req, res) => {
+  const {id} = req.params;
+  const {nickname, email} = req.body;
     try {
     const [result] = await pool.query(
       'UPDATE users SET nickname = ?, email = ? WHERE id = ?',
