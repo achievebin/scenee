@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from './FindPage.module.css';
 import axios from 'axios'; // axiosInstance를 쓰신다면 그것을 사용하세요.
 import { Link } from 'react-router-dom';
-
+import {requestPasswordReset} from  '../../api/findApi'
 export default function FindPasswordPage() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -21,7 +21,7 @@ export default function FindPasswordPage() {
 
     try {
       // 실제 API 경로가 다르다면 수정하세요.
-      const res = await axios.post('/api/find/password/request', { email });
+      const res = await requestPasswordReset({email});
       setMessage(res.data.message || '비밀번호 재설정 링크를 해당 이메일로 발송했습니다.');
     } catch (err) {
       setError(err.response?.data?.message || '비밀번호 찾기 중 오류가 발생했습니다.');
