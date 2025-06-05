@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginPage from '../pages/Login/LoginPage'
-import RegisterPage from '../pages/Register/RegisterPage'
+import LoginPage from '../../pages/Login/LoginPage'
+import RegisterPage from '../../pages/Register/RegisterPage'
 import { Link } from 'react-router-dom';
 import styles from '../components/Header.module.css'
 
