@@ -8,7 +8,7 @@ export const createUser = async (username, hashedPassword, nickname, email) => {
     try {
         conn = await pool.getConnection();
         const result = await conn.query(
-            'INSERT INTO users (username, password, nickname, email) VALUES (?, ?, ?, ?)', [username, hashedPassword, nickname, email]
+            'INSERT INTO users (username, password, nickname, email) VALUES (?, ?, ?, ?)', [username, hashedPassword, nickname, email.trim().toLower]
         );
         //성공한다면 이용자의 ID를 반환합니다.
         return result.insertId;

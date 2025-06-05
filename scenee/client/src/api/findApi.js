@@ -1,14 +1,26 @@
-//client/src/api/findApi.js
-import axios from "./axiosInstance";
+// src/api/findApi.js
+import axiosInstance from './axiosInstance';
 
-export function getIdByEmail(data){
-    return axios.post('/find/id', data);
+/*
+ * 아이디 찾기 API 호출: POST /api/find/id
+ * @param {{ email: string }} payload
+ */
+export function getIdByEmail({ email }) {
+  return axiosInstance.post('/api/find/id', { email });
 }
 
-export function getPasswordReset(data){
-    return axios.post('/find/password/request', data);
+/*
+ * 비밀번호 찾기 요청 API 호출: POST /api/find/password/request
+ * @param {{ email: string }} payload
+ */
+export function requestPasswordReset({ email }) {
+  return axiosInstance.post('/api/find/password/request', { email });
 }
 
-export function getPassword(data){
-    return axios.post('/find/password/reset', data);
+/*
+ * 비밀번호 재설정 API 호출: POST /api/find/password/reset
+ * @param {{ token: string, newPassword: string }} payload
+ */
+export function resetPassword({ token, newPassword }) {
+  return axiosInstance.post('/api/find/password/reset', { token, newPassword });
 }
