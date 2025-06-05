@@ -32,7 +32,7 @@ export default function AuthForm({ initialMode = 'login', onSubmit, registerFiel
     e.preventDefault();
     try {
       setError(null);
-      await onSubmit(formData, mode);
+      await onSubmit(formData, mode, keepLogin);
     } catch (err) {
       setError(err.message || '알 수 없는 오류가 발생했습니다.');
     }

@@ -9,7 +9,7 @@ const TopNav = () => {
 
   // 로그인 상태 확인
   useEffect(() => {
-    const storedUsername = localStorage.getItem(LOCAL_STORAGE_KEYS.USER_ID_KEY);
+    const storedUsername = localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY) || sessionStorageStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
     if (storedUsername) {
       setUsername(storedUsername);
     }
@@ -19,6 +19,12 @@ const TopNav = () => {
   const handleLogout = () => {
     localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
     localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_ID_KEY);
+	localStorage.removeItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
+
+	sessionStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
+    sessionStorage.removeItem(LOCAL_STORAGE_KEYS.USER_ID_KEY);
+	sessionStorage.removeItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
+
     setUsername('');
     navigate('/login');
   };
