@@ -6,7 +6,7 @@ import axiosInstance from './axiosInstance';
  * @param {{ email: string }} payload
  */
 export function getIdByEmail({ email }) {
-  return axiosInstance.post('/api/find/id', { email });
+  return axiosInstance.post('find/id', { email });
 }
 
 /*
@@ -14,7 +14,7 @@ export function getIdByEmail({ email }) {
  * @param {{ email: string }} payload
  */
 export function requestPasswordReset({ email }) {
-  return axiosInstance.post('/api/find/password/request', { email });
+  return axiosInstance.post('find/password/request', { email });
 }
 
 /*
@@ -22,5 +22,5 @@ export function requestPasswordReset({ email }) {
  * @param {{ token: string, newPassword: string }} payload
  */
 export function resetPassword({ token, newPassword }) {
-  return axiosInstance.post('/api/find/password/reset', { token, newPassword });
+  return axiosInstance.post('find/password/reset', { token, newPassword });
 }
