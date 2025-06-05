@@ -9,7 +9,7 @@ const TopNav = () => {
 
   // 로그인 상태 확인
   useEffect(() => {
-    const storedUsername = localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY) || sessionStorageStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
+    const storedUsername = localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY) || sessionStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
     if (storedUsername) {
       setUsername(storedUsername);
     }
