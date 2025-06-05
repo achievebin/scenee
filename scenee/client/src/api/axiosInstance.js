@@ -1,6 +1,6 @@
 import axios from 'axios';
 //axios 라이브러리 활용
-import { TOKEN_KEY } from '../constants/localStorageKeys';
+import { LOCAL_STORAGE_KEYS } from '../constants/localStorageKeys';
 
 //HTTP 요청을 관리하고 API 요청에 필요한 설정을 미리 설정하기 위함
 //요청 코드가 간결해지고 재사용성을 높여 개발 효율 향상에 도움이 됨
@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 
 //요청 인터셉터
 axiosInstance.interceptors.request.use((config) => {
-    const token = localStorage.getItem(TOKEN_KEY);
+    const token = localStorage.getItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
     if (token) {
         //토큰이 존재할 경우 Authorization 헤더 설정
         config.headers.Authorization = `Bearer ${token}`;
