@@ -1,6 +1,6 @@
 import axios from './axiosInstance';
 //작성한 axios 인스턴스를 가져옴
-import { TOKEN_KEY } from '../constants/localStorageKeys';
+import { LOCAL_STORAGE_KEYS } from '../constants/localStorageKeys';
 
 //회원가입 요청 - /api/auth/register
 export function registerUser(data) {
@@ -16,5 +16,6 @@ export function loginUser(data) {
 
 //로그아웃
 export function logoutUser() {
-    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
+    localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_ID_KEY);
 }

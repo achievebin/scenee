@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../api/authApi.js' 
-import AuthForm from '../../components/AuthForm.jsx';
+import AuthForm from '../../components/Auth/AuthForm.jsx';
 
 export default function LoginPage() {
   const nav = useNavigate();

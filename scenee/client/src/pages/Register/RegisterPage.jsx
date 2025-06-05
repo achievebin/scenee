@@ -1,7 +1,7 @@
 // src/pages/RegisterPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthForm from '../../components/AuthForm';
+import AuthForm from '../../components/Auth/AuthForm';
 import { registerUser } from '../../api/authApi';
 import { validateUserName, validatePassword, verifyPasswordMatch } from '../../utils/validations';
 

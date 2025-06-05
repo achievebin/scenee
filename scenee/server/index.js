@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -8,7 +7,6 @@ import movieRoutes from './routes/movieRoutes.js';
 import reviewRoutes from './routes/reviewRoutes.js';
 import noticeRoutes from './routes/noticeRoutes.js';
 import findRoutes from './routes/findRoutes.js'
-
 dotenv.config();
 
 const app = express();
