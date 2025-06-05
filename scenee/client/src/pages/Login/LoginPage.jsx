@@ -20,7 +20,7 @@ export default function LoginPage() {
       // localStorage 저장
       localStorage.setItem(LOCAL_STORAGE_KEYS.TOKEN_KEY, token);
       localStorage.setItem(LOCAL_STORAGE_KEYS.USERNAME_KEY, username);
-      localStorage.setItem(LOCAL_STORAGE_KEYS.USER_ID_KEY, userid);
+      localStorage.setItem(LOCAL_STORAGE_KEYS.USER_ID_KEY, userId);
 
       alert('로그인 성공');
       nav('/');
