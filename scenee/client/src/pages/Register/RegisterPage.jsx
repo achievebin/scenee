@@ -65,6 +65,6 @@ export default function RegisterPage() {
     },
   ];
 
-  return <AuthForm initialMode='register' onSubmit={handleRegister} registerField={registerField} usernameError={usernameError} passwordError={passwordError} confirmpassworderror={confirmPasswordError}/>;
+  return <AuthForm mode='register' onSubmit={handleRegister} registerField={registerField} usernameError={usernameError} passwordError={passwordError} confirmpassworderror={confirmPasswordError}/>;
 }
 

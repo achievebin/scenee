@@ -1,5 +1,4 @@
 // server/controllers/findController.js 
-
 import { findUserByEmail, updateUserPassword } from '../models/userModel.js';
 import { createResetToken, findToken, deleteToken } from '../models/resetTokenModel.js';
 import bcrypt from 'bcryptjs';
