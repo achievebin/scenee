@@ -1,12 +1,25 @@
 //controller: 사용자 입력과 model, view 간의 상호작용을 제어함
-import {bringReviewsByMovieId, rewriteReview, createReview, deleteReview} from '../models/reviewModel.js'
+import {bringReviewsByMovieId, bringReviewsByUserId, rewriteReview, createReview, deleteReview} from '../models/reviewModel.js'
 //리뷰 작성과 조회 및 삭제 기능을 담당
 
-//리뷰 조회 - api/reviews/movie/:movieId
+//영화 기준 리뷰 조회 - api/reviews/movie/:movieId
 export const getReviewsByMovieId = async (req, res) => {
     const {movieId} = req.params;
     try {
         const reviews = await bringReviewsByMovieId(movieId);
+        res.json(reviews);
+    } catch (error) {
+        res.status(500).json({message: '리뷰 조회 실패'});
+        //http 응답코드 500(Internet Server Error)
+    }
+    
+}
+
+//이용자 기준 리뷰 조회 - api/reviews/user/:userId
+export const getReviewsByUserId = async (req, res) => {
+    const {userId} = req.params;
+    try {
+        const reviews = await bringReviewsByUserId(userId);
         res.json(reviews);
     } catch (error) {
         res.status(500).json({message: '리뷰 조회 실패'});

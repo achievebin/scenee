@@ -19,6 +19,22 @@ export async function bringReviewsByMovieId(movieId) {
     }
 }
 
+//이용자 ID를 기준 삼아 리뷰 조회
+export async function bringReviewsByUserId(userId) {
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        const [rows] = await conn.query(
+            'SELECT * FROM reviews WHERE user_id = ? ORDER BY createdAt DESC', [userId]
+        );
+        return rows;
+    } catch (err) {
+        throw err;
+    } finally {
+        conn.release();
+    }
+}
+
 //리뷰 생성
 export async function createReview(userId, movieId, content, rating) {
     let conn;

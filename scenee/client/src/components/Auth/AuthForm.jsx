@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import styles from './Authform.module.css';
 import { Link } from 'react-router-dom';
 
-export default function AuthForm({  mode = 'login',  onSubmit,  registerField = [],  usernameError = '',  passwordError = '',  confirmPasswordError = ''}) {
-  // 초기 formData에 username, password와 registerField에 정의된 필드 초기화
+export default function AuthForm({mode = 'login',  onSubmit,  registerField = [],  usernameError = '',  passwordError = '',  confirmPasswordError = ''}) {
+  //초기 formData에 username, password와 registerField에 정의된 필드 초기화
   const isLogin = mode === 'login';
-  //mode 상태 확인
+  //mode 상태 초기화
 
   // registerField에 정의한 추가 필드 초기화
   const initialRegisterFields = Object.fromEntries(
@@ -80,7 +80,7 @@ export default function AuthForm({  mode = 'login',  onSubmit,  registerField = 
               onChange={handleChange}
               required
             />
-            {usernameError && <div className="field-error">{usernameError}</div>}
+            {usernameError && <div className={styles["field-error"]}>{usernameError}</div>}
 
             <input
               className={styles["login-input"]}
@@ -133,7 +133,7 @@ export default function AuthForm({  mode = 'login',  onSubmit,  registerField = 
         </div>
       </div>
 
-      {/* 카드 아래 푸터 링크 (아이디 찾기 / 비밀번호 찾기 / 토글 버튼 / 문의하기) */}
+      {/* 카드 아래 푸터 링크 (아이디 찾기 / 비밀번호 찾기 / 모드 전환 / 문의하기) */}
       <div className={styles["login-footer"]}>
         <Link to="/find-id">아이디 찾기</Link>
         <span className={styles["divider"]}>/</span>

@@ -8,7 +8,7 @@ import NotFound from '../pages/NotFound/NotFound';
 import FindIdPage from '../pages/Login/FindIdPage';
 import FindPwRequestPage from '../pages/Login/FindPwRequestPage';
 import ResetPasswordPage from '../pages/Login/ResetPasswordPage';
-import MyPage from '../pages/MyPage';
+import MyPage from '../pages/MyPage/MyPage';
 
 //react-router-dom 라이브러리를 사용, Route 기능을 이용해 페이지별 path를 지정
 export default function AppRoutes() {

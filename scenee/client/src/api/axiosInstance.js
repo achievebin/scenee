@@ -7,7 +7,7 @@ import { LOCAL_STORAGE_KEYS } from '../constants/localStorageKeys';
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL,
     //withCredentials: true
-    //쿠키, 인증 헤더, TLS 인증서 등의 정보를 요청과 함께 보냄: 쿠키 기반 세션 인증에 활용용
+    //쿠키, 인증 헤더, TLS 인증서 등의 정보를 요청과 함께 보냄: 쿠키 기반 세션 인증에 활용
 })
 
 //요청 인터셉터를 등록하는 메서드
