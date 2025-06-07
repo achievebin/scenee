@@ -18,7 +18,7 @@ export default function AppRoutes() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/find-id" element={<FindIdPage />} />
-      <Route path="/mypage" element={<MyPage />}/>
+      <Route path="/mypage" element={<MyPage />} />
       <Route path="/find-password" element={<FindPwRequestPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route path="/search" element={<SearchResultPage />} />

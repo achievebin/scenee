@@ -12,10 +12,10 @@ export default function LoginPage() {
       const res = await loginUser(data);
       const { token, username, userId } = res.data;
 
-    if (!token || !username || !userId) {
-      alert('로그인 실패: 응답 정보가 부족합니다.');
-      return;
-    }
+      if (!token || !username || !userId) {
+        alert('로그인 실패: 응답 정보가 부족합니다.');
+        return;
+      }
 
       // localStorage 저장
       const storage = keepLogin ? localStorage : sessionStorage;
@@ -32,4 +32,3 @@ export default function LoginPage() {
 
   return <AuthForm mode="login" onSubmit={handleLogin} />;
 }
-

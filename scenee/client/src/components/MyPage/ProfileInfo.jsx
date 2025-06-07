@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function ProfileInfo({ user }) {
   return (
@@ -10,4 +10,4 @@ function ProfileInfo({ user }) {
   );
 }
 
-export default ProfileInfo
+export default ProfileInfo;

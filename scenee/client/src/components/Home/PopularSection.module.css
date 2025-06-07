@@ -1,15 +1,12 @@
 @import url('https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css');
 
-
 .popular-section {
-  background: #332C3B;
+  background: #332c3b;
   padding-top: 40px;
   padding-bottom: 20px;
- 
-
 }
 
-.popular-section__title{
+.popular-section__title {
   color: white;
   font-size: 60px;
   font-family: 'Pretendard', system-ui, sans-serif;
@@ -18,7 +15,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   padding-left: 110px;
-   text-align: left;
+  text-align: left;
 }
 
 .popular-section__list {
@@ -28,7 +25,6 @@
   overflow-x: auto;
   padding-bottom: 10px;
 }
-
 
 .popular-item {
   flex: 0 0 auto;
@@ -46,9 +42,7 @@
   overflow: hidden;
   border-radius: 12px;
   background-color: #333;
-  transition:
-    transform 0.3s ease-in-out,
-    height 0.3s ease-in-out,
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out,
     width 0.3s ease-in-out;
 }
 
@@ -70,14 +64,12 @@
   text-overflow: ellipsis;
 }
 
-
 .popular-item:nth-child(1) .popular-card {
   transform: skewY(-10deg);
 }
 .popular-item:nth-child(1) .popular-card__img {
   transform: skewY(10deg);
 }
-
 
 .popular-item:nth-child(2) .popular-card {
   transform: skewY(10deg);
@@ -86,14 +78,12 @@
   transform: skewY(-10deg);
 }
 
-
 .popular-item:nth-child(3) .popular-card {
   transform: skewY(-10deg);
 }
 .popular-item:nth-child(3) .popular-card__img {
   transform: skewY(10deg);
 }
-
 
 .popular-item:nth-child(4) .popular-card {
   transform: skewY(10deg);
@@ -102,7 +92,6 @@
   transform: skewY(-10deg);
 }
 
-
 .popular-item:nth-child(5) .popular-card {
   transform: skewY(10deg);
 }
@@ -110,31 +99,23 @@
   transform: skewY(-10deg);
 }
 
-
-
 .popular-item:hover {
-   opacity: 1;
+  opacity: 1;
   transform: translateY(-8px) scale(1.1);
   z-index: 10;
 }
 
-
 .popular-item:hover .popular-card {
   transform: none;
-  width: 350px;    
-  height: 590px;  
+  width: 350px;
+  height: 590px;
 }
-
 
 .popular-item:hover .popular-card__img {
-  transform: none; 
+  transform: none;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-
 
 .popular-section:hover .popular-item:not(:hover) {
   opacity: 0.5;
 }
-
-
-

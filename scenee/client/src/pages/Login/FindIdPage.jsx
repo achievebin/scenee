@@ -1,6 +1,6 @@
 // src/pages/FindIdPage.jsx :contentReference[oaicite:3]{index=3}
 import React, { useState } from 'react';
-import styles from './FindPage.module.css';  // 스타일 모듈 (프로젝트 상황에 맞게 수정)
+import styles from './FindPage.module.css'; // 스타일 모듈 (프로젝트 상황에 맞게 수정)
 import { Link } from 'react-router-dom';
 import { getIdByEmail } from '../../api/findApi';
 
@@ -27,7 +27,9 @@ export default function FindIdPage() {
         setMessage(res.data.message);
       }
     } catch (err) {
-      setError(err.response?.data?.message || '아이디 찾기 중 오류가 발생했습니다.');
+      setError(
+        err.response?.data?.message || '아이디 찾기 중 오류가 발생했습니다.'
+      );
     }
   };
 
@@ -65,13 +67,21 @@ export default function FindIdPage() {
       </div>
 
       <div className={styles.footer}>
-        <Link to="/login" className={styles.footerLink}>로그인으로 돌아가기</Link>
+        <Link to="/login" className={styles.footerLink}>
+          로그인으로 돌아가기
+        </Link>
         <span className={styles.divider}>/</span>
-        <Link to="/find-password" className={styles.footerLink}>비밀번호 찾기</Link>
+        <Link to="/find-password" className={styles.footerLink}>
+          비밀번호 찾기
+        </Link>
         <span className={styles.divider}>/</span>
-        <Link to="/register" className={styles.footerLink}>회원가입하기</Link>
+        <Link to="/register" className={styles.footerLink}>
+          회원가입하기
+        </Link>
         <span className={styles.divider}>/</span>
-        <Link to="/contact" className={styles.footerLink}>문의하기</Link>
+        <Link to="/contact" className={styles.footerLink}>
+          문의하기
+        </Link>
       </div>
 
       <div className={styles.copyRight}>

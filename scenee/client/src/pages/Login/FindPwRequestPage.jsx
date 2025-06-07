@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from './FindPage.module.css';
 import axios from 'axios'; // axiosInstance를 쓰신다면 그것을 사용하세요.
 import { Link } from 'react-router-dom';
-import {requestPasswordReset} from  '../../api/findApi'
+import { requestPasswordReset } from '../../api/findApi';
 export default function FindPasswordPage() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -21,10 +21,14 @@ export default function FindPasswordPage() {
 
     try {
       // 실제 API 경로가 다르다면 수정하세요.
-      const res = await requestPasswordReset({email});
-      setMessage(res.data.message || '비밀번호 재설정 링크를 해당 이메일로 발송했습니다.');
+      const res = await requestPasswordReset({ email });
+      setMessage(
+        res.data.message || '비밀번호 재설정 링크를 해당 이메일로 발송했습니다.'
+      );
     } catch (err) {
-      setError(err.response?.data?.message || '비밀번호 찾기 중 오류가 발생했습니다.');
+      setError(
+        err.response?.data?.message || '비밀번호 찾기 중 오류가 발생했습니다.'
+      );
     }
   };
 
@@ -67,13 +71,21 @@ export default function FindPasswordPage() {
 
       {/* 푸터 링크 */}
       <div className={styles.footer}>
-        <Link to ="/login" className={styles.footerLink} >로그인으로 돌아가기</Link>
+        <Link to="/login" className={styles.footerLink}>
+          로그인으로 돌아가기
+        </Link>
         <span className={styles.divider}>/</span>
-        <Link to ="/find-id" className={styles.footerLink} >아이디 찾기</Link>
+        <Link to="/find-id" className={styles.footerLink}>
+          아이디 찾기
+        </Link>
         <span className={styles.divider}>/</span>
-        <Link to = "/register"  className={styles.footerLink} >회원가입하기</Link>
+        <Link to="/register" className={styles.footerLink}>
+          회원가입하기
+        </Link>
         <span className={styles.divider}>/</span>
-        <Link to = "/contact" className={styles.footerLink} >문의하기</Link>
+        <Link to="/contact" className={styles.footerLink}>
+          문의하기
+        </Link>
       </div>
 
       {/* 저작권 */}

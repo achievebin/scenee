@@ -1,12 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 //검색 결과를 보여주는 페이지
 const SearchResultPage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default SearchResultPage
+export default SearchResultPage;

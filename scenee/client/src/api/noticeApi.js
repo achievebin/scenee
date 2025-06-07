@@ -3,17 +3,17 @@ import axios from './axiosInstance.js';
 
 //전체 게시판 목록 요청 (GET) - /api/board/boards
 export function getBoards(data) {
-    return axios.get('board/boards', data);
+  return axios.get('board/boards', data);
 }
 //게시판 조회 요청 (GET) - /api/board/boards/:id
 export function getBoardById(data) {
-    return axios.get('board/boards/:id', data);
+  return axios.get('board/boards/:id', data);
 }
 //공지사항 게시판 목록 요청 (GET) - /api/board/notices
 export function getNoticeBoards(data) {
-    return axios.get('board/notices', data);
+  return axios.get('board/notices', data);
 }
 //이벤트 게시판 목록 요청 (GET) - /api/board/events
 export function getEventBoards(data) {
-    return axios.get('borad/events', data);
+  return axios.get('borad/events', data);
 }
