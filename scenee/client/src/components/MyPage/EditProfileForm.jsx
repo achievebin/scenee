@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { updateUser } from '../../api/userApi';
-import { validation } from '../../utils/validations';
+import { validateNickname, validateEmail } from '../../utils/validations';
 
 export default function EditProfileForm({ user, onUpdate }) {
   const [formData, setFormData] = useState({
@@ -12,7 +12,10 @@ export default function EditProfileForm({ user, onUpdate }) {
   //이용자 정보로 초기화
   useEffect(() => {
     if (user) {
-      setFormData((nickname = user.nickname || ''), (email = user.email || ''));
+      setFormData({
+        nickname: user.nickname || '',
+        email: user.email || ''
+      });
     }
   });
 
@@ -28,12 +31,13 @@ export default function EditProfileForm({ user, onUpdate }) {
 
   const handleSubmit = async (e) => {
     //잘못된 동작 방지
-    e.preventDefult();
+    e.preventDefault();
 
     //유효성 검증
-    const errorMsg = validation(formData);
-    if (errorMsg) {
-      setError(errorMsg);
+    const nicknameError = validateNickname(formData.nickname);
+    const emailError = validateEmail(formData.email);
+    if (nicknameError || emailError) {
+      setError(nicknameError || emailError);
       return;
     }
 
@@ -61,6 +65,7 @@ export default function EditProfileForm({ user, onUpdate }) {
         type="email"
         placeholder="이메일"
         value={formData.email}
+        onChange={handleChange}
       />
       <button type="submit">수정하기</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
