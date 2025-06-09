@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getReviewsByMovieId, deleteReview } from '../../api/reviewApi';
+import { getReviews, deleteReview } from '../../api/reviewApi';
 import StarRatings from 'react-star-ratings';
 import EditReviewModal from './EditReviewModal'; // 모달 컴포넌트
 import { useAuthContext } from '../../contexts/AuthContext'; // 사용자 정보
@@ -11,7 +11,7 @@ export default function ReviewList({ movieId }) {
 
   const fetchReviews = async () => {
     try {
-      const data = await getReviewsByMovieId(movieId);
+      const data = await getReviews(movieId);
       setReviews(data);
     } catch (err) {
       console.error('리뷰 가져오기 실패', err);

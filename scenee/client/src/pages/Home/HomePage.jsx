@@ -11,13 +11,11 @@ import Footer from '../../components/Home/Footer';
 const HomePage = () => {
   return (
     <div>
-      <Header />
       <MainSlider />
       <PopularSection />
       <MostReviewedSection />
       <NoticeBoard />
       <EventBoard />
-      <Footer />
     </div>
   );
 };

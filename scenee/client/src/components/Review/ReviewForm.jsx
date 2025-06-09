@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { createReview } from '../../api/reviewApi';
+import { addReview } from '../../api/reviewApi';
 import StarRatings from 'react-star-ratings'; // 별점 UI
-import styles from './ReviewForm.module.css';
 
 export default function ReviewForm({ movieId }) {
   const [rating, setRating] = useState(0);
@@ -15,7 +14,7 @@ export default function ReviewForm({ movieId }) {
     }
 
     try {
-      await createReview({ movieId, rating, content });
+      await addReview({ movieId, rating, content });
       setRating(0);
       setContent('');
       setError('');

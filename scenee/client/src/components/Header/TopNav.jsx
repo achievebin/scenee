@@ -17,7 +17,7 @@ const TopNav = () => {
     <nav className={styles['top-nav']}>
       <div className={styles['top-nav__header']} id="user">
         <div className={styles['auth-links']}>
-          {username ? (
+          {!isLoading && user ? (
             <>
               <span className={styles['welcome']}>{user.nickname}님 환영합니다</span>
               <span className={styles['divider']}>|</span>
