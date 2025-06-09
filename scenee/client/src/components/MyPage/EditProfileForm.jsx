@@ -11,22 +11,20 @@ export default function EditProfileForm({ user, onUpdate }) {
 
   //이용자 정보로 초기화
   useEffect(() => {
-    if (user) {
-      setFormData({
-        nickname: user.nickname || '',
-        email: user.email || ''
-      });
-    }
-  });
+  if (user) {
+    setFormData({
+      nickname: user.nickname || '',
+      email: user.email || ''
+    });
+  }
+}, [user]);
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
-    setFormData(
-      (prev = {
-        ...prev,
-        [name]: value,
-      })
-    );
+    setFormData(prev => ({
+    ...prev,
+    [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
