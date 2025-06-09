@@ -1,30 +1,28 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../api/authApi';
-import { LOCAL_STORAGE_KEYS } from '../../constants/localStorageKeys';
 import AuthForm from '../../components/Auth/AuthForm';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function LoginPage() {
-  const nav = useNavigate();
+  const navigate = useNavigate();
+  const { login } = useAuthContext();
 
   const handleLogin = async (data, mode, keepLogin) => {
     try {
       const res = await loginUser(data);
-      const { token, username, userId } = res.data;
+      const { token } = res.data;
 
-      if (!token || !username || !userId) {
-        alert('로그인 실패: 응답 정보가 부족합니다.');
+      if (!token) {
+        alert('로그인 실패: 응답 정보가 없습니다.');
         return;
       }
 
-      // localStorage 저장
-      const storage = keepLogin ? localStorage : sessionStorage;
-      storage.setItem(LOCAL_STORAGE_KEYS.TOKEN_KEY, token);
-      storage.setItem(LOCAL_STORAGE_KEYS.USERNAME_KEY, username);
-      storage.setItem(LOCAL_STORAGE_KEYS.USER_ID_KEY, userId);
+      // AuthContext를 통한 로그인 상태 설정
+      await login(token, keepLogin ? 'local' : 'session');
 
       alert('로그인 성공');
-      nav('/');
+      navigate('/');
     } catch (e) {
       alert('로그인 실패: ' + (e.response?.data?.message || e.message));
     }
@@ -32,3 +30,4 @@ export default function LoginPage() {
 
   return <AuthForm mode="login" onSubmit={handleLogin} />;
 }
+

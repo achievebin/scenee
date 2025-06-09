@@ -1,33 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { LOCAL_STORAGE_KEYS } from '../../constants/localStorageKeys';
+import { useAuthContext } from '../../contexts/AuthContext';
 import styles from '../Home/Header.module.css';
 
 const TopNav = () => {
-  const [username, setUsername] = useState('');
+  const { user, logout, isLoading } = useAuthContext();
   const navigate = useNavigate();
-
-  // 로그인 상태 확인
-  useEffect(() => {
-    const storedUsername =
-      localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY) ||
-      sessionStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-  }, []);
 
   // 로그아웃 처리
   const handleLogout = () => {
-    localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
-    localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_ID_KEY);
-    localStorage.removeItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
-
-    sessionStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
-    sessionStorage.removeItem(LOCAL_STORAGE_KEYS.USER_ID_KEY);
-    sessionStorage.removeItem(LOCAL_STORAGE_KEYS.USERNAME_KEY);
-
-    setUsername('');
+    logout();
     navigate('/login');
   };
 
@@ -37,7 +19,7 @@ const TopNav = () => {
         <div className={styles['auth-links']}>
           {username ? (
             <>
-              <span className={styles['welcome']}>{username}님 환영합니다</span>
+              <span className={styles['welcome']}>{user.nickname}님 환영합니다</span>
               <span className={styles['divider']}>|</span>
               <Link to="/mypage" className={styles['top-mypage']}>
                 마이페이지

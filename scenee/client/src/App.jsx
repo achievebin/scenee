@@ -1,13 +1,16 @@
-import { useState } from 'react';
-import './App.css';
-import AppRoutes from './routes';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import AppRoutes from './index';
+import TopNav from './components/TopNav';
 
 function App() {
-  //routes 폴더의 index.js에서 지정한 사항을 출력
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <AuthProvider>
+        <TopNav />
+        <AppRoutes />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
