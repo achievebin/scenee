@@ -1,7 +1,8 @@
-// src/pages/FindIdPage.jsx
+// src/pages/FindIdPage.jsx :contentReference[oaicite:3]{index=3}
 import React, { useState } from 'react';
-import styles from './FindPage.module.css';
-import axios from 'axios'; // axiosInstance를 쓰신다면 그것을 불러오세요.
+import styles from './FindPage.module.css'; // 스타일 모듈 (프로젝트 상황에 맞게 수정)
+import { Link } from 'react-router-dom';
+import { getIdByEmail } from '../../api/findApi';
 
 export default function FindIdPage() {
   const [email, setEmail] = useState('');
@@ -13,33 +14,34 @@ export default function FindIdPage() {
     setError('');
     setMessage('');
 
-    if (!email) {
+    if (!email.trim()) {
       setError('이메일을 입력하세요.');
       return;
     }
 
     try {
-      // 실제 API 경로가 다르다면 수정하세요.
-      const res = await axios.post('/api/find/id', { email });
-      setMessage(res.data.message || '가입된 아이디를 해당 이메일로 발송했습니다.');
+      const res = await getIdByEmail({ email: email.trim() });
+      if (res.data.data && res.data.data.username) {
+        setMessage(`가입된 아이디: ${res.data.data.username}`);
+      } else {
+        setMessage(res.data.message);
+      }
     } catch (err) {
-      setError(err.response?.data?.message || '아이디 찾기 중 오류가 발생했습니다.');
+      setError(
+        err.response?.data?.message || '아이디 찾기 중 오류가 발생했습니다.'
+      );
     }
   };
 
   return (
     <div className={styles.container}>
-      {/* 상단 타이틀 */}
       <div className={styles.title}>SCENEE</div>
 
-      {/* 카드 */}
       <div className={styles.card}>
-        {/* 탭 헤더 */}
         <div className={styles.tabContainer}>
           <div className={styles.tabActive}>아이디 찾기</div>
         </div>
 
-        {/* 카드 내부 */}
         <div className={styles.cardBody}>
           <div className={styles.logoCircle}>S</div>
           <h1 className={styles.heading}>아이디 찾기</h1>
@@ -64,18 +66,24 @@ export default function FindIdPage() {
         </div>
       </div>
 
-      {/* 푸터 링크 */}
       <div className={styles.footer}>
-        <a className={styles.footerLink} href="/login">로그인으로 돌아가기</a>
+        <Link to="/login" className={styles.footerLink}>
+          로그인으로 돌아가기
+        </Link>
         <span className={styles.divider}>/</span>
-        <a className={styles.footerLink} href="/find-password">비밀번호 찾기</a>
+        <Link to="/find-password" className={styles.footerLink}>
+          비밀번호 찾기
+        </Link>
         <span className={styles.divider}>/</span>
-        <a className={styles.footerLink} href="/register">회원가입하기</a>
+        <Link to="/register" className={styles.footerLink}>
+          회원가입하기
+        </Link>
         <span className={styles.divider}>/</span>
-        <a className={styles.footerLink} href="/contact">문의하기</a>
+        <Link to="/contact" className={styles.footerLink}>
+          문의하기
+        </Link>
       </div>
 
-      {/* 저작권 */}
       <div className={styles.copyRight}>
         copyright © 2025 by GLOBAL, All rights reserved.
       </div>

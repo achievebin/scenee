@@ -38,6 +38,7 @@ export const getNoticeBoards = async (req, res) => {
         res.json(rows);
     } catch (error) {
         res.status(500).json({ message: '공지 목록 조회 실패'})
+        //http 응답코드 500(Internet Server Error)
     }
 }
 
@@ -50,6 +51,7 @@ export const getEventBoards = async (req, res) => {
         res.json(rows);
     } catch (error) {
         res.status(500).json({ message: '이벤트 목록 조회 실패'})
+        //http 응답코드 500(Internet Server Error)
     }
 }
 
@@ -64,7 +66,9 @@ export const createNotice = async (req, res) => {
     );
     conn.release();
     res.status(201).json({ message: '공지 생성 완료' });
+    //http 응답코드 201(Created)
   } catch (error) {
     res.status(500).json({ message: '공지 생성 실패' });
+    //http 응답코드 500(Internet Server Error)
   }
 };

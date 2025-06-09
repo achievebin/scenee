@@ -1,27 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../api/authApi.js' 
-import AuthForm from '../../components/AuthForm.jsx';
+import { loginUser } from '../../api/authApi';
+import AuthForm from '../../components/Auth/AuthForm';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function LoginPage() {
-  const nav = useNavigate();
-  const [token, setToken] = useState(localStorage.getItem('token') || '');
+  const navigate = useNavigate();
+  const { login } = useAuthContext();
 
-  useEffect(() => {
-    token ? localStorage.setItem('token', token)
-          : localStorage.removeItem('token');
-  }, [token]);
-
-  const handleLogin = async (data) => {
+  const handleLogin = async (data, mode, keepLogin) => {
     try {
       const res = await loginUser(data);
-      setToken(res.data.token);
+      const { token } = res.data;
+
+      if (!token) {
+        alert('로그인 실패: 응답 정보가 없습니다.');
+        return;
+      }
+
+      // AuthContext를 통한 로그인 상태 설정
+      await login(token, keepLogin ? 'local' : 'session');
+
       alert('로그인 성공');
-      nav('/');
+      navigate('/');
     } catch (e) {
       alert('로그인 실패: ' + (e.response?.data?.message || e.message));
     }
   };
 
-  return <AuthForm mode='login' onSubmit={handleLogin}/>;
+  return <AuthForm mode="login" onSubmit={handleLogin} />;
 }
+

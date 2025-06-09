@@ -8,6 +8,7 @@ export const getPopularMovies = async (req, res) => {
         res.json(movies);
     } catch (error) {
         res.status(500).json({message: '인기 영화를 가져오는 데 실패하였습니다'});
+        //http 응답코드 500(Internet Server Error)
     }
 };
 
@@ -17,6 +18,7 @@ export const getMovieById = async (req, res) => {
         res.json(movie);
     } catch (error) {
         res.status(500).json({message: '검색 실패'});
+        //http 응답코드 500(Internet Server Error)
     }
 
 };
@@ -33,6 +35,7 @@ export const searchMovies = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({message: '검색하는 데 실패하였습니다'});
+        //http 응답코드 500(Internet Server Error)
     }
 
 };

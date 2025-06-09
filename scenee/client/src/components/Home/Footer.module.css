@@ -1,0 +1,107 @@
+/* src/components/Footer.css */
+.footer-container {
+  background-color: #3e3a4a;
+  color: #fff;
+  font-family: 'Pretendard', system-ui, sans-serif;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+/* 상단 메뉴 */
+.footer-top-menu {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.footer-top-menu ul {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-top-menu li {
+  margin: 0 15px;
+  font-size: 14px;
+}
+.footer-top-menu a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-top-menu a:hover {
+  color: #fff;
+}
+
+/* 푸터 중간 부분: 소셜 / 회사 정보 / 고객센터 */
+.footer-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 소셜 아이콘 */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-social a {
+  margin: 0 10px;
+}
+.footer-social img {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1); /* 흰색으로 아이콘 색조정 */
+  transition: filter 0.2s;
+}
+.footer-social img:hover {
+  filter: brightness(0.7) invert(1);
+}
+
+/* 중앙 회사 정보 */
+.footer-company-info {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.footer-company-info p {
+  margin: 2px 0;
+}
+.footer-phone-link {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-phone-link:hover {
+  color: #ddd;
+}
+.footer-company-info .footer-copyright {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+/* 우측 고객센터 정보 */
+.footer-customer-center {
+  text-align: right;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.footer-customer-center p {
+  margin: 2px 0;
+}
+
+/* 반응형 예시 */
+@media (max-width: 768px) {
+  .footer-middle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-customer-center {
+    margin-top: 20px;
+    text-align: center;
+  }
+}

@@ -8,8 +8,11 @@ export const authenticateJWT = (req, res, next) => {
 
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = decoded;  // req.user에 user 정보 저장
-      next();              // 다음 미들웨어 또는 컨트롤러로 진행
+      req.user = {
+        id: decoded.userId,
+        username: decoded.username,
+      };
+      next();
     } catch (err) {
       return res.status(401).json({ message: '유효하지 않은 토큰입니다.' });
     }

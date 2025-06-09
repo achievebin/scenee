@@ -11,7 +11,7 @@ function useQuery() {
 export default function ResetPasswordPage() {
   const navigate = useNavigate();
   const query = useQuery();
-  const token = query.get('token') || '';  // URL: /reset-password?token=abcdef
+  const token = query.get('token') || ''; // URL: /reset-password?token=abcdef
 
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -42,7 +42,7 @@ export default function ResetPasswordPage() {
       // 백엔드: POST /api/find/password/reset → { token, newPassword }
       const res = await axiosInstance.post('/api/find/password/reset', {
         token,
-        newPassword
+        newPassword,
       });
       setMessage(res.data.message); // 예: "비밀번호가 성공적으로 변경되었습니다."
 
@@ -76,7 +76,7 @@ export default function ResetPasswordPage() {
           type="password"
           placeholder="새 비밀번호"
           value={newPassword}
-          onChange={e => setNewPassword(e.target.value)}
+          onChange={(e) => setNewPassword(e.target.value)}
           style={{ width: '100%', padding: 8 }}
         />
       </div>
@@ -86,7 +86,7 @@ export default function ResetPasswordPage() {
           type="password"
           placeholder="새 비밀번호 확인"
           value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           style={{ width: '100%', padding: 8 }}
         />
       </div>
