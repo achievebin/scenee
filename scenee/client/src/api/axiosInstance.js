@@ -12,7 +12,10 @@ const axiosInstance = axios.create({
 
 //요청 인터셉터를 등록하는 메서드
 axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
+  const token =
+    localStorage.getItem(LOCAL_STORAGE_KEYS.TOKEN_KEY) ||
+    sessionStorage.getItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
+
   if (token) {
     //토큰이 존재할 경우 Authorization 헤더 설정
     config.headers.Authorization = `Bearer ${token}`;
@@ -29,9 +32,10 @@ axiosInstance.interceptors.response.use(
     if (error.response?.status === 401) {
       console.warn('만료되거나 유효하지 않은 토큰');
       localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
+      sessionStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
     }
-    return Promise.reject(error);
     //에러를 거절하는 Promise 반환
+    return Promise.reject(error);
   }
 );
 

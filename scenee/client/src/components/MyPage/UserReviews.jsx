@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getUserReviews, deleteReview, reviseReview } from '../../api/reviewApi';
 import { fetchMovieDetails } from '../../api/tmdbApi';
+import EditReviewModal from '../../components/Review/EditReviewModal';
 import StarRatings from 'react-star-ratings';
 import styles from './UserReviews.module.css';
 

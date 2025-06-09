@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const response = await fetchUserProfile(); // /api/auth/me
+        const response = await fetchUserProfile();
         setUser(response.data);
       } catch (error) {
         console.error('유저 정보 불러오기 실패:', error);
@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
     initializeUser();
   }, []);
 
-  // 로그인
   const login = async (token, saveTo = 'local') => {
     if (saveTo === 'session') {
       sessionStorage.setItem(LOCAL_STORAGE_KEYS.TOKEN_KEY, token);
@@ -43,16 +42,15 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetchUserProfile();
-      setUser(response.data);
+      const res = await fetchUserProfile();
+      setUser(res.data);
     } catch (err) {
       console.error('로그인 후 유저 불러오기 실패:', err);
     }
   };
 
-  // 로그아웃
   const logout = () => {
-    logoutUser(); // axiosInstance 및 로컬 토큰 제거
+    logoutUser();
     localStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
     sessionStorage.removeItem(LOCAL_STORAGE_KEYS.TOKEN_KEY);
     setUser(null);
@@ -66,4 +64,3 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuthContext = () => useContext(AuthContext);
-

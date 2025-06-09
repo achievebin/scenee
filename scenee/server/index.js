@@ -1,13 +1,14 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import movieRoutes from './routes/movieRoutes.js';
 import reviewRoutes from './routes/reviewRoutes.js';
 import noticeRoutes from './routes/noticeRoutes.js';
 import findRoutes from './routes/findRoutes.js'
-dotenv.config();
 
 const app = express();
 app.use(express.json());

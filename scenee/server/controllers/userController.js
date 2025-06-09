@@ -6,7 +6,7 @@ export const getMyInfo = async (req, res) => {
   const userId = req.user.id;
   try {
     const rows = await pool.query(
-      'SELECT id, username, email FROM users WHERE id = ?',
+      'SELECT id, username, nickname, email FROM users WHERE id = ?',
       [userId]
     );
     const user = rows.length > 0 ? rows[0] : null;
