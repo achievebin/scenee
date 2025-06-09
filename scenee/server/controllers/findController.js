@@ -6,7 +6,6 @@ import crypto from 'crypto';
 import transporter from '../config/mailConfig.js';
 import { format } from 'date-fns';
 import dotenv from 'dotenv';
-
 dotenv.config(); // FRONTEND_BASE_URL 등 불러오기
 
 // 환경 변수 구조분해
@@ -105,6 +104,7 @@ export async function requestPasswordReset(req, res) {
     // 6) 비밀번호 재설정 링크 생성
     //    FRONTEND_BASE_URL 예: 'http://localhost:5173'
     const resetUrl = `${FRONTEND_BASE_URL}/reset-password?token=${token}`;
+    console.log('✅ 토큰 저장 완료 →', token);
 
     // 7) 이메일 전송 (resetUrl 포함)
     const mailOptions = {

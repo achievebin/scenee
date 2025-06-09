@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../../api/axiosInstance';
 import { useNavigate, useLocation } from 'react-router-dom';
+import './ResetPasswordPage.css';  // CSS 임포트
 
 // URL 쿼리 파라미터에서 token을 읽어오기 위한 커스텀 훅
 function useQuery() {
@@ -39,14 +40,12 @@ export default function ResetPasswordPage() {
     }
 
     try {
-      // 백엔드: POST /api/find/password/reset → { token, newPassword }
-      const res = await axiosInstance.post('/api/find/password/reset', {
+      const res = await axiosInstance.post('/find/password/reset', {
         token,
         newPassword,
       });
-      setMessage(res.data.message); // 예: "비밀번호가 성공적으로 변경되었습니다."
+      setMessage(res.data.message);
 
-      // 변경 완료 후 2초 뒤 로그인 페이지로 이동
       setTimeout(() => {
         navigate('/login');
       }, 2000);
@@ -57,53 +56,39 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: '0 auto', padding: 20 }}>
+    <div className="reset-container">
       <h1>비밀번호 재설정</h1>
 
       {error && (
-        <div style={{ color: 'red', fontSize: 12, marginBottom: 8 }}>
+        <div className="message-error">
           {error}
         </div>
       )}
       {message && (
-        <div style={{ color: 'green', fontSize: 12, marginBottom: 8 }}>
+        <div className="message-success">
           {message}
         </div>
       )}
 
-      <div style={{ marginBottom: 8 }}>
+      <div className="input-group">
         <input
           type="password"
           placeholder="새 비밀번호"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
-          style={{ width: '100%', padding: 8 }}
         />
       </div>
 
-      <div style={{ marginBottom: 8 }}>
+      <div className="input-group">
         <input
           type="password"
           placeholder="새 비밀번호 확인"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          style={{ width: '100%', padding: 8 }}
         />
       </div>
 
-      <button
-        onClick={handleReset}
-        style={{
-          width: '100%',
-          padding: 10,
-          background: '#1976d2',
-          color: '#fff',
-          border: 'none',
-          borderRadius: 4,
-          cursor: 'pointer',
-          marginTop: 10,
-        }}
-      >
+      <button onClick={handleReset}>
         비밀번호 재설정
       </button>
     </div>
