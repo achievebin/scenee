@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
-import AppRoutes from './index';
+import AppRoutes from './routes/index';
 import TopNav from './components/TopNav';
 
 function App() {
