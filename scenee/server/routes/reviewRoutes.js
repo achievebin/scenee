@@ -9,7 +9,7 @@ const router = Router();
 //영화 ID를 기준 삼아 리뷰 목록 가져오기 - /api/reviews/movie/:movieId
 router.get('/movie/:movieId', getReviewsByMovieId);
 //특정 사용자가 작성한 리뷰 목록 - /api/reviews/user/:userId
-router.get('/user/:userId', getReviewsByUserId);
+router.get('/user/:userId', authenticateJWT, getReviewsByUserId);
 //리뷰 생성 - /api/reviews
 router.post('/', authenticateJWT, postReview);
 //리뷰 갱신 - /api/reviews/:reviewId
