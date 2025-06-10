@@ -1,4 +1,4 @@
-@import url('https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css');
+@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css");
 
 .popular-section {
   background: #332c3b;
@@ -9,7 +9,7 @@
 .popular-section__title {
   color: white;
   font-size: 60px;
-  font-family: 'Pretendard', system-ui, sans-serif;
+  font-family: "Pretendard", system-ui, sans-serif;
   margin: 0;
   white-space: nowrap;
   text-overflow: ellipsis;

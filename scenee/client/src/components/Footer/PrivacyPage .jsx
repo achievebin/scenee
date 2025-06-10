@@ -1,8 +1,7 @@
-
 // src/pages/PrivacyPage.jsx
-import React from 'react';
+import React from "react";
 
-const policyText =  `
+const policyText = `
 개인정보 처리방침
 
 주식회사 SCENEE(이하 “회사”)는 「개인정보 보호법」 등 관련 법령에 따라 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속ㆍ원활하게 처리하기 위해 다음과 같이 개인정보 처리방침을 수립·공개합니다.
@@ -72,10 +71,16 @@ const policyText =  `
 `;
 
 const PrivacyPage = () => (
-  <div style={{ whiteSpace: 'pre-wrap', padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+  <div
+    style={{
+      whiteSpace: "pre-wrap",
+      padding: "20px",
+      maxWidth: "800px",
+      margin: "0 auto",
+    }}
+  >
     {policyText}
   </div>
 );
 
 export default PrivacyPage;
-

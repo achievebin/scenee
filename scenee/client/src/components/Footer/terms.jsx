@@ -79,18 +79,18 @@ const termsText = `이용약관
 본 약관은 2025년 6월 10일부터 시행합니다. `;
 
 const terms = () => {
-    return (
-        <div
-            style={{
-                whiteSpace: "pre-wrap",
-                padding: "20px",
-                maxWidth: "800px",
-                margin: "0 auto",
-            }}
-        >
-            {termsText}
-        </div>
-    );
+  return (
+    <div
+      style={{
+        whiteSpace: "pre-wrap",
+        padding: "20px",
+        maxWidth: "800px",
+        margin: "0 auto",
+      }}
+    >
+      {termsText}
+    </div>
+  );
 };
 
 export default terms;

@@ -1,21 +1,21 @@
 // src/pages/FindIdPage.jsx :contentReference[oaicite:3]{index=3}
-import React, { useState } from 'react';
-import styles from './FindPage.module.css'; // 스타일 모듈 (프로젝트 상황에 맞게 수정)
-import { Link } from 'react-router-dom';
-import { getIdByEmail } from '../../api/findApi';
+import React, { useState } from "react";
+import styles from "./FindPage.module.css"; // 스타일 모듈 (프로젝트 상황에 맞게 수정)
+import { Link } from "react-router-dom";
+import { getIdByEmail } from "../../api/findApi";
 
 export default function FindIdPage() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handleFindId = async (e) => {
     e.preventDefault();
-    setError('');
-    setMessage('');
+    setError("");
+    setMessage("");
 
     if (!email.trim()) {
-      setError('이메일을 입력하세요.');
+      setError("이메일을 입력하세요.");
       return;
     }
 
@@ -28,7 +28,7 @@ export default function FindIdPage() {
       }
     } catch (err) {
       setError(
-        err.response?.data?.message || '아이디 찾기 중 오류가 발생했습니다.'
+        err.response?.data?.message || "아이디 찾기 중 오류가 발생했습니다."
       );
     }
   };

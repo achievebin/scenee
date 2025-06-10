@@ -1,5 +1,5 @@
 // components/Home/Footer/FooterCenter.jsx
-import React from 'react';
+import React from "react";
 
 const FooterCenter = () => (
   <div className="footer-col footer-col--center">

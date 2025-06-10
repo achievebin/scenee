@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { getReviews, reviseReview, deleteReview } from '../../api/reviewApi';
-import Ratings from 'react-rating';
-import { Star } from 'lucide-react';
-import EditReviewModal from './EditReviewModal'; // 모달 컴포넌트
-import { useAuthContext } from '../../contexts/AuthContext'; // 사용자 정보
+import React, { useEffect, useState } from "react";
+import { getReviews, reviseReview, deleteReview } from "../../api/reviewApi";
+import Ratings from "react-rating";
+import { Star } from "lucide-react";
+import EditReviewModal from "./EditReviewModal"; // 모달 컴포넌트
+import { useAuthContext } from "../../contexts/AuthContext"; // 사용자 정보
 
 export default function ReviewList({ movieId }) {
   const [reviews, setReviews] = useState([]);
@@ -15,7 +15,7 @@ export default function ReviewList({ movieId }) {
       const data = await getReviews(movieId);
       setReviews(data);
     } catch (err) {
-      console.error('리뷰 가져오기 실패', err);
+      console.error("리뷰 가져오기 실패", err);
     }
   };
 
@@ -24,12 +24,12 @@ export default function ReviewList({ movieId }) {
   }, [movieId]);
 
   const handleDelete = async (reviewId) => {
-    if (!window.confirm('정말 삭제하시겠습니까?')) return;
+    if (!window.confirm("정말 삭제하시겠습니까?")) return;
     try {
       await deleteReview(reviewId);
       fetchReviews(); // 목록 갱신
     } catch (err) {
-      console.error('리뷰 삭제 실패', err);
+      console.error("리뷰 삭제 실패", err);
     }
   };
 
@@ -68,12 +68,12 @@ export default function ReviewList({ movieId }) {
           onClose={() => setEditingReview(null)}
           onSubmit={async (updated) => {
             try {
-              await reviseReview(updated);  // 서버에 수정 내용 전송
-              await fetchReviews();         // 목록 갱신
+              await reviseReview(updated); // 서버에 수정 내용 전송
+              await fetchReviews(); // 목록 갱신
             } catch (err) {
-              console.error('리뷰 수정 실패:', err);
+              console.error("리뷰 수정 실패:", err);
             } finally {
-             setEditingReview(null);
+              setEditingReview(null);
             }
           }}
         />
@@ -81,4 +81,3 @@ export default function ReviewList({ movieId }) {
     </div>
   );
 }
-

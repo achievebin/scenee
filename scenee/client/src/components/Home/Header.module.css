@@ -1,4 +1,4 @@
-@import url('https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css');
+@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css");
 
 html,
 body {
@@ -18,7 +18,7 @@ body {
   background: radial-gradient(circle at center, #373040 0%, #6f637d 100%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   color: white;
-  font-family: 'Pretendard', system-ui, sans-serif;
+  font-family: "Pretendard", system-ui, sans-serif;
   font-weight: 600;
   font-size: 16px;
   overflow: visible;
