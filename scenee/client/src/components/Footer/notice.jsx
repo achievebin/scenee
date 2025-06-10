@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const notice = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+    return <div>공지사항</div>;
+};
 
-export default notice
+export default notice;

@@ -1,157 +1,137 @@
 // components/Home/Footer/FooterLeft.jsx
-import React from 'react';
-import { FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
-import Logo from '../../assets/images/logo.png';
-
-// 실제 약관·방침 텍스트를 여기에 넣으세요
-const termsText = `개인정보 처리방침
-
-주식회사 SCENEE(이하 “회사”)는 「개인정보 보호법」 등 관련 법령에 따라 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속·원활하게 처리하기 위해 다음과 같이 개인정보 처리방침을 수립·공개합니다.
-
-제1조(개인정보의 처리 목적)
-회사는 수집한 개인정보를 다음의 목적을 위해 처리합니다.
-1. 회원 관리 : 회원제 서비스 이용 및 회원 식별·인증, 부정 이용 방지, 가입 의사 확인 등
-2. 서비스 제공 : 서비스 제공·콘텐츠 제공, 맞춤형 서비스 제공, 본인 인증, 요금 결제·정산 등
-3. 마케팅 및 광고 : 이벤트·프로모션 정보 제공, 광고성 정보 제공, 접속 빈도·서비스 이용 통계 분석 등
-
-제2조(개인정보의 처리 및 보유 기간)
-회사는 개인정보 보유·이용기간이 경과하거나 처리 목적 달성 시 지체 없이 파기합니다.
-- 회원 가입 정보 : 탈퇴 시 즉시 파기
-- 서비스 이용 기록 : 전자상거래 등에서의 소비자 보호에 관한 법률에 따라 3년
-- 접속 로그·통계 정보 : 1년
-
-제3조(처리하는 개인정보 항목)
-- 회원가입·서비스 이용 : 성명, 생년월일, 아이디, 비밀번호, 휴대폰번호, 이메일(필수), 주소·프로필 사진(선택)
-- 유료 서비스 결제 : 결제 수단 정보, 결제 기록
-- 로그인·활동 기록 : 접속 로그, 쿠키, 접속 IP 정보, 서비스 이용 기록
-
-제4조(개인정보의 파기 절차 및 방법)
-- 파기 절차 : 회원 탈퇴 또는 처리 목적 달성 시 내부 정책에 따라 즉시 파기
-- 파기 방법 : 전자적 파일은 복구 불가능하게 삭제, 인쇄물은 분쇄 또는 소각
-
-제5조(개인정보의 제3자 제공)
-회사는 원칙적으로 개인정보를 제공하지 않으며, 이용자 동의 또는 법령에 따른 경우에만 예외로 제공합니다.
-
-제6조(개인정보 처리 위탁)
-- ABC물류(주) : 배송 물류 대행(위탁 계약 종료 시까지)
-- 카카오페이 : 간편결제 서비스 제공(위탁 계약 종료 시까지)
-
-제7조(개인정보의 수집 방법)
-홈페이지 회원가입, 서비스 신청, 고객센터 문의, 이벤트 응모, 생성정보 수집 툴 등을 통해 수집합니다.
-
-제8조(정보주체의 권리·의무 및 행사 방법)
-정보주체는 개인정보 열람·정정·삭제·처리정지 등을 요청할 수 있으며, 고객센터 또는 서면·이메일·전화로 신청합니다.
-
-제9조(개인정보의 안전성 확보 조치)
-관리적 조치: 내부관리계획 수립·시행, 직원 교육
-기술적 조치: 접근 통제, 암호화, 보안 프로그램 설치
-물리적 조치: 전산실·자료 보관실 출입 통제
-
-제10조(개인정보 보호책임자)
-성명: 이용범 / 직책: 대표이사 / 연락처: TEL 1588-2832, Email privacy@scenee.com
-
-제11조(개인정보 처리방침 변경)
-이 방침은 2025년 6월 10일부터 적용되며, 변경 시 홈페이지 공지사항을 통해 안내합니다.
-`;
-const privacyText = `
-개인정보 처리방침
-
-주식회사 SCENEE(이하 “회사”)는 「개인정보 보호법」 등 관련 법령에 따라 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속·원활하게 처리하기 위해 다음과 같이 개인정보 처리방침을 수립·공개합니다.
-
-제1조(개인정보의 처리 목적)
-회사는 수집한 개인정보를 다음의 목적을 위해 처리합니다.
-1. 회원 관리 : 회원제 서비스 이용 및 회원 식별·인증, 부정 이용 방지, 가입 의사 확인 등
-2. 서비스 제공 : 서비스 제공·콘텐츠 제공, 맞춤형 서비스 제공, 본인 인증, 요금 결제·정산 등
-3. 마케팅 및 광고 : 이벤트·프로모션 정보 제공, 광고성 정보 제공, 접속 빈도·서비스 이용 통계 분석 등
-
-제2조(개인정보의 처리 및 보유 기간)
-회사는 개인정보 보유·이용기간이 경과하거나 처리 목적 달성 시 지체 없이 파기합니다.
-- 회원 가입 정보 : 탈퇴 시 즉시 파기
-- 서비스 이용 기록 : 전자상거래 등에서의 소비자 보호에 관한 법률에 따라 3년
-- 접속 로그·통계 정보 : 1년
-
-제3조(처리하는 개인정보 항목)
-- 회원가입·서비스 이용 : 성명, 생년월일, 아이디, 비밀번호, 휴대폰번호, 이메일(필수), 주소·프로필 사진(선택)
-- 유료 서비스 결제 : 결제 수단 정보, 결제 기록
-- 로그인·활동 기록 : 접속 로그, 쿠키, 접속 IP 정보, 서비스 이용 기록
-
-제4조(개인정보의 파기 절차 및 방법)
-- 파기 절차 : 회원 탈퇴 또는 처리 목적 달성 시 내부 정책에 따라 즉시 파기
-- 파기 방법 : 전자적 파일은 복구 불가능하게 삭제, 인쇄물은 분쇄 또는 소각
-
-제5조(개인정보의 제3자 제공)
-회사는 원칙적으로 개인정보를 제공하지 않으며, 이용자 동의 또는 법령에 따른 경우에만 예외로 제공합니다.
-
-제6조(개인정보 처리 위탁)
-- ABC물류(주) : 배송 물류 대행(위탁 계약 종료 시까지)
-- 카카오페이 : 간편결제 서비스 제공(위탁 계약 종료 시까지)
-
-제7조(개인정보의 수집 방법)
-홈페이지 회원가입, 서비스 신청, 고객센터 문의, 이벤트 응모, 생성정보 수집 툴 등을 통해 수집합니다.
-
-제8조(정보주체의 권리·의무 및 행사 방법)
-정보주체는 개인정보 열람·정정·삭제·처리정지 등을 요청할 수 있으며, 고객센터 또는 서면·이메일·전화로 신청합니다.
-
-제9조(개인정보의 안전성 확보 조치)
-관리적 조치: 내부관리계획 수립·시행, 직원 교육
-기술적 조치: 접근 통제, 암호화, 보안 프로그램 설치
-물리적 조치: 전산실·자료 보관실 출입 통제
-
-제10조(개인정보 보호책임자)
-성명: 이용범 / 직책: 대표이사 / 연락처: TEL 1588-2832, Email privacy@scenee.com
-
-제11조(개인정보 처리방침 변경)
-이 방침은 2025년 6월 10일부터 적용되며, 변경 시 홈페이지 공지사항을 통해 안내합니다.
-`;
+import React, { useState } from "react";
+import { FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
+import Logo from "../../assets/images/logo.png";
+import Modal from "../Common/modal";
+import TermsContent from "./terms";
+import PrivacyContent from "./PrivacyPage ";
+import ContactPage from "./contact";
+import NoticeContent from "./notice";
+import NoEmailContent from "./no_email";
 
 const FooterLeft = () => {
-  const openTextPopup = (title, text) => {
-    const popup = window.open('', title, 'width=600,height=800,resizable=yes,scrollbars=yes');
-    popup.document.write(
-      `<html>
-        <head>
-          <title>${title}</title>
-        </head>
-        <body style="white-space:pre-wrap; padding:20px; font-family:sans-serif; line-height:1.5;">
-          <h1>${title}</h1>
-          <pre style="border:none; background:transparent; font-family:inherit;">${text}</pre>
-        </body>
-      </html>`
-    );
-    popup.document.close();
-  };
+    const [openModal, setOpenModal] = useState(null);
 
-  return (
-    <div className="footer-col footer-col--left">
-      <div className="footer-links-social">
-        <ul className="footer-links">
-          <li>
-            <a href="#" onClick={e => { e.preventDefault(); openTextPopup('이용약관', termsText); }}>
-              이용약관
-            </a>
-          </li>
-          <li>
-            <a href="#" onClick={e => { e.preventDefault(); openTextPopup('개인정보처리방침', privacyText); }}>
-              개인정보처리방침
-            </a>
-          </li>
-          <li><a href="/contact">문의하기</a></li>
-          <li><a href="/notice">공지사항</a></li>
-          <li><a href="/no_email">이메일무단수집거부</a></li>
-        </ul>
-        <div className="footer-social">
-          <a href="#"><FaInstagram/></a>
-          <a href="#"><FaYoutube/></a>
-          <a href="#"><FaTwitter/></a>
+    return (
+        <div className="footer-col footer-col--left">
+            <div className="footer-links-social">
+                <ul className="footer-links">
+                    <li>
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setOpenModal("terms");
+                            }}
+                        >
+                            이용약관
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setOpenModal("privacy");
+                            }}
+                        >
+                            개인정보처리방침
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setOpenModal("contact");
+                            }}
+                        >
+                            문의하기
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setOpenModal("notice");
+                            }}
+                        >
+                            공지사항
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setOpenModal("no_email");
+                            }}
+                        >
+                            이메일무단수집거부
+                        </a>
+                    </li>
+                </ul>
+                <div className="footer-social">
+                    <a href="#">
+                        <FaInstagram />
+                    </a>
+                    <a href="#">
+                        <FaYoutube />
+                    </a>
+                    <a href="#">
+                        <FaTwitter />
+                    </a>
+                </div>
+            </div>
+
+            <div className="footer-company">
+                <img src={Logo} alt="SCENEE Logo" className="footer-logo" />
+                <p>
+                    주식회사: SCENEE | 서울특별시 서초구 강남대로 375 | 대표:
+                    이용범 | TEL: 1588-4444
+                </p>
+                <p>copyright Ⓒ 2025 by GLOBAL. All rights reserved.</p>
+            </div>
+
+            {/* Modals */}
+            <Modal
+                isOpen={openModal === "terms"}
+                onClose={() => setOpenModal(null)}
+                title="이용약관"
+            >
+                <TermsContent />
+            </Modal>
+            <Modal
+                isOpen={openModal === "privacy"}
+                onClose={() => setOpenModal(null)}
+                title="개인정보처리방침"
+            >
+                <PrivacyContent />
+            </Modal>
+            <Modal
+                isOpen={openModal === "contact"}
+                onClose={() => setOpenModal(null)}
+                title="문의하기"
+            >
+                <ContactPage />
+            </Modal>
+            <Modal
+                isOpen={openModal === "notice"}
+                onClose={() => setOpenModal(null)}
+                title="공지사항"
+            >
+                <NoticeContent />
+            </Modal>
+            <Modal
+                isOpen={openModal === "no_email"}
+                onClose={() => setOpenModal(null)}
+                title="이메일무단수집거부"
+            >
+                <NoEmailContent />
+            </Modal>
         </div>
-      </div>
-      <div className="footer-company">
-        <img src={Logo} alt="SCENEE Logo" className="footer-logo" />
-        <p>주식회사: SCENEE | 서울특별시 서초구 강남대로 375 | 대표 : 이용범 | TEL : 1588-4444</p>
-        <p>copyright Ⓒ 2025 by GLOBAL. All rights reserved.</p>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default FooterLeft;
