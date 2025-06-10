@@ -1,6 +1,6 @@
 //config: 프로젝트 전반에 사용하는 공통 파일 설정을 모아두는 공간
-import mariadb from 'mariadb';
-import dotenv from 'dotenv';
+import mariadb from "mariadb";
+import dotenv from "dotenv";
 //dotenv 라이브러리를 활용하여 정보를 감춤
 dotenv.config();
 
@@ -11,7 +11,6 @@ const pool = mariadb.createPool({
   password: process.env.DB_Password,
   database: process.env.DB_Name,
   connectionLimit: 5,
-
 });
 
 export default pool;

@@ -1,19 +1,22 @@
-import axios from './axiosInstance.js';
-//작성한 axios 인스턴스를 가져옴
+import axios from "./axiosInstance.js";
 
-//전체 게시판 목록 요청 (GET) - /api/board/boards
-export function getBoards(data) {
-  return axios.get('board/boards', data);
+// 전체 게시판
+export function getBoards() {
+  return axios.get("/board/boards");
 }
-//게시판 조회 요청 (GET) - /api/board/boards/:id
-export function getBoardById(data) {
-  return axios.get('board/boards/:id', data);
+// 게시글 상세 조회
+export function getBoardById(id) {
+  return axios.get(`/board/boards/${id}`);
 }
-//공지사항 게시판 목록 요청 (GET) - /api/board/notices
-export function getNoticeBoards(data) {
-  return axios.get('board/notices', data);
+// 공지사항 목록
+export function getNoticeBoards() {
+  return axios.get("/board/notices");
 }
-//이벤트 게시판 목록 요청 (GET) - /api/board/events
-export function getEventBoards(data) {
-  return axios.get('borad/events', data);
+// 이벤트 목록 (경로 수정)
+export function getEventBoards() {
+  return axios.get("/board/events");
+}
+// 공지/이벤트 생성
+export function createNotice(payload) {
+  return axios.post("/board/notices", payload);
 }
