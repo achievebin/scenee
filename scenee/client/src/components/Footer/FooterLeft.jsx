@@ -4,7 +4,7 @@ import { FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
 import Logo from "../../assets/images/logo.png";
 import Modal from "../Common/modal";
 import TermsContent from "./terms";
-import PrivacyContent from "./PrivacyPage ";
+import PrivacyContent from "./PrivacyPage";
 import ContactPage from "./contact";
 import NoticeContent from "./notice";
 import NoEmailContent from "./no_email";
