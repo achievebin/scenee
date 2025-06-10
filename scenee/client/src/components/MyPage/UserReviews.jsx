@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getUserReviews, deleteReview, reviseReview } from '../../api/reviewApi';
 import { fetchMovieDetails } from '../../api/tmdbApi';
 import EditReviewModal from '../../components/Review/EditReviewModal';
-import StarRatings from 'react-star-ratings';
+import Rating from 'react-rating';
+import {Star} from 'lucide-react';
 import styles from './UserReviews.module.css';
 
 export default function UserReviews({userId}) {
@@ -11,38 +12,34 @@ export default function UserReviews({userId}) {
   const [fixReview, setFixReview] = useState(null);
 
   useEffect(() => {
-    if (!userId) return;
-    //리뷰 가져오기
-    const fetchReviews = async () => {
-      try {
-        const res = await getUserReviews(userId);
-        const reviews = res.data;
-        //TMDB API를 이용해 영화 제목과 포스터 가져오기
-        const enriched = await Promise.all(
-          reviews.map(async (review) => {
-            //Promise.all(): 여러 개의 비동기 작업을 병렬로 실행 후 모두 완료시 한꺼번에 반환
+  if (!userId) return;
+
+  const fetchReviews = async () => {
+    try {
+      const res = await getUserReviews(userId);
+      const raw = Array.isArray(res.data) ? res.data : [];
+      const enriched = await Promise.all(
+          raw.map(async (review) => {
             try {
-              const movieRes = await fetchMovieDetails(review.movie_id);
-              return {
-                ...review,
-                movie: movieRes,
-              };
+              const movie = await fetchMovieDetails(review.movie_id);
+              return { ...review, movie };
             } catch (err) {
-              //하나라도 실패시 catch로 넘어감
-              console.error(`영화 ${review.movie_id} 불러오기 실패`, err);
-              return review;
+              console.error(`❌ TMDB 요청 실패 (movie_id: ${review.movie_id})`, err);
+              return { ...review, movie: null };
             }
           })
         );
         setBoardList(enriched);
-      } catch (err) {
-        console.error('리뷰 목록을 가져오는 데 실패했습니다.', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchReviews();
-  }, [userId]);
+    } catch (err) {
+      console.error('❌ 사용자 리뷰 조회 실패:', err);
+      setBoardList([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchReviews();
+}, [user]);
 
   //리뷰 삭제
   const handleDelete = async (reviewId) => {
@@ -80,7 +77,7 @@ export default function UserReviews({userId}) {
       ) : (
         <ul className={styles['my-review-list__container']}>
           {boardList.map((review) => (
-            <li key={review.id} style={style['my-review-list']}>
+            <li key={review.id} className={styles['my-review-list']}>
               {review.movie && (
                 <section className={styles['my-review__container']}>
                   {/* TMDB API 활용하여 이미지 출력 */}
@@ -91,15 +88,11 @@ export default function UserReviews({userId}) {
                   />
                   <article>
                     <strong>{review.movie.title}</strong>
-                    {/* 별점 UI 출력 */}
-                    <StarRatings
-                      rating={review.rating}
-                      starRatedColor="gold"
-                      starEmptyColor="lightgray"
-                      numberOfStars={5}
-                      name={`rating-${review.id}`}
-                      starDimension="20px"
-                      starSpacing="3px"
+                    <Rating
+                      initialRating={review.rating}
+                      readonly
+                      emptySymbol={<Star color="lightgray" size={20} />}
+                      fullSymbol={<Star color="gold" size={20} fill="gold" />}
                     />
                     <p>{review.content}</p>
                     <button onClick={() => setFixReview(review)}>수정</button>

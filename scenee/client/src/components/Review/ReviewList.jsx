@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getReviews, deleteReview } from '../../api/reviewApi';
-import StarRatings from 'react-star-ratings';
+import { getReviews, reviseReview, deleteReview } from '../../api/reviewApi';
+import Ratings from 'react-rating';
+import { Star } from 'lucide-react';
 import EditReviewModal from './EditReviewModal'; // 모달 컴포넌트
 import { useAuthContext } from '../../contexts/AuthContext'; // 사용자 정보
 
@@ -41,13 +42,11 @@ export default function ReviewList({ movieId }) {
         <ul>
           {reviews.map((r) => (
             <li key={r.id}>
-              <StarRatings
-                rating={r.rating}
-                starRatedColor="gold"
-                numberOfStars={5}
-                name="rating"
-                starDimension="20px"
-                starSpacing="2px"
+              <Ratings
+                initialRating={r.rating}
+                readonly
+                emptySymbol={<Star color="lightgray" size={20} />}
+                fullSymbol={<Star color="gold" size={20} fill="gold" />}
               />
               <p>{r.content}</p>
               <small>작성자: {r.nickname || r.userId}</small>
@@ -67,7 +66,16 @@ export default function ReviewList({ movieId }) {
         <EditReviewModal
           review={editingReview}
           onClose={() => setEditingReview(null)}
-          onUpdated={fetchReviews}
+          onSubmit={async (updated) => {
+            try {
+              await reviseReview(updated);  // 서버에 수정 내용 전송
+              await fetchReviews();         // 목록 갱신
+            } catch (err) {
+              console.error('리뷰 수정 실패:', err);
+            } finally {
+             setEditingReview(null);
+            }
+          }}
         />
       )}
     </div>

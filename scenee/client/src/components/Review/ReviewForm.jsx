@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { addReview } from '../../api/reviewApi';
-import StarRatings from 'react-star-ratings'; // 별점 UI
+import Ratings from 'react-rating'; // 별점 UI
+import { Star } from 'lucide-react';
+import styles from './ReviewForm.module.css';
 
 export default function ReviewForm({ movieId }) {
   const [rating, setRating] = useState(0);
@@ -29,14 +31,11 @@ export default function ReviewForm({ movieId }) {
     <form onSubmit={handleSubmit} className={styles.form}>
       <h3>리뷰 작성</h3>
 
-      <StarRatings
-        rating={rating}
-        starRatedColor="gold"
-        changeRating={setRating}
-        numberOfStars={5}
-        name="rating"
-        starDimension="24px"
-        starSpacing="4px"
+      <Ratings
+        initialRating={rating}
+        onChange={(rate) => setRating(rate)}
+        emptySymbol={<Star color="lightgray" size={24} />}
+        fullSymbol={<Star color="gold" size={24} fill="gold" />}
       />
 
       <textarea
