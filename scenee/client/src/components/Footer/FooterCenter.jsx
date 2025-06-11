@@ -1,10 +1,10 @@
-// components/Home/Footer/FooterCenter.jsx
 import React from "react";
+import styles from "./FooterCenter.module.css";
 
-const FooterCenter = () => (
-  <div className="footer-col footer-col--center">
-    <p className="footer-slogan">좋은 장면, 좋은 이야기, SCENEE와 함께</p>
-  </div>
-);
-
-export default FooterCenter;
+export default function FooterCenter() {
+  return (
+    <div className={styles.footerColCenter}>
+      <p className={styles.slogan}>좋은 장면, 좋은 이야기, SCENEE와 함께</p>
+    </div>
+  );
+}

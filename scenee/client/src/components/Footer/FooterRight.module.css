@@ -1,0 +1,25 @@
+.footerColRight {
+  align-items: flex-end;
+  text-align: right;
+  justify-content: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.tel {
+  margin: 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.hours {
+  font-size: 12px;
+  color: #afafaf;
+  line-height: 1.4;
+}
