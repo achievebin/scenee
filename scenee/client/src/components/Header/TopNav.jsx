@@ -15,7 +15,15 @@ const TopNav = () => {
 
   return (
     <div className={styles['top-nav']} id="user">
+      <div className={styles['top-nav__left']}>
+          <img src='/images/logo.png' alt="Logo" className={styles['logo']}/>
+        </div>
+      
       <div className={styles['auth-links']}>
+        
+        
+        <div className={styles['top-nav-right']}>
+        
         {!isLoading && user ? (
           <>
             <span className={styles['welcome']}>
@@ -32,6 +40,8 @@ const TopNav = () => {
           </>
         ) : (
           <>
+
+            
             <Link to="/login" className={styles['top-login']}>
               로그인
             </Link>
@@ -40,7 +50,9 @@ const TopNav = () => {
               회원가입
             </Link>
           </>
+          
         )}
+        </div>
       </div>
     </div>
   );

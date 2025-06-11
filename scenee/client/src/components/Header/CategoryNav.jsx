@@ -21,7 +21,7 @@ export default function CategoryNav() {
     <div>
       <div className={styles.category_nav}>
         {['popular', 'top_rated', 'upcoming', 'now_playing'].map((cat) => (
-          <button key={cat} onClick={() => handleClick(cat)}>
+          <button className={styles.categoryButton}key={cat} onClick={() => handleClick(cat)}>
             {cat.replace('_', ' ').toUpperCase()}
           </button>
         ))}
