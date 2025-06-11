@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './MainSlider.module.css';
+import React, { useEffect, useRef, useState } from "react";
+import styles from "./MainSlider.module.css";
 
-const nextIcon = '/next.svg';
+const nextIcon = "/next.svg";
 function MainSlider() {
   const images = [
-    '/images/dragon.jpg',
-    '/images/hifive.jpg',
-    '/images/mission.jpg',
+    "/images/dragon.jpg",
+    "/images/hifive.jpg",
+    "/images/mission.jpg",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,9 +44,9 @@ function MainSlider() {
   };
 
   return (
-    <div className={styles['slider-container']}>
+    <div className={styles["slider-container"]}>
       <div
-        className={styles['slider-wrapper']}
+        className={styles["slider-wrapper"]}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((src, idx) => (
@@ -56,23 +56,23 @@ function MainSlider() {
         ))}
       </div>
 
-      <button className={styles['arrow prev']} onClick={handlePrev}>
+      <button className={styles["arrow prev"]} onClick={handlePrev}>
         <img
           src={nextIcon}
           alt="Previous"
-          className={styles['arrow-icon flipX']}
+          className={styles["arrow-icon flipX"]}
         />
       </button>
 
-      <button className={styles['arrow next']} onClick={handleNext}>
-        <img src={nextIcon} alt="Next" className={styles['arrow-icon']} />
+      <button className={styles["arrow next"]} onClick={handleNext}>
+        <img src={nextIcon} alt="Next" className={styles["arrow-icon"]} />
       </button>
 
-      <div className={styles['dots']}>
+      <div className={styles["dots"]}>
         {images.map((_, idx) => (
           <span
             key={idx}
-            className={styles[`dot ${idx === currentIndex ? 'active' : ''}`]}
+            className={styles[`dot ${idx === currentIndex ? "active" : ""}`]}
             onClick={() => {
               if (timeout.current) clearTimeout(timeout.current);
               setCurrentIndex(idx);

@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { fetchUserProfile } from '../api/userApi';
-import { logoutUser } from '../api/authApi';
-import { LOCAL_STORAGE_KEYS } from '../constants/localStorageKeys';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { fetchUserProfile } from "../api/userApi";
+import { logoutUser } from "../api/authApi";
+import { LOCAL_STORAGE_KEYS } from "../constants/localStorageKeys";
 
 const AuthContext = createContext();
 
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
         const response = await fetchUserProfile();
         setUser(response.data);
       } catch (error) {
-        console.error('유저 정보 불러오기 실패:', error);
+        console.error("유저 정보 불러오기 실패:", error);
         setUser(null);
       } finally {
         setIsLoading(false);
@@ -34,8 +34,8 @@ export const AuthProvider = ({ children }) => {
     initializeUser();
   }, []);
 
-  const login = async (token, saveTo = 'local') => {
-    if (saveTo === 'session') {
+  const login = async (token, saveTo = "local") => {
+    if (saveTo === "session") {
       sessionStorage.setItem(LOCAL_STORAGE_KEYS.TOKEN_KEY, token);
     } else {
       localStorage.setItem(LOCAL_STORAGE_KEYS.TOKEN_KEY, token);
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
       const res = await fetchUserProfile();
       setUser(res.data);
     } catch (err) {
-      console.error('로그인 후 유저 불러오기 실패:', err);
+      console.error("로그인 후 유저 불러오기 실패:", err);
     }
   };
 

@@ -1,21 +1,21 @@
 // src/pages/FindPasswordPage.jsx
-import React, { useState } from 'react';
-import styles from './FindPage.module.css';
-import axios from 'axios'; // axiosInstance를 쓰신다면 그것을 사용하세요.
-import { Link } from 'react-router-dom';
-import { requestPasswordReset } from '../../api/findApi';
+import React, { useState } from "react";
+import styles from "./FindPage.module.css";
+import axios from "axios"; // axiosInstance를 쓰신다면 그것을 사용하세요.
+import { Link } from "react-router-dom";
+import { requestPasswordReset } from "../../api/findApi";
 export default function FindPasswordPage() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handleFindPassword = async (e) => {
     e.preventDefault();
-    setError('');
-    setMessage('');
+    setError("");
+    setMessage("");
 
     if (!email) {
-      setError('이메일을 입력하세요.');
+      setError("이메일을 입력하세요.");
       return;
     }
 
@@ -23,11 +23,11 @@ export default function FindPasswordPage() {
       // 실제 API 경로가 다르다면 수정하세요.
       const res = await requestPasswordReset({ email });
       setMessage(
-        res.data.message || '비밀번호 재설정 링크를 해당 이메일로 발송했습니다.'
+        res.data.message || "비밀번호 재설정 링크를 해당 이메일로 발송했습니다."
       );
     } catch (err) {
       setError(
-        err.response?.data?.message || '비밀번호 찾기 중 오류가 발생했습니다.'
+        err.response?.data?.message || "비밀번호 찾기 중 오류가 발생했습니다."
       );
     }
   };

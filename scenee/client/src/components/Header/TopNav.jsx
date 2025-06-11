@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../../contexts/AuthContext';
-import styles from '../Home/Header.module.css';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
+import styles from "../Home/Header.module.css";
 
 const TopNav = () => {
   const { user, logout, isLoading } = useAuthContext();
@@ -10,32 +10,34 @@ const TopNav = () => {
   // 로그아웃 처리
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
-    <nav className={styles['top-nav']}>
-      <div className={styles['top-nav__header']} id="user">
-        <div className={styles['auth-links']}>
+    <nav className={styles["top-nav"]}>
+      <div className={styles["top-nav__header"]} id="user">
+        <div className={styles["auth-links"]}>
           {!isLoading && user ? (
             <>
-              <span className={styles['welcome']}>{user.nickname}님 환영합니다</span>
-              <span className={styles['divider']}>|</span>
-              <Link to="/mypage" className={styles['top-mypage']}>
+              <span className={styles["welcome"]}>
+                {user.nickname}님 환영합니다
+              </span>
+              <span className={styles["divider"]}>|</span>
+              <Link to="/mypage" className={styles["top-mypage"]}>
                 마이페이지
               </Link>
-              <span className={styles['divider']}>|</span>
-              <button onClick={handleLogout} className={styles['top-logout']}>
+              <span className={styles["divider"]}>|</span>
+              <button onClick={handleLogout} className={styles["top-logout"]}>
                 로그아웃
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className={styles['top-login']}>
+              <Link to="/login" className={styles["top-login"]}>
                 로그인
               </Link>
-              <span className={styles['divider']}>|</span>
-              <Link to="/register" className={styles['top-sign']}>
+              <span className={styles["divider"]}>|</span>
+              <Link to="/register" className={styles["top-sign"]}>
                 회원가입
               </Link>
             </>

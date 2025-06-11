@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from '../../api/tmdbApi';
 import { TMDB_IMAGE_BASE_URL } from '../../constants/tmdb';
 import styles from './MovieCredits.module.css';
 
-export default function MovieCredits() {
-  const { movieId } = useParams();
+export default function MovieCredits({ movieId }) {
   const [cast, setCast] = useState([]);
   const [director, setDirector] = useState(null);
 
@@ -29,7 +27,9 @@ export default function MovieCredits() {
       <h2>출연진 및 제작진</h2>
 
       {director && (
-        <p><strong>감독:</strong> {director.name}</p>
+        <p>
+          <strong>감독:</strong> {director.name}
+        </p>
       )}
 
       <div className={styles.castList}>
@@ -43,7 +43,9 @@ export default function MovieCredits() {
               }
               alt={actor.name}
             />
-            <p><strong>{actor.name}</strong></p>
+            <p>
+              <strong>{actor.name}</strong>
+            </p>
             <p className={styles.character}>({actor.character})</p>
           </div>
         ))}

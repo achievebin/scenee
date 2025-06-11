@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { updateUser } from '../../api/userApi';
-import { validateNickname, validateEmail } from '../../utils/validations';
+import React, { useEffect, useState } from "react";
+import { updateUser } from "../../api/userApi";
+import { validateNickname, validateEmail } from "../../utils/validations";
 
 export default function EditProfileForm({ user, onUpdate }) {
   const [formData, setFormData] = useState({
-    nickname: '',
-    email: '',
+    nickname: "",
+    email: "",
   });
   const [error, setError] = useState(null);
 
   //이용자 정보로 초기화
   useEffect(() => {
-  if (user) {
-    setFormData({
-      nickname: user.nickname || '',
-      email: user.email || ''
-    });
-  }
-}, [user]);
+    if (user) {
+      setFormData({
+        nickname: user.nickname || "",
+        email: user.email || "",
+      });
+    }
+  }, [user]);
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-    ...prev,
-    [name]: value,
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
     }));
   };
 
@@ -42,10 +42,10 @@ export default function EditProfileForm({ user, onUpdate }) {
     try {
       const res = await updateUser(user.id, formData);
       onUpdate(res.data);
-      alert('프로필이 수정되었습니다.');
+      alert("프로필이 수정되었습니다.");
     } catch (err) {
       console.error(err);
-      setError('프로필 수정 중 오류 발생');
+      setError("프로필 수정 중 오류 발생");
     }
   };
 
@@ -66,7 +66,7 @@ export default function EditProfileForm({ user, onUpdate }) {
         onChange={handleChange}
       />
       <button type="submit">수정하기</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </form>
   );
 }

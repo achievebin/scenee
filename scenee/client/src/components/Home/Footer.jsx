@@ -1,12 +1,18 @@
-import React from 'react'
+// components/Home/Footer.jsx
+import React from "react";
+import FooterLeft from "../Footer/FooterLeft";
+import FooterCenter from "../Footer/FooterCenter";
+import FooterRight from "../Footer/FooterRight";
+import "../Footer/Footer.css";
 
-//HomePage의 최하단에 들어가는 내용을 출력하는 컴포넌트
-const Footer = () => {
-  return (
-    <div>
-      
+const Footer = () => (
+  <footer className="footer">
+    <div className="footer-container">
+      <FooterLeft />
+      <FooterCenter />
+      <FooterRight />
     </div>
-  )
-}
+  </footer>
+);
 
-export default Footer
+export default Footer;

@@ -1,14 +1,14 @@
 import axios from 'axios';
 //작성한 axios 인스턴스를 가져옴
-import { TMDB_API_KEY, TMDB_BASE_URL } from '../constants/tmdb'
-//TMDB API를 받아오기 위함
+import { TMDB_API_KEY, TMDB_BASE_URL } from '../constants/tmdb';
+//TMDB API를 받아오기 위한 상수
 
 //인기 영화 조회
 export async function fetchPopularMovies() {
   const response = await axios.get(`${TMDB_BASE_URL}/movie/popular`, {
     params: {
       api_key: TMDB_API_KEY,
-      language: 'ko-KR'
+      language: 'ko-KR',
     },
   });
   return response.data;
@@ -19,7 +19,7 @@ export async function fetchMovieDetails(movieId) {
   const response = await axios.get(`${TMDB_BASE_URL}/movie/${movieId}`, {
     params: {
       api_key: TMDB_API_KEY,
-      language: 'ko-KR'
+      language: 'ko-KR',
     },
   });
   return response.data;
@@ -30,8 +30,29 @@ export async function fetchMovieCredits(movieId) {
   const res = await axios.get(`${TMDB_BASE_URL}/movie/${movieId}/credits`, {
     params: {
       api_key: TMDB_API_KEY,
-      language: 'ko-KR'
-    }
+      language: 'ko-KR',
+    },
+  });
+  return res.data;
+}
+
+//영화 이미지 조회
+export async function fetchMovieImages(movieId) {
+  const res = await axios.get(`${TMDB_BASE_URL}/movie/${movieId}/images`, {
+    params: {
+      api_key: TMDB_API_KEY,
+    },
+  });
+  return res.data;
+}
+
+//비슷한 영화 조회
+export async function fetchSimilarMovies(movieId) {
+  const res = await axios.get(`${TMDB_BASE_URL}/movie/${movieId}/similar`, {
+    params: {
+      api_key: TMDB_API_KEY,
+      language: 'ko-KR',
+    },
   });
   return res.data;
 }
@@ -41,9 +62,9 @@ export async function searchMovie(query) {
   const response = await axios.get(`${TMDB_BASE_URL}/search/movie`, {
     params: {
       api_key: TMDB_API_KEY,
-      language: 'ko-KR'
+      language: 'ko-KR',
+      query,
     },
-    query,
   });
   return response.data;
 }

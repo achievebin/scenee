@@ -10,6 +10,7 @@ import reviewRoutes from './routes/reviewRoutes.js';
 import noticeRoutes from './routes/noticeRoutes.js';
 import findRoutes from './routes/findRoutes.js'
 
+
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));

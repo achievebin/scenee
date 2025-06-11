@@ -7,7 +7,7 @@ export const getReviewsByMovieId = async (req, res) => {
     const {movieId} = req.params;
     try {
         const reviews = await bringReviewsByMovieId(movieId);
-        res.json(reviews);
+        res.json(Array.isArray(reviews) ? reviews : []);
     } catch (error) {
         res.status(500).json({message: '리뷰 조회 실패'});
         //http 응답코드 500(Internet Server Error)
@@ -20,7 +20,7 @@ export const getReviewsByUserId = async (req, res) => {
     const {userId} = req.params;
     try {
         const reviews = await bringReviewsByUserId(userId);
-        res.json(reviews);
+        res.json(Array.isArray(reviews) ? reviews : []);
     } catch (error) {
         res.status(500).json({message: '리뷰 조회 실패'});
         //http 응답코드 500(Internet Server Error)
@@ -33,7 +33,7 @@ export const postReview = async (req, res) => {
     const userId = req.user.id;
     const {movieId, content, rating} = req.body
     try {
-        await createReview(userId, movieId, content, rating);
+        const reviewId = await createReview(userId, movieId, content, rating);
         res.status(201).json({message: '리뷰 작성 성공', reviewId})
         //http 응답코드 201(Created)
     } catch (error) {
@@ -70,7 +70,7 @@ export const removeReview = async (req, res) => {
     try {
         const result = await deleteReview(reviewId, userId);
          if (result === 0){
-            return res.status(403).json({message: '삭제제 권한이 없습니다. 본인만 삭제할 수 있습니다.'})
+            return res.status(403).json({message: '삭제 권한이 없습니다. 본인만 삭제할 수 있습니다.'})
             //http 응답코드 403(Forbidden)
         }
         res.json({message: '리뷰 삭제 성공'});

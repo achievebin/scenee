@@ -18,18 +18,18 @@ export async function createResetToken(userId, token, expiresAt) {
 
 // 2) 토큰을 기반으로 레코드 조회 (토큰 유효성 검증에 사용)
 export async function findToken(token) {
-  let conn;
+  const conn = await pool.getConnection();
   try {
-    conn = await pool.getConnection();
-    const [rows] = await conn.query(
-      `SELECT * FROM password_reset_tokens WHERE token = ?`,
+    const rows = await conn.query(
+      'SELECT * FROM password_reset_tokens WHERE token = ?',
       [token]
     );
     return rows.length ? rows[0] : null;
   } finally {
-    conn?.release();
+    conn.release();
   }
 }
+
 
 // 3) 사용 후(또는 만료 후) 토큰 삭제
 export async function deleteToken(token) {
