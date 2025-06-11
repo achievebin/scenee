@@ -1,0 +1,237 @@
+@import url('https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css');
+
+.popularSection {
+	background: #332c3b;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	 position: relative;
+    height: 1000px;
+	
+}
+
+.popularSectionTitle{
+	color: white;
+	font-size: 50px;
+	font-family: 'Pretendard', system-ui, sans-serif;
+	margin: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-left: 110px;
+	text-align: left;
+	margin-top: 90px;
+	
+}
+
+.popularList {
+	display: flex;
+	gap: 90px;
+	margin-top: 20px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 10px;
+  	scroll-snap-type: x mandatory;      
+  	flex-wrap: nowrap;
+	 padding: 20px;
+}
+
+.popularItem {
+	flex: 0 0 auto;
+	width: 333px;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	padding-top: 100px;
+	scroll-snap-align: center;
+
+}
+
+.popularCard {
+	width: 100%;
+	height: 562px;
+	overflow: hidden;
+	border-radius: 12px;
+	background-color: transparent;
+	
+	transition: transform 0.3s ease-in-out;
+}
+
+.popularCardImg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: skewY(10deg);
+	border-radius: 8px;
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	transform-origin: center;
+}
+
+.popularSubtitle {
+	color: white;
+	font-size: 16px;
+	white-space: nowrap;
+	 position: absolute;  
+	text-overflow: ellipsis;
+	font-family: 'Pretendard', system-ui, sans-serif;
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	 left: 50%;               /* 수평 중앙 */
+  	 bottom: -20px; 
+	transition:
+	 opacity 0.3s ease-in-out,
+	 visibility 0.3s ease-in-out,
+	transform 0.3s ease-in-out;
+
+	transform-origin: center;
+}
+
+
+
+.popularRank {
+	position: absolute; /* wrapper를 기준으로 절대 위치 */
+	left: 12px; /* 왼쪽에서 12px 떨어진 지점 (필요 시 조정) */
+	bottom: -20px; /* 아래에서 12px 떨어진 지점 (필요 시 조정) */
+	font-size: 120px; /* 순위 숫자 크기 */
+	font-weight: bold;
+	font-family: 'Ranga', 'system-ui', 'sans-serif';
+	color: #ffffff;
+	filter: drop-shadow(2px 5px 40px rgba(48, 48, 48, 0.7));
+	opacity: 0;
+	visibility: hidden;
+
+	/* 소제목과 동일하게 transition 주기 */
+	transform-origin: left center;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
+		transform 0.3s ease-in-out;
+}
+
+
+
+.inner1 {
+	transform: skewY(10deg);
+}
+.inner1 .popularCardImg  {
+	transform: skewY(20deg);
+}
+
+.inner2 {
+	transform: skewY(10deg);
+}
+.inner2 .popularCardImg  {
+	transform: skewY(-10deg);
+}
+
+.inner3 {
+	transform: skewY(-10deg);
+}
+.inner3 .popularCardImg  {
+	transform: skewY(20deg);
+}
+
+.inner4 {
+	transform: skewY(10deg);
+}
+.inner4 .popularCardImg  {
+	transform: skewY(-10deg);
+}
+
+.inner5 {
+	transform: skewY(-20deg);
+}
+.inner5 .popularCardImg  {
+	transform: skewY(20deg);
+}
+
+.popularItem:hover {
+	opacity: 1;
+	transform: translateY(-8px) scale(1.1);
+	z-index: 10;
+	transform: none;
+}
+
+.popularItem:hover .popularCard {
+	
+	width: 350px;
+	height: 590px;
+	transform: scale(1.15);
+}
+
+.popularItem:hover .popularCardImg  {
+	transform: none;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	width: 100%;
+}
+
+.popularSection:hover .popularItem:not(:hover) {
+	opacity: 0.5;
+}
+
+.popularCardInner {
+	width: 100%;
+	height: 100%;
+	transform: skewY(-10deg);
+	transition: transform 0.3s ease-in-out;
+	transform-origin: center;
+}
+
+.popularCardWrapper {
+	width: 333px; /* popularItem과 동일한 너비 */
+	height: 562px; /* 카드 높이 */
+	overflow: hidden; /* 내부에서 튀어나오는 skew 영역은 잘라버림 */
+	border-radius: 12px;
+	background-color: transparent;
+	position: relative;
+	transform: none;
+	
+}
+.popularItem:hover .popularCardInner {
+	transform: none;
+}
+
+.popularItem:hover .popularCardImg  {
+	/* 이미지도 skew 해제 */
+	transform: none;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.popularItem.hovered {
+  /* 카드 떠오르기 + 확대 */
+  transform: translateY(-8px) scale(1.05);
+  opacity: 1;
+  z-index: 10;
+
+  height: 626px;
+}
+
+/* skew 해제 */
+.popularItem.hovered .popularCardInner {
+  transform: none;
+}
+
+/* 그림자 강조 */
+.popularItem.hovered .popularCardImg {
+  transform: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* 서브타이틀 보이기 */
+.popularItem.hovered .popularSubtitle {
+  opacity: 1;
+	visibility: visible;
+	 transform: translateX(-50%) scale(1.1);
+	font-size: 30px;
+	font-weight: bold;
+	filter: drop-shadow(2px 5px 40px rgba(48, 48, 48, 0.7));
+}
+
+/* 순위 숫자 보이기 */
+.popularItem.hovered .popularRank {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.1);
+  font-size: 100px;
+}
+
+
+
