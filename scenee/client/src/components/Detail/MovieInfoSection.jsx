@@ -1,23 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../api/tmdbApi';
 
-export default function MovieInfoSection({ movieId }) {
-  const [info, setInfo] = useState(null);
-
-  useEffect(() => {
-    const loadInfo = async () => {
-      try {
-        const data = await fetchMovieDetails(movieId);
-        setInfo(data);
-      } catch (err) {
-        console.error('영화 정보 가져오기 실패', err);
-      }
-    };
-    loadInfo();
-  }, [movieId]);
+export default function MovieInfoSection({ movieData }) {
   return (
-    <div>
-      <></>
-    </div>
+    <section>
+      <h2>줄거리</h2>
+      <p>{movieData.overview}</p>
+      {/* 추가 정보 */}
+    </section>
   );
 }

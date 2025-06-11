@@ -1,0 +1,11 @@
+.footerColCenter {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slogan {
+  font-size: 16px;
+  font-weight: 600;
+  color: #b3b3b3;
+}

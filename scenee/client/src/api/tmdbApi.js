@@ -57,13 +57,36 @@ export async function fetchSimilarMovies(movieId) {
   return res.data;
 }
 
-//영화 검색
-export async function searchMovie(query) {
+//검색어 기반 영화 검색
+export async function searchMovies(query) {
   const response = await axios.get(`${TMDB_BASE_URL}/search/movie`, {
     params: {
       api_key: TMDB_API_KEY,
       language: 'ko-KR',
       query,
+    },
+  });
+  return response.data;
+}
+
+//카테고리별 영화 검색
+export async function getMoviesByCategory(category) {
+  const response = await axios.get(`${TMDB_BASE_URL}/movie/${category}`, {
+    params: {
+      api_key: TMDB_API_KEY,
+      language: 'ko-KR',
+    },
+  });
+  return response.data;
+}
+
+//장르별 영화 검색
+export async function getMoviesByGenre(genreId) {
+  const response = await axios.get(`${TMDB_BASE_URL}/discover/movie`, {
+    params: {
+      api_key: TMDB_API_KEY,
+      language: 'ko-KR',
+      with_genres: genreId,
     },
   });
   return response.data;
