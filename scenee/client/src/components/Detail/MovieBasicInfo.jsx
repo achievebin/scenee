@@ -1,29 +1,13 @@
-import React, { useEffect } from 'react';
-import { fetchMovieDetails } from '../../api/tmdbApi';
+import React from 'react';
 import {
   TMDB_IMAGE_BASE_URL,
   B_POSTER_SIZE,
   BACKDROP_SIZE,
 } from '../../constants/tmdb';
-import styles from './MovieBasicInfo.module.css';
 
-export default function MovieBasicInfo({ movieId }) {
-  const [movie, setMovie] = useState(null);
-
-  useEffect(() => {
-    const loadMovie = async () => {
-      try {
-        const data = await fetchMovieDetails(movieId);
-        setMovie(data);
-      } catch (err) {
-        console.error('영화 정보 가져오기 실패', err);
-      }
-    };
-    loadMovie();
-  }, [movieId]);
-
-  const posterUrl = `${TMDB_IMAGE_BASE_URL}${B_POSTER_SIZE}${movie.poster_path}`;
-  const backdropUrl = `${TMDB_IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.backdrop_path}`;
+export default function MovieBasicInfo({ movieData }) {
+  const posterUrl = `${TMDB_IMAGE_BASE_URL}${B_POSTER_SIZE}${movieData.poster_path}`;
+  const backdropUrl = `${TMDB_IMAGE_BASE_URL}${BACKDROP_SIZE}${movieData.backdrop_path}`;
   const genres = movie.genres.map((g) => g.name).join(', ');
 
   return (
@@ -32,23 +16,23 @@ export default function MovieBasicInfo({ movieId }) {
       style={{ backgroundImage: `url(${backdropUrl})` }}
     >
       <section className={styles.overlay}>
-        <img src={posterUrl} alt={movie.title} className={styles.poster} />
+        <img src={posterUrl} alt={movieData.title} className={styles.poster} />
         <article>
-          <h1>{movie.title}</h1>
+          <h1>{movieData.title}</h1>
           <p>
-            <strong>원제:</strong> {movie.original_title}
+            <strong>원제:</strong> {movieData.original_title}
           </p>
           <p>
-            <strong>개봉일:</strong> {movie.release_date}
+            <strong>개봉일:</strong> {movieData.release_date}
           </p>
           <p>
             <strong>장르:</strong> {genres}
           </p>
           <p>
-            <strong>러닝타임:</strong> {movie.runtime}
+            <strong>러닝타임:</strong> {movieData.runtime}분
           </p>
           <p>
-            <strong>평점:</strong> {movie.vote_average}
+            <strong>평점:</strong> {movieData.vote_average}
           </p>
         </article>
       </section>
