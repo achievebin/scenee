@@ -1,73 +1,60 @@
-// components/Home/Footer/FooterLeft.jsx
 import React, { useState } from "react";
 import { FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
-import Logo from "../../assets/images/logo.png";
-import Modal from "../Common/modal";
+import { Link } from "react-router-dom";
+import Modal from "../Common/Modal";
 import TermsContent from "./terms";
 import PrivacyContent from "./PrivacyPage";
-import ContactPage from "./contact";
 import NoticeContent from "./notice";
 import NoEmailContent from "./no_email";
-import { Link } from "react-router-dom";
+import Logo from "../../assets/images/logo.png";
+import styles from "./FooterLeft.module.css";
 
-const FooterLeft = () => {
+export default function FooterLeft() {
   const [openModal, setOpenModal] = useState(null);
 
   return (
-    <div className="footer-col footer-col--left">
-      <div className="footer-links-social">
-        <ul className="footer-links">
+    <div className={styles.footerColLeft}>
+      <div className={styles.linksSocial}>
+        <ul className={styles.links}>
           <li>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenModal("terms");
-              }}
+            <button
+              className={styles.linkButton}
+              onClick={() => setOpenModal("terms")}
             >
               이용약관
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenModal("privacy");
-              }}
+            <button
+              className={styles.linkButton}
+              onClick={() => setOpenModal("privacy")}
             >
               개인정보처리방침
-            </a>
+            </button>
           </li>
           <li>
-            <Link to="/contact" className="footer-link">
+            <Link to="/contact" className={styles.linkButton}>
               문의하기
             </Link>
           </li>
           <li>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenModal("notice");
-              }}
+            <button
+              className={styles.linkButton}
+              onClick={() => setOpenModal("notice")}
             >
               공지사항
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenModal("no_email");
-              }}
+            <button
+              className={styles.linkButton}
+              onClick={() => setOpenModal("no_email")}
             >
               이메일무단수집거부
-            </a>
+            </button>
           </li>
         </ul>
-        <div className="footer-social">
+        <div className={styles.social}>
           <a href="#">
             <FaInstagram />
           </a>
@@ -80,13 +67,15 @@ const FooterLeft = () => {
         </div>
       </div>
 
-      <div className="footer-company">
-        <img src={Logo} alt="SCENEE Logo" className="footer-logo" />
-        <p>
-          주식회사: SCENEE | 서울특별시 서초구 강남대로 375 | 대표: 이용범 |
-          TEL: 1588-4444
-        </p>
-        <p>copyright Ⓒ 2025 by GLOBAL. All rights reserved.</p>
+      <div className={styles.company}>
+        <img src={Logo} alt="SCENEE Logo" className={styles.logo} />
+        <div className={styles.companyText}>
+          <p>
+            주식회사: SCENEE | 서울특별시 서초구 강남대로 375 | 대표: 이용범 |
+            TEL: 1588-4444
+          </p>
+          <p>copyright Ⓒ 2025 by GLOBAL. All rights reserved.</p>
+        </div>
       </div>
 
       {/* Modals */}
@@ -105,13 +94,6 @@ const FooterLeft = () => {
         <PrivacyContent />
       </Modal>
       <Modal
-        isOpen={openModal === "contact"}
-        onClose={() => setOpenModal(null)}
-        title="문의하기"
-      >
-        <ContactPage />
-      </Modal>
-      <Modal
         isOpen={openModal === "notice"}
         onClose={() => setOpenModal(null)}
         title="공지사항"
@@ -127,6 +109,4 @@ const FooterLeft = () => {
       </Modal>
     </div>
   );
-};
-
-export default FooterLeft;
+}
