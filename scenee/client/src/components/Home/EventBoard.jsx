@@ -1,6 +1,7 @@
 // src/components/Home/EventBoard.jsx
 import React, { useEffect, useState } from "react";
 import { getEventBoards } from "../../api/noticeApi.js";
+import styles from './EventBoard.module.css';
 
 const EventBoard = () => {
   const [events, setEvents] = useState([]);
