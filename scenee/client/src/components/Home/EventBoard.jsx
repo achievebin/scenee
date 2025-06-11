@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getEventBoards } from "../../api/noticeApi.js";
+import styles from './EventBoard.module.css';
 
 const EventBoard = () => {
   const [events, setEvents] = useState([]);
@@ -22,7 +23,7 @@ const EventBoard = () => {
 
   return (
     <div className="event-board">
-      <h2>🎁 이벤트</h2>
+      <h1 className={styles.EventSectionTitle}>이벤트 🎁 </h1>
       <div className="event-list">
         {events.map(({ id, title, event_date, thumbnail_url }) => (
           <div

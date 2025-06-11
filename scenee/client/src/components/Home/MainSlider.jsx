@@ -56,16 +56,16 @@ function MainSlider() {
         ))}
       </div>
 
-      <button className={styles["arrow prev"]} onClick={handlePrev}>
+      <button className={styles["arrowPrev"]} onClick={handlePrev}>
         <img
           src={nextIcon}
           alt="Previous"
-          className={styles["arrow-icon flipX"]}
+          className={styles["flipX"]}
         />
       </button>
 
-      <button className={styles["arrow next"]} onClick={handleNext}>
-        <img src={nextIcon} alt="Next" className={styles["arrow-icon"]} />
+      <button className={styles["arrowNext"]} onClick={handleNext}>
+        <img src={nextIcon} alt="Next" className={styles["arrowIcon"]} />
       </button>
 
       <div className={styles["dots"]}>

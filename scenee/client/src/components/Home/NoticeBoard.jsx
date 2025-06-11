@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getNoticeBoards } from '../../api/noticeApi.js';
-
+import styles from './NoticeBoard.module.css';
 const NoticeBoard = () => {
   const [notices, setNotices] = useState([]);
 
@@ -12,7 +12,7 @@ const NoticeBoard = () => {
 
   return (
     <div className="notice-board">
-      <h2>📌 공지사항</h2>
+      <h1 className={styles.NoticeBordTitle}> 공지사항 📌</h1>
       <ul>
         {notices.map(({ id, title, created_at }) => (
           <li key={id}>

@@ -12,7 +12,7 @@ body {
   display: flex;
   align-items: center;
   height: 146px;
-  width: 100%;
+  width: 1920px;
   padding: 0 40px;
   box-sizing: border-box;
   background: radial-gradient(circle at center, #373040 0%, #6f637d 100%);
