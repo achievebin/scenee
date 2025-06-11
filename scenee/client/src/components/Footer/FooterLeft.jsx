@@ -8,6 +8,7 @@ import PrivacyContent from "./PrivacyPage";
 import ContactPage from "./contact";
 import NoticeContent from "./notice";
 import NoEmailContent from "./no_email";
+import { Link } from "react-router-dom";
 
 const FooterLeft = () => {
   const [openModal, setOpenModal] = useState(null);
@@ -39,15 +40,9 @@ const FooterLeft = () => {
             </a>
           </li>
           <li>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenModal("contact");
-              }}
-            >
+            <Link to="/contact" className="footer-link">
               문의하기
-            </a>
+            </Link>
           </li>
           <li>
             <a

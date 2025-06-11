@@ -2,9 +2,9 @@
 
 //React Router에서 활용할 path(경로 상수)
 const routeConfig = {
-  home: '/',
-  login: '/login',
-  register: '/register',
+  home: "/",
+  login: "/login",
+  register: "/register",
   movieDetail: (id) => `/movie/${id}`,
   category: (type) => `/category/${type}`,
 };
