@@ -45,9 +45,7 @@ export default function SearchBar({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return isOpen ? (
-    
-   <form ref={wrapperRef}  onSubmit={handleSubmit} className={styles.searchBar}>
-      
+    <form ref={wrapperRef} onSubmit={handleSubmit} className={styles.searchBar}>
       <input
         type="text"
         ref={inputRef}
@@ -59,7 +57,6 @@ export default function SearchBar({ isOpen, onClose }) {
           if (e.key === 'Enter') handleSubmit(e);
         }}
       />
-        
     </form>
   ) : null;
 }

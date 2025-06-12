@@ -1,15 +1,18 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./contexts/AuthContext";
-import AppRoutes from "./routes/index";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import { SearchBarProvider } from './contexts/SearchBarContext';
+import AppRoutes from './routes/index';
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </AuthProvider>
+    <SearchBarProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </AuthProvider>
+    </SearchBarProvider>
   );
 }
 
