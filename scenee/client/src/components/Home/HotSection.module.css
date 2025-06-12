@@ -220,7 +220,7 @@
   opacity: 1;
 	visibility: visible;
 	 transform: translateX(-50%) scale(1.1);
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: bold;
 	filter: drop-shadow(2px 5px 40px rgba(48, 48, 48, 0.7));
 }

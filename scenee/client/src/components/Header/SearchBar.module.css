@@ -1,8 +1,14 @@
-.searchToggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white; /* 필요에 따라 */
-  font-size: 1.2rem;
-  padding: 0.5em;
+.searchbar__input{
+    background-color: white;
+    width: 500px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 100px;
+    border:none; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0;
+    color: #333333
+
+    
 }

@@ -34,7 +34,7 @@ export default function CategoryNav() {
           aria-label="검색 열기"
           className={styles.search_bar_button}
         >
-          <img src={SearchIcon} alt="검색" width="20" height="20" />
+          <img src={SearchIcon} alt="검색" width="25" height="25" className={styles.SearchIconImg} />
         </button>
 
         {isSearchOpen && (
