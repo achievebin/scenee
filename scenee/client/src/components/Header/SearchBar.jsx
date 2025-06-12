@@ -46,7 +46,7 @@ export default function SearchBar({ isOpen, onClose }) {
 
   return isOpen ? (
     
-   <form ref={wrapperRef} src='../../assets/images/search.svg' onSubmit={handleSubmit} className={styles.searchBar}>
+   <form ref={wrapperRef}  onSubmit={handleSubmit} className={styles.searchBar}>
       
       <input
         type="text"
