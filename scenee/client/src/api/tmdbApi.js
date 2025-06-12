@@ -3,17 +3,6 @@ import axios from 'axios';
 import { TMDB_API_KEY, TMDB_BASE_URL } from '../constants/tmdb';
 //TMDB API를 받아오기 위한 상수
 
-//인기 영화 조회
-export async function fetchPopularMovies() {
-  const response = await axios.get(`${TMDB_BASE_URL}/movie/popular`, {
-    params: {
-      api_key: TMDB_API_KEY,
-      language: 'ko-KR',
-    },
-  });
-  return response.data;
-}
-
 //영화 상세정보 조회
 export async function fetchMovieDetails(movieId) {
   const response = await axios.get(`${TMDB_BASE_URL}/movie/${movieId}`, {

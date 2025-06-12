@@ -1,6 +1,5 @@
 import react, { useState, useRef, useEffect } from 'react';
 import TopNav from '../Header/TopNav';
-import CategoryNav from '../Header/CategoryNav';
 import SearchBar from '../Header/SearchBar';
 import styles from './Header.module.css';
 
@@ -23,7 +22,6 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <TopNav />
-      <CategoryNav onSearchToggle={() => setIsSearchOpen((prev) => !prev)} />
       <SearchBar
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}

@@ -19,9 +19,9 @@
 }
 
 .arrowNext {
-  right: 50px;
+  right: 40px;
   position: absolute;
-  left: 20px;
+ 
   top: 50%;
   transform: translateY(-50%);
   background: none;
