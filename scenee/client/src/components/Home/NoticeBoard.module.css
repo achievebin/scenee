@@ -1,0 +1,16 @@
+.NoticeBordTitle{
+    
+	color: white;
+	font-size: 50px;
+	font-family: 'Pretendard', system-ui, sans-serif;
+	margin: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-left: 110px;
+	text-align: left;
+	margin-top: 90px;
+	
+
+
+}

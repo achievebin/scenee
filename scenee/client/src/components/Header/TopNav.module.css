@@ -1,0 +1,60 @@
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 146px;
+  padding: 0 40px;
+  background: radial-gradient(circle at center, #373040 0%, #6F637D 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+  'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  width: 1920px;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 0;
+}
+.auth-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;  /* 시안에 맞게 조정 */
+  transition: color 0.3s ease;
+}
+
+.top-nav__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 110px;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+ 
+}
+
+.top-nav-right {
+  display: flex;
+  gap: 24px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+ padding-right: 120px;
+ padding-bottom : 105px;
+}
+
+
+
+
+.top-nav-right a:hover {
+  color: #b8aed6; /* 연한 보라색 느낌 */
+  cursor: pointer;
+}
