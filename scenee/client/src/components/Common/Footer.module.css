@@ -1,9 +1,11 @@
 /* Footer 전체 배경을 화면 끝까지 채우기 */
 .footer {
-  width: 100%;
+  width: 1920px;
   background-color: #3a3643;
   color: #cccccc;
   padding: 40px 0; /* 상하 여백만 주고, 좌우는 container가 담당 */
+  font-family: 'Pretendard', system-ui, sans-serif;
+  font-weight: normal;
 }
 
 /* 내부 컨텐츠 영역: max-width + 자동 중앙정렬, 좌우 패딩으로 살짝 여유 줌 */

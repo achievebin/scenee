@@ -60,85 +60,32 @@ const EventBoard = () => {
     newWin.document.close();
   };
 
-  const styles = {
-    board: {
-      padding: "1rem",
-      background: "#fff",
-      borderRadius: "8px",
-      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-    },
-    title: {
-      marginBottom: "0.75rem",
-      fontSize: "1.5rem",
-    },
-    list: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "1rem",
-      listStyle: "none",
-      padding: 0,
-      margin: 0,
-    },
-    item: {
-      flex: "1 1 calc(33.333% - 1rem)",
-      background: "#fafafa",
-      borderRadius: "8px",
-      overflow: "hidden",
-      boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-      cursor: "pointer",
-      display: "flex",
-      flexDirection: "column",
-    },
-    thumbnail: {
-      width: "100%",
-      height: "120px",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    },
-    info: {
-      padding: "0.75rem",
-      flex: 1,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-    },
-    countdown: {
-      fontWeight: "bold",
-      color: "#e63946",
-    },
-    eventTitle: {
-      color: "#333",
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-    },
-  };
+  // const styles = {
+  
+  
+
+
+
+  // };
 
   return (
-    <div style={styles.board}>
-      <h2 style={styles.title}>🎁 이벤트</h2>
-      <ul style={styles.list}>
+    <div className={styles.EventBoard}>
+      <h2 className={styles.Title}>이벤트 🎁 </h2>
+      <ul className={styles.List}>
         {events.map((ev) => {
           const days = calcDaysLeft(ev.event_date);
           return (
             <li
               key={ev.id}
-              style={styles.item}
+              className={styles.Item}
               onClick={() => openEventWindow(ev)}
             >
-              <div
-                style={{
-                  ...styles.thumbnail,
-                  backgroundImage: ev.thumbnail_url
-                    ? `url(${ev.thumbnail_url})`
-                    : "none",
-                }}
-              />
-              <div style={styles.info}>
-                <span style={styles.countdown}>
+             
+              <div className={styles.Info}>
+                <span className={styles.Countdown}>
                   {days != null ? `${days}일 남음` : "날짜 미정"}
                 </span>
-                <span style={styles.eventTitle}>{ev.title}</span>
+                <span className={styles.EventTitle}>{ev.title}</span>
               </div>
             </li>
           );

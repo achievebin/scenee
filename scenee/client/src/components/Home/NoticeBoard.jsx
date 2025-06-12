@@ -1,6 +1,9 @@
 // src/components/Home/NoticeBoard.jsx
 import React, { useEffect, useState } from "react";
 import { getNoticeBoards } from "../../api/noticeApi.js";
+import styles from "./NoticeBoard.module.css";
+import EventBoard from "./EventBoard.jsx";
+
 
 const NoticeBoard = () => {
   const [notices, setNotices] = useState([]);
@@ -14,7 +17,7 @@ const NoticeBoard = () => {
 
   if (!notices.length) {
     return (
-      <h2 style={{ padding: "1rem", fontSize: "1.25rem" }}>
+      <h2 className={styles.waitNotice} >
         📌 공지사항을 불러오는 중.....
       </h2>
     );
@@ -22,73 +25,51 @@ const NoticeBoard = () => {
 
   return (
     <div
-      style={{
-        padding: "1rem",
-        background: "#fff",
-        borderRadius: "8px",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-      }}
-    >
-      <h2 style={{ marginBottom: "0.75rem", fontSize: "1.5rem" }}>
-        📌 공지사항
-      </h2>
-      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+      className={styles.NoticeBoard}>
+      <h1 className={styles.NoticeTitle}>
+         공지사항 📌
+      </h1>
+      
+      <ul className={styles.NoticeUl}>
         {notices.map(({ id, title, content, created_at, createdAt }) => {
           const rawDate = created_at ?? createdAt ?? "";
           const date = rawDate ? rawDate.slice(0, 10).replace(/-/g, ".") : "";
+          
           return (
             <li
               key={id}
-              onClick={() => setSelected({ id, title, content, date })}
-              style={{
-                padding: "0.5rem",
-                borderBottom: "1px solid #eee",
-                cursor: "pointer",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <span style={{ color: "#555" }}>{date}</span>
-              <span style={{ flex: 1, marginLeft: "0.5rem", color: "#333" }}>
+              onClick={() => setSelected({ id ,  title ,  content ,  date })}
+             className={styles.NoticeLi}>
+              
+              <span className={styles.NoticeSpan}>{date}</span>
+              <span className={styles.NoticeSpanTitle}>
                 {title}
               </span>
+              
             </li>
+            
           );
+          
         })}
       </ul>
+      
 
       {selected && (
-        <div
-          style={{
-            marginTop: "1rem",
-            padding: "1rem",
-            background: "#fafafa",
-            borderRadius: "8px",
-            boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-          }}
-        >
-          <h3 style={{ marginBottom: "0.5rem" }}>{selected.title}</h3>
-          <p style={{ whiteSpace: "pre-wrap", color: "#444" }}>
+        <div className={styles.Selected}>
+          <h3 className={styles.SelectedTitle}>{selected.title}</h3>
+          <p className={styles.SelectedContent}>
             {selected.content}
           </p>
           <button
             onClick={() => setSelected(null)}
-            style={{
-              marginTop: "0.75rem",
-              padding: "0.5rem 1rem",
-              border: "none",
-              borderRadius: "4px",
-              background: "#e63946",
-              color: "#fff",
-              cursor: "pointer",
-            }}
-          >
+            className={styles.SelectedButton}>
             닫기
           </button>
         </div>
       )}
+        
     </div>
+  
   );
 };
 

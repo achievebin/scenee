@@ -1,10 +1,13 @@
 .section {
   padding: 40px 0;
   background: #332c3b;
+  width: 1920px !important;
+  text-align: center;
+  font-family: 'Pretendard', system-ui, sans-serif;
 }
 .title {
   color: white;
-  font-size: 60px;
+  font-size: 50px;
   font-family: 'Pretendard', system-ui, sans-serif;
   margin: 0;
   white-space: nowrap;
@@ -19,8 +22,10 @@
 }
 .status {
   text-align: center;
-  color: #999;
-  padding: 20px;
+  color: #c2c2c2;
+  padding: 10px;
+  margin-top: 100px;
+
 }
 .sliderWrap {
   overflow-x: auto;
@@ -67,10 +72,14 @@
   margin-top: 20px;
 }
 .moreButton {
-  background: #555;
+  background: #806cbb;
   border: none;
   color: #fff;
   padding: 8px 16px;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.moreButton:hover{
+    background: #765ebe;
 }

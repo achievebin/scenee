@@ -8,30 +8,31 @@ function MostReviewedSection() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // fetch('/api/reviews/popular')
-    //   .then((res) => {
-    //     if (!res.ok) throw new Error('네트워크 에러');
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //     setReviews(data);
-    //     setLoading(false);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //     setError('댓글을 불러오는 중 오류가 발생했습니다.');
-    //     setLoading(false);
-    //   });
+    fetch('/api/reviews/popular')
+      .then((res) => {
+        if (!res.ok) throw new Error('네트워크 에러');
+        return res.json();
+      })
+      .then((data) => {
+        setReviews(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError('댓글을 불러오는 중 오류가 발생했습니다.');
+        setLoading(false);
+      });
   }, []);
 
-  if (loading) return <p className={styles.status}>로딩중…</p>;
-  if (error) return <p className={styles.status}>{error}</p>;
+
 
   return (
     <section className={styles.section}>
       <h1 className={styles.title}>
         최근에 달린 코멘트 <span className={styles.star}>⭐</span>
       </h1>
+   {loading && <p className={styles.status}>로딩중…</p>}
+      {error && <p className={styles.status}>{error}</p>}
 
       <div className={styles.sliderWrap}>
         <div className={styles.cardList}>
@@ -60,6 +61,7 @@ function MostReviewedSection() {
         <button className={styles.moreButton}>더 보기</button>
       </div>
     </section>
+    
   );
 }
 
