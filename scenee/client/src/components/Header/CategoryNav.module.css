@@ -19,3 +19,12 @@
   border: none;
   color: #b8aed6;
 }
+
+.search_bar_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white; /* 필요에 따라 */
+  font-size: 1.2rem;
+  padding: 0.5em;
+}
