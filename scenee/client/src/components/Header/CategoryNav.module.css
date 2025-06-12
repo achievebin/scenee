@@ -1,26 +1,21 @@
-.category_nav{
+.category_nav {
   display: flex;
   align-items: center;
-  gap: 32px;        /* 메뉴 항목 간격 */
+  gap: 32px; /* 메뉴 항목 간격 */
   list-style: none;
   margin: 0;
- 
-
 }
 
-
-
-.categoryButton{
-    background-color: transparent;
-    text-decoration: none;
-   font-size: 20px;  /* 시안 메뉴 폰트 크기 */
-   transition: color 0.3s ease;
-   font-weight: bold;
+.categoryButton {
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 20px; /* 시안 메뉴 폰트 크기 */
+  transition: color 0.3s ease;
+  font-weight: bold;
   color: white;
 }
 
-
-.categoryButton:hover{
+.categoryButton:hover {
   border: none;
   color: #b8aed6;
 }

@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import SearchIcon from '../../assets/images/search.svg';
 import styles from './CategoryNav.module.css';
 
-//Header에 들어가는 카테고리 출력 컴포넌트
+//카테고리별 검색을 위한 컴포넌트
 export default function CategoryNav() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navigate = useNavigate();
@@ -21,7 +21,11 @@ export default function CategoryNav() {
     <div>
       <div className={styles.category_nav}>
         {['popular', 'top_rated', 'upcoming', 'now_playing'].map((cat) => (
-          <button className={styles.categoryButton}key={cat} onClick={() => handleClick(cat)}>
+          <button
+            className={styles.categoryButton}
+            key={cat}
+            onClick={() => handleClick(cat)}
+          >
             {cat.replace('_', ' ').toUpperCase()}
           </button>
         ))}
