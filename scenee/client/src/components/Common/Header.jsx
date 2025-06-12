@@ -4,6 +4,7 @@ import TopNav from '../Header/TopNav';
 import SearchBar from '../Header/SearchBar';
 import styles from './Header.module.css';
 
+
 //HomePage의 최상단에 들어가는 내용을 출력하는 컴포넌트
 export default function Header() {
   const { isSearchOpen, setIsSearchOpen } = useSearchBarContext();
