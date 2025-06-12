@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 import styles from './TopNav.module.css';
+import CategoryNav from './CategoryNav.jsx';
+
+
+
+
+
 
 const TopNav = () => {
   const { user, logout, isLoading } = useAuthContext();
@@ -13,12 +19,15 @@ const TopNav = () => {
     navigate('/login');
   };
 
+
+
+  
   return (
     <div className={styles['top-nav']} id="user">
       <div className={styles['top-nav__left']}>
           <img src='/images/logo.png' alt="Logo" className={styles['logo']}/>
         </div>
-      
+      <CategoryNav/>
       <div className={styles['auth-links']}>
         
         

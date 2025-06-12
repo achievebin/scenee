@@ -8,14 +8,19 @@
 
 }
 
-.category_nav a{
-   color: white;
-  text-decoration: none;
-  font-size: 18px;  /* 시안 메뉴 폰트 크기 */
-  transition: color 0.3s ease;
-}
+
 
 .categoryButton{
     background-color: transparent;
+    text-decoration: none;
+   font-size: 20px;  /* 시안 메뉴 폰트 크기 */
+   transition: color 0.3s ease;
+   font-weight: bold;
+  color: white;
+}
 
+
+.categoryButton:hover{
+  border: none;
+  color: #b8aed6;
 }

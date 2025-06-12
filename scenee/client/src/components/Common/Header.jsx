@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <TopNav />
-      <CategoryNav onSearchToggle={() => setIsSearchOpen((prev) => !prev)} />
+      {/* <CategoryNav onSearchToggle={() => setIsSearchOpen((prev) => !prev)} /> */}
       <SearchBar
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
