@@ -1,4 +1,16 @@
-/* src/components/Home/NoticeBoard.module.css */
+.NoticeTitle{
+    
+	color: white;
+	font-size: 50px;
+	font-family: 'Pretendard', system-ui, sans-serif;
+	margin: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-left: 110px;
+	text-align: left;
+	margin-top: 90px;
+	
 
 .container {
   padding: 1rem;
@@ -7,77 +19,100 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.loadingLink {
-  text-decoration: none;
-  color: inherit;
 }
 
-.loadingTitle {
-  padding: 1rem;
-  font-size: 1.25rem;
+
+.waitNotice{
+	font-size: 16px;
+}
+.NoticeBoard{
+	background-color: #332C3B;
+	width: 1920px;
+	
 }
 
-.titleLink {
-  text-decoration: none;
-  color: inherit;
+.NoticeUl{
+	 list-style: none;
+	 padding: 0;
+	 margin: 0;
+	 font-family: 'Pretendard', system-ui, sans-serif;
 }
 
-.title {
-  margin-bottom: 0.75rem;
-  font-size: 1.5rem;
+.NoticeLi{
+	margin-top: 30px ;
+	padding: 20px;
+    border-bottom: 1px solid #9c9c9c;
+     cursor: pointer;
+     display: flex;
+    align-items: center;
+	 margin-left: 110px;
+	width: 920px;
+	
+	
 }
 
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.NoticeSpan{
+	 flex: 1;
+	 color: #b4b4b4; 
+	 font-size: 16px;
+	 gap: 10px;
+	 font-weight: bold;
 }
 
-.listItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
+
+.NoticeSpanTitle{
+	 flex: 1;
+	 color: #b4b4b4;
+	 font-size: 16px;
+	 text-align: left;
+	 font-weight: bold;
+
 }
 
-.date {
-  color: #555;
+
+.NoticeSpanTitle:hover{
+	 flex: 1;
+	 color: #d3c7f7; 
+	 font-size: 16px;
 }
 
-.itemTitle {
-  flex: 1;
-  margin-left: 0.5rem;
-  color: #333;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.Selected{
+	 margin-top: 50px;
+     padding: 50px;
+     background-color: #ffffff;
+     border-radius: 70px;
+     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	display: flex;
+	width: 920px;
+	margin-left: 110px;
+	font-size: 16px;
+	font-family: 'Pretendard', system-ui, sans-serif;
+	align-items: center;
+	text-align: center;
+}
+.SelectedTitle{
+	 margin:0;
+	 font-size: 20px;
+	 color: #444;
+	 
 }
 
-.detail {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+.SelectedContent{
+	 white-space: pre-wrap;
+	  color: #444;
+	  margin: auto; 
+	  font-weight:normal;
+}
+.SelectedButton{
+	  margin-top: 0.75rem;
+     padding: 0.5rem 1rem;
+     border: none;
+     border-radius: 30px;
+     background-color: #e63946;
+      color: #fff;
+     cursor: pointer;
 }
 
-.detailTitle {
-  margin-bottom: 0.5rem;
-}
-
-.detailContent {
-  white-space: pre-wrap;
-  color: #444;
-}
-
-.closeBtn {
-  margin-top: 0.75rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background: #e63946;
-  color: #fff;
-  cursor: pointer;
+.SelectedButton:hover{
+	background-color: #bd1c29;
 }

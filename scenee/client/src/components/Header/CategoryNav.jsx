@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import SearchBar from './SearchBar';
+import { useSearchBarContext } from '../../contexts/SearchBarContext';
 import SearchIcon from '../../assets/images/search.svg';
 import styles from './CategoryNav.module.css';
 
 //카테고리별 검색을 위한 컴포넌트
 export default function CategoryNav() {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { isSearchOpen, setIsSearchOpen } = useSearchBarContext();
   const navigate = useNavigate();
 
   const handleClick = (category) => {
@@ -34,17 +34,14 @@ export default function CategoryNav() {
           aria-label="검색 열기"
           className={styles.search_bar_button}
         >
-          <img src={SearchIcon} alt="검색" width="20" height="20" />
+          <img
+            src={SearchIcon}
+            alt="검색"
+            width="25"
+            height="25"
+            className={styles.SearchIconImg}
+          />
         </button>
-
-        {isSearchOpen && (
-          <div className={styles.search_bar_container}>
-            <SearchBar
-              isOpen={isSearchOpen}
-              onClose={() => setIsSearchOpen(false)}
-            />
-          </div>
-        )}
       </div>
     </div>
   );

@@ -29,6 +29,7 @@
 
 .linkButton:hover {
   text-decoration: underline;
+  color : #d3c7f7;
 }
 
 .social {

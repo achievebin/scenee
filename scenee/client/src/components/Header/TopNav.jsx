@@ -17,7 +17,9 @@ const TopNav = () => {
   return (
     <div className={styles['top-nav']} id="user">
       <div className={styles['top-nav__left']}>
-        <img src="/images/logo.png" alt="Logo" className={styles['logo']} />
+      <Link to="/" className={styles['logo-link']}>
+        <img src="/images/logo.png" alt="#" className={styles['logo']} />
+        </Link>
       </div>
       <CategoryNav />
       <div className={styles['auth-links']}>
