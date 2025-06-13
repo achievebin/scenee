@@ -20,13 +20,43 @@
   color: #b8aed6;
 }
 
-.search_bar_button{
+.genreWrapper {
+  position: relative;
+}
+
+.genreButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.genreList {
+  list-style: none;
+  display: none;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.genreWrapper:hover .genreList {
+  display: block;
+}
+
+.search_bar_button {
   background: none;
   border: none;
   cursor: pointer;
   color: white; /* 필요에 따라 */
   font-size: 1.2rem;
   padding: 0.5em;
-
-  
 }
