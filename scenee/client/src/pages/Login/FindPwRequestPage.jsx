@@ -33,9 +33,10 @@ export default function FindPasswordPage() {
   };
 
   return (
+    <div className={styles.FindSection}>
     <div className={styles.container}>
       {/* 상단 타이틀 */}
-      <div className={styles.title}>SCENEE</div>
+     <Link to='/' className={styles.title}>SCENEE</Link>
 
       {/* 카드 */}
       <div className={styles.card}>
@@ -46,7 +47,7 @@ export default function FindPasswordPage() {
 
         {/* 카드 내부 */}
         <div className={styles.cardBody}>
-          <div className={styles.logoCircle}>S</div>
+        <Link to='/' className={styles.logoCircle}><img src='/images/colorlogo.png' alt='#' className={styles.Logo}/></Link>
           <h1 className={styles.heading}>비밀번호 찾기</h1>
 
           <form className={styles.inputBox} onSubmit={handleFindPassword}>
@@ -92,6 +93,7 @@ export default function FindPasswordPage() {
       <div className={styles.copyRight}>
         copyright © 2025 by GLOBAL, All rights reserved.
       </div>
+    </div>
     </div>
   );
 }

@@ -34,8 +34,9 @@ export default function FindIdPage() {
   };
 
   return (
+    <div className={styles.FindSection}>
     <div className={styles.container}>
-      <div className={styles.title}>SCENEE</div>
+      <Link to='/' className={styles.title}>SCENEE</Link>
 
       <div className={styles.card}>
         <div className={styles.tabContainer}>
@@ -43,7 +44,7 @@ export default function FindIdPage() {
         </div>
 
         <div className={styles.cardBody}>
-          <div className={styles.logoCircle}>S</div>
+          <Link to='/' className={styles.logoCircle}><img src='/images/colorlogo.png' alt='#' className={styles.Logo}/></Link>
           <h1 className={styles.heading}>아이디 찾기</h1>
 
           <form className={styles.inputBox} onSubmit={handleFindId}>
@@ -88,5 +89,7 @@ export default function FindIdPage() {
         copyright © 2025 by GLOBAL, All rights reserved.
       </div>
     </div>
+     </div>
+   
   );
 }

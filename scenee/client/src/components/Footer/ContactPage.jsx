@@ -27,6 +27,7 @@ export default function ContactPage() {
   };
 
   return (
+    <div className={styles.ContactSection}>
     <div className={styles.container}>
       <h1 className={styles.title}>고객센터</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -90,6 +91,7 @@ export default function ContactPage() {
           전송 중 오류가 발생했습니다. 다시 시도해 주세요.
         </p>
       )}
+    </div>
     </div>
   );
 }
