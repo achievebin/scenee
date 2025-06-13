@@ -16,7 +16,7 @@ const DetailPage = () => {
   useEffect(() => {
     const loadMovieData = async () => {
       try {
-        const data = await fetchMovieDetails(data);
+        const data = await fetchMovieDetails(movieId);
         setMovieData(data);
       } catch (error) {
         console.error('영화 상세 정보 로딩 실패:', error);
