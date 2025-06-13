@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../api/axiosInstance";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./ResetPasswordPage.css"; // CSS 임포트
+import styles from "./ResetPasswordPage.module.css"; // CSS 임포트
 
 // URL 쿼리 파라미터에서 token을 읽어오기 위한 커스텀 훅
 function useQuery() {
@@ -56,13 +56,16 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div className="reset-container">
+
+
+    <div className={styles['ResetSection']}>
+    <div className={styles['reset-container']}>
       <h1>비밀번호 재설정</h1>
 
-      {error && <div className="message-error">{error}</div>}
-      {message && <div className="message-success">{message}</div>}
+      {error && <div className={styles["message-error"]}>{error}</div>}
+      {message && <div className={styles["message-success"]}>{message}</div>}
 
-      <div className="input-group">
+      <div className={styles["input-group"]}>
         <input
           type="password"
           placeholder="새 비밀번호"
@@ -71,7 +74,7 @@ export default function ResetPasswordPage() {
         />
       </div>
 
-      <div className="input-group">
+      <div className={styles["input-group"]}>
         <input
           type="password"
           placeholder="새 비밀번호 확인"
@@ -81,6 +84,7 @@ export default function ResetPasswordPage() {
       </div>
 
       <button onClick={handleReset}>비밀번호 재설정</button>
+    </div>
     </div>
   );
 }

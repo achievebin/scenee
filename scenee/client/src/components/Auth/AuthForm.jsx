@@ -58,9 +58,11 @@ export default function AuthForm({
   }, [mode]);
 
   return (
+
+    <div className={styles.FormSection}>
     <form className={styles['login-container']} onSubmit={handleSubmit}>
       {/* 상단 타이틀 */}
-      <div className={styles['login-title']}>SCENEE</div>
+      <Link to ='/' className={styles['login-title']}>SCENEE</Link>
       {/* 로그인/회원가입 카드 */}
       <div className={styles['login-card']}>
         {/* 탭 헤더: mode에 따라 “ID로 로그인” 또는 “회원가입” */}
@@ -72,7 +74,7 @@ export default function AuthForm({
         {/* 카드 내부 바디 */}
         <div className={styles['login-card-body']}>
           {/* 원형 로고 (S) */}
-          <div className={styles['login-logo']}>S</div>
+          <Link to='/' className={styles['login-logo']}><img src='/images/colorlogo.png' alt='#' className={styles.Logo}/></Link>
           {/* mode에 따라 제목 변경 */}
           <h1 className={styles['auth-heading']}>
             {isLogin ? '로그인' : '회원가입'}
@@ -170,5 +172,6 @@ export default function AuthForm({
         copyright © 2025 by GLOBAL, All rights reserved.
       </div>
     </form>
+    </div>
   );
 }
