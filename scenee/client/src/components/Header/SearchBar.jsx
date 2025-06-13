@@ -45,6 +45,7 @@ export default function SearchBar({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return isOpen ? (
+    <div className={styles.SearchSection}>
     <form ref={wrapperRef} onSubmit={handleSubmit} className={styles.searchBar}>
       <input
         type="text"
@@ -58,5 +59,6 @@ export default function SearchBar({ isOpen, onClose }) {
         }}
       />
     </form>
+    </div>
   ) : null;
 }
