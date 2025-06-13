@@ -38,12 +38,9 @@ export default function FooterLeft() {
             </Link>
           </li>
           <li>
-            <button
-              className={styles.linkButton}
-              onClick={() => setOpenModal("notice")}
-            >
+            <Link to="/notice" className={styles.linkButton}>
               공지사항
-            </button>
+            </Link>
           </li>
           <li>
             <button

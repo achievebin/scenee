@@ -63,16 +63,14 @@ const EventBoard = () => {
   };
 
   // const styles = {
-  
-  
-
-
 
   // };
 
   return (
     <div className={styles.EventBoard}>
-      <h2 className={styles.Title}>이벤트 🎁 </h2>
+      <Link to="/events">
+        <h2 className={styles.Title}>이벤트 🎁 </h2>
+      </Link>
       <ul className={styles.List}>
         {events.map((ev) => {
           const days = calcDaysLeft(ev.event_date);
@@ -82,7 +80,6 @@ const EventBoard = () => {
               className={styles.Item}
               onClick={() => openEventWindow(ev)}
             >
-             
               <div className={styles.Info}>
                 <span className={styles.Countdown}>
                   {days != null ? `${days}일 남음` : "날짜 미정"}
