@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Modal from "../Common/Modal";
 import TermsContent from "./terms";
 import PrivacyContent from "./PrivacyPage";
-import NoticeContent from "./notice";
 import NoEmailContent from "./no_email";
 import Logo from "../../assets/images/logo.png";
 import styles from "./FooterLeft.module.css";
@@ -89,13 +88,6 @@ export default function FooterLeft() {
         title="개인정보처리방침"
       >
         <PrivacyContent />
-      </Modal>
-      <Modal
-        isOpen={openModal === "notice"}
-        onClose={() => setOpenModal(null)}
-        title="공지사항"
-      >
-        <NoticeContent />
       </Modal>
       <Modal
         isOpen={openModal === "no_email"}

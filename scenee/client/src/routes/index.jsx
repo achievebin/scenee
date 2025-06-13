@@ -12,7 +12,7 @@ import ResetPasswordPage from "../pages/Login/ResetPasswordPage";
 import ProtectedRoute from "../routes/ProtectedRoute";
 import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
-import ContactPage from "../pages/ContactPage";
+import ContactPage from "../components/Footer/ContactPage";
 import NoticePage from "../components/Home/NoticePage";
 import NoticeDetailPage from "../components/Home/NoticeDetailPage";
 import EventPage from "../components/Home/EventPage";
@@ -28,6 +28,7 @@ export default function AppRoutes() {
         <Route path="/notice/:id" element={<NoticeDetailPage />} />
         <Route path="/events" element={<EventPage />} />
         <Route path="/events/:id" element={<EventDetailPage />} />
+        <Route path="/contact" element={<ContactPage />} />
 
         <Route
           path="mypage"
@@ -46,7 +47,6 @@ export default function AppRoutes() {
         <Route path="/find-id" element={<FindIdPage />} />
         <Route path="/find-password" element={<FindPwRequestPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
-        <Route path="/contact" element={<ContactPage />} />
       </Route>
     </Routes>
   );

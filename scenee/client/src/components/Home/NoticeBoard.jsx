@@ -1,13 +1,12 @@
 // src/components/Home/NoticeBoard.jsx
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getNoticeBoards } from "../../api/noticeApi.js";
 import styles from "./NoticeBoard.module.css";
-import EventBoard from "./EventBoard.jsx";
 
 const NoticeBoard = () => {
   const [notices, setNotices] = useState([]);
-  const [selected, setSelected] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getNoticeBoards()
@@ -15,51 +14,36 @@ const NoticeBoard = () => {
       .catch((err) => console.error("공지사항 로드 에러:", err));
   }, []);
 
-  // 로딩 중일 때
   if (!notices.length) {
     return (
-      <Link to="/notice">
-        <h2 className={styles.waitNotice}>📌 공지사항을 불러오는 중.....</h2>
-      </Link>
+      <h2 style={{ padding: "1rem", fontSize: "1.25rem" }}>
+        📌 공지사항을 불러오는 중.....
+      </h2>
     );
   }
 
   return (
-    <div className={styles.NoticeBoard}>
-      <Link to="/notice">
-        <h1 className={styles.NoticeTitle}>공지사항 📌</h1>
-      </Link>
-
-      <ul className={styles.NoticeUl}>
-        {notices.map(({ id, title, content, created_at, createdAt }) => {
-          const rawDate = created_at ?? createdAt ?? "";
-          const date = rawDate ? rawDate.slice(0, 10).replace(/-/g, ".") : "";
-
+    <div className={styles.container}>
+      <h1 className={styles.header} onClick={() => navigate("/notice")}>
+        📌 공지사항 목록
+      </h1>
+      <ul className={styles.list}>
+        {notices.map(({ id, title, created_at }) => {
+          const formattedDate = created_at
+            ? created_at.slice(0, 10).replace(/-/g, ".")
+            : "날짜 미정";
           return (
             <li
               key={id}
+              className={styles.listItem}
               onClick={() => navigate(`/notice/${id}`)}
-              className={styles.NoticeLi}
             >
-              <span className={styles.NoticeSpan}>{date}</span>
-              <span className={styles.NoticeSpanTitle}>{title}</span>
+              <span className={styles.itemTitle}>{title}</span>
+              <span className={styles.date}>{formattedDate}</span>
             </li>
           );
         })}
       </ul>
-
-      {selected && (
-        <div className={styles.Selected}>
-          <h3 className={styles.SelectedTitle}>{selected.title}</h3>
-          <p className={styles.SelectedContent}>{selected.content}</p>
-          <button
-            onClick={() => setSelected(null)}
-            className={styles.SelectedButton}
-          >
-            닫기
-          </button>
-        </div>
-      )}
     </div>
   );
 };
