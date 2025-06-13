@@ -52,6 +52,17 @@
   display: block;
 }
 
+.genreItem {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  padding: 0.3rem 0.5rem;
+  width: 100%;
+  text-align: left;
+}
+
 .search_bar_button {
   background: none;
   border: none;

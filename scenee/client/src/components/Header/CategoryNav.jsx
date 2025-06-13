@@ -30,9 +30,7 @@ export default function CategoryNav() {
     navigate(`/search?category=${category}`); // 예: popular, top_rated
   };
 
-  const toggleSearch = () => {
-    setIsSearchOpen((prev) => !prev);
-  };
+  const openSearch = () => setIsSearchOpen(true);
 
   return (
     <div className={styles.category_nav}>
@@ -66,7 +64,7 @@ export default function CategoryNav() {
 
       {/* 검색 아이콘 */}
       <button
-        onClick={toggleSearch}
+        onClick={openSearch}
         aria-label="검색 열기"
         className={styles.search_bar_button}
       >
