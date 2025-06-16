@@ -10,22 +10,24 @@ import SimilarMovies from '../../components/Detail/SimilarMovies';
 
 //영화 상세정보와 리뷰, 별점을 확인할 수 있는 페이지
 const DetailPage = () => {
-  const { movieId } = useParams();
-  const [movieData, setMovieData] = useState([]);
+  const { id } = useParams();
+  const [movieData, setMovieData] = useState(null);
 
   useEffect(() => {
+    if (!id) return;
+
     const loadMovieData = async () => {
       try {
-        const data = await fetchMovieDetails(movieId);
+        const data = await fetchMovieDetails(id);
         setMovieData(data);
       } catch (error) {
         console.error('영화 상세 정보 로딩 실패:', error);
       }
     };
     loadMovieData();
-  }, [movieId]);
+  }, [id]);
 
-  if (!movieData) return <div>로딩 중...</div>;
+  if (!movieData || !movieData.title) return <div>로딩 중...</div>;
 
   return (
     <div>
@@ -35,10 +37,10 @@ const DetailPage = () => {
           <MovieInfoSection movieData={movieData} />
         </>
       )}
-      <MovieCredits movieId={movieId} />
-      <ReviewSection movieId={movieId} />
-      <MovieImages movieId={movieId} />
-      <SimilarMovies movieId={movieId} />
+      <MovieCredits movieId={id} />
+      <ReviewSection movieId={id} />
+      <MovieImages movieId={id} />
+      <SimilarMovies movieId={id} />
     </div>
   );
 };

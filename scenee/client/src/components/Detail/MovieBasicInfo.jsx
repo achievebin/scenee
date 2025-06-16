@@ -4,11 +4,12 @@ import {
   B_POSTER_SIZE,
   BACKDROP_SIZE,
 } from '../../constants/tmdb';
+import styles from './MovieBasicInfo.module.css';
 
 export default function MovieBasicInfo({ movieData }) {
   const posterUrl = `${TMDB_IMAGE_BASE_URL}${B_POSTER_SIZE}${movieData.poster_path}`;
   const backdropUrl = `${TMDB_IMAGE_BASE_URL}${BACKDROP_SIZE}${movieData.backdrop_path}`;
-  const genres = movie.genres.map((g) => g.name).join(', ');
+  const genres = movieData.genres.map((g) => g.name).join(', ');
 
   return (
     <section
