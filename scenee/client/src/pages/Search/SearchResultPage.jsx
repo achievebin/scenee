@@ -5,7 +5,8 @@ import {
   getMoviesByCategory,
   getMoviesByGenre,
 } from '../../api/tmdbApi';
-import styles from './MovieGridSection.module.css';
+import styles from '../../components/Common/MovieCard.module.css';
+import MovieCard from '../../components/Common/MovieCard';
 
 const SearchResultPage = () => {
   const [searchParams] = useSearchParams();

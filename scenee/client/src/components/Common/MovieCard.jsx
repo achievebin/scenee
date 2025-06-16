@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './MovieGridSection.module.css';
+import styles from './MovieCard.module.css';
 
 const MovieCard = ({
   id,
