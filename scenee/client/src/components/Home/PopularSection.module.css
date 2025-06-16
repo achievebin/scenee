@@ -135,6 +135,39 @@
   transform: skewY(20deg);
 }
 
+
+.inner6 {
+  transform: skewY(10deg);
+}
+.inner6 .popularCardImg {
+  transform: skewY(-10deg);
+}
+
+.inner7 {
+  transform: skewY(-20deg);
+}
+.inner7 .popularCardImg {
+  transform: skewY(20deg);
+}
+.inner8 {
+  transform: skewY(10deg);
+}
+.inner8 .popularCardImg {
+  transform: skewY(-10deg);
+}
+.inner9 {
+  transform: skewY(-20deg);
+}
+.inner9 .popularCardImg {
+  transform: skewY(20deg);
+}
+.inner10 {
+  transform: skewY(10deg);
+}
+.inner10 .popularCardImg {
+  transform: skewY(-10deg);
+}
+
 .popularItem:hover {
   opacity: 1;
   transform: translateY(-8px) scale(1.1);
