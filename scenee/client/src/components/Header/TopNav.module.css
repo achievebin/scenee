@@ -47,18 +47,35 @@
 
 .top-nav-right {
   display: flex;
+  align-items: center; /* 수평 정렬 */
   gap: 24px;
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
- padding-right: 120px;
- padding-bottom : 105px;
+  padding-right: 90px;
+   padding-bottom : 105px;
 }
-
 
 
 
 .top-nav-right a:hover {
   color: #d3c7f7;/* 연한 보라색 느낌 */
   cursor: pointer;
+}
+.top-logout {
+  background-color:transparent;
+  border: none; /* 버튼의 기본 테두리 제거 */
+  font-size: 14px; /* 마이페이지와 동일한 크기로 설정 */
+  color: white; /* 마이페이지와 동일한 색상 설정 */
+  padding: 3px 10px; 
+  cursor: pointer;
+ 
+}
+
+.top-logout:hover {
+  color: #d3c7f7;
+  filter: drop-shadow(2px 5px 20px rgba(119, 45, 139, 0.7));
+}
+.welcome{
+  font-size: 14px;
 }
