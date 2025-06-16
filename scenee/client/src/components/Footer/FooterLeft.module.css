@@ -31,7 +31,9 @@
   text-decoration: underline;
   color : #d3c7f7;
 }
-
+.linkButton:focus{
+  outline: none;
+}
 .social {
   margin-left: auto;
   display: flex;

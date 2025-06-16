@@ -18,6 +18,10 @@
 .categoryButton:hover {
   border: none;
   color: #b8aed6;
+  
+}
+.categoryButton:focus{
+  outline: none;
 }
 
 .genreWrapper {
@@ -46,6 +50,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
   white-space: nowrap;
+
 }
 
 .genreWrapper:hover .genreList {
@@ -74,4 +79,17 @@
 .search_bar_button:focus{
   outline: none;
   
+}
+
+.genreItem:focus{
+  outline: none;
+
+}
+.genreItem:hover{
+   color: #7b50ff;
+
+}
+
+.genreButton:focus{
+  outline: none;
 }
