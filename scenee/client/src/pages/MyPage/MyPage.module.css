@@ -1,0 +1,16 @@
+/* src/pages/MyPage/MyPage.module.css */
+.page {
+  background-color: #6F637D;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 모든 내부 카드에 공통 적용 */
+.card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}

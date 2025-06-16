@@ -1,0 +1,44 @@
+/* src/components/MyPage/WishList.module.css */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.card {
+  background: #FFFFFF;     /* 카드 배경 */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.card h4 {
+  margin: 12px 8px;
+  font-size: 1rem;
+  color: #fff;               /* 제목 흰색 */
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.empty {
+  text-align: center;
+  color: #ccc;
+  padding: 60px 0;
+  font-size: 1rem;
+  background: #6F637D;       /* 빈 상태 배경 */
+  border-radius: 8px;
+}

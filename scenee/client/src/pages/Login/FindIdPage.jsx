@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./FindPage.module.css"; // 스타일 모듈 (프로젝트 상황에 맞게 수정)
 import { Link } from "react-router-dom";
 import { getIdByEmail } from "../../api/findApi";
+import colorLogo from '../../assets/images/colorlogo.png';
 
 export default function FindIdPage() {
   const [email, setEmail] = useState("");
@@ -44,7 +45,7 @@ export default function FindIdPage() {
         </div>
 
         <div className={styles.cardBody}>
-          <Link to='/' className={styles.logoCircle}><img src='/images/colorlogo.png' alt='#' className={styles.Logo}/></Link>
+          <Link to='/' className={styles.logoCircle}><img src={colorLogo} alt='로고' className={styles.Logo}/></Link>
           <h1 className={styles.heading}>아이디 찾기</h1>
 
           <form className={styles.inputBox} onSubmit={handleFindId}>

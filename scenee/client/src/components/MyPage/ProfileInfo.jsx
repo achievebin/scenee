@@ -1,13 +1,19 @@
+// src/components/MyPage/ProfileInfo.jsx
 import React from "react";
+import styles from "./ProfileInfo.module.css";
 
-function ProfileInfo({ user }) {
+export default function ProfileInfo({ user }) {
   return (
-    <div>
-      <h2>{user.nickname}님의 프로필</h2>
-      <p>아이디: {user.username}</p>
-      <p>이메일: {user.email}</p>
+    <div className={styles.profile}>
+      <h2 className={styles.title}>{user.nickname}님의 프로필</h2>
+      <div className={styles.field}>
+        <span className={styles.label}>아이디</span>
+        <span className={styles.value}>{user.username}</span>
+      </div>
+      <div className={styles.field}>
+        <span className={styles.label}>이메일</span>
+        <span className={styles.value}>{user.email}</span>
+      </div>
     </div>
   );
 }
-
-export default ProfileInfo;

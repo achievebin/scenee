@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styles from './FindPage.module.css';
 import { Link } from 'react-router-dom';
 import { requestPasswordReset } from '../../api/findApi';
+import colorLogo from '../../assets/images/colorlogo.png';
 export default function FindPasswordPage() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -50,7 +51,7 @@ export default function FindPasswordPage() {
           <div className={styles.cardBody}>
             <Link to="/" className={styles.logoCircle}>
               <img
-                src="/images/colorlogo.png"
+                src={colorLogo}
                 alt="#"
                 className={styles.Logo}
               />

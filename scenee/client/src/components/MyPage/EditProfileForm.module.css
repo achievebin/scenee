@@ -1,0 +1,35 @@
+/* src/components/MyPage/EditProfileForm.module.css */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.input {
+  flex: 1 1 200px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #DDD;
+  border-radius: 8px;
+  transition: border 0.2s;
+}
+
+.input:focus {
+  border-color: #6F637D;
+  outline: none;
+}
+
+.submit {
+  background-color: #6F637D;
+  color: #FFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit:hover {
+  background-color: #5c526d;
+}

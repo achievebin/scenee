@@ -18,3 +18,7 @@ export function updateUser(id, userData) {
 export function deleteUser(id) {
   return axios.delete(`/user/${id}`);
 }
+// src/api/userApi.js
+export const getUserWishlist    = userId => axios.get(`/users/${userId}/wishlist`);
+export const getUserInquiries  = userId => axios.get(`/users/${userId}/inquiries`);
+
