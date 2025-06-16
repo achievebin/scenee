@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 import styles from './TopNav.module.css';
@@ -17,8 +17,8 @@ const TopNav = () => {
   return (
     <div className={styles['top-nav']} id="user">
       <div className={styles['top-nav__left']}>
-      <Link to="/" className={styles['logo-link']}>
-        <img src="/images/logo.png" alt="#" className={styles['logo']} />
+        <Link to="/" className={styles['logo-link']}>
+          <img src="/images/logo.png" alt="#" className={styles['logo']} />
         </Link>
       </div>
       <CategoryNav />

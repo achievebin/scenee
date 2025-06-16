@@ -5,6 +5,8 @@ import {
   getMoviesByCategory,
   getMoviesByGenre,
 } from '../../api/tmdbApi';
+import styles from '../../components/Common/MovieCard.module.css';
+import MovieCard from '../../components/Common/MovieCard';
 
 const SearchResultPage = () => {
   const [searchParams] = useSearchParams();
@@ -40,11 +42,17 @@ const SearchResultPage = () => {
     <div>
       <h2>검색 결과</h2>
       {results.length > 0 ? (
-        <ul>
+        <div className={styles.grid}>
           {results.map((movie) => (
-            <li key={movie.id}>{movie.title || movie.name}</li>
+            <MovieCard
+              key={movie.id}
+              id={movie.id}
+              title={movie.title || movie.name}
+              posterPath={movie.poster_path}
+              rating={movie.vote_average}
+            />
           ))}
-        </ul>
+        </div>
       ) : (
         <p>결과가 없습니다.</p>
       )}
