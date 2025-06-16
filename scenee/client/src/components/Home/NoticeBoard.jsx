@@ -25,7 +25,7 @@ const NoticeBoard = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.header} onClick={() => navigate("/notice")}>
-        📌 공지사항 목록
+        공지사항 📌 
       </h1>
       <ul className={styles.list}>
         {notices.map(({ id, title, created_at }) => {

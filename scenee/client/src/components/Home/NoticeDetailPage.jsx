@@ -26,27 +26,13 @@ const NoticeDetailPage = () => {
     <div className={styles.container}>
       <button
         onClick={() => navigate(-1)}
-        style={{
-          marginBottom: "1rem",
-          background: "transparent",
-          border: "none",
-          color: "#bbb",
-          cursor: "pointer",
-        }}
-      >
+        className={styles.listbutton}>
         ← 목록으로
       </button>
       <h1 className={styles.header}>{notice.title}</h1>
       <p className={styles.dateCell}>{date}</p>
-      <div
-        style={{
-          marginTop: "1rem",
-          padding: "1rem",
-          background: "#fafafa",
-          borderRadius: "8px",
-        }}
-      >
-        <p style={{ whiteSpace: "pre-wrap", color: "#333" }}>
+      <div className={styles.tbody} >
+        <p style={{ whiteSpace: "pre-wrap", color: "#333", marginLeft:"30px" }}>
           {notice.content}
         </p>
       </div>

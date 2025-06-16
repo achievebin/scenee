@@ -39,8 +39,8 @@ const SearchResultPage = () => {
   }, [query, genreId, category]);
 
   return (
-    <div>
-      <h2>검색 결과</h2>
+    <div className={styles.ResultSection}>
+      <h2 className={styles.ResultTitle}>검색 결과</h2>
       {results.length > 0 ? (
         <div className={styles.grid}>
           {results.map((movie) => (

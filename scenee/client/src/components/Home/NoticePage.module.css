@@ -1,13 +1,15 @@
 .container {
   min-height: 100vh;
   padding: 2rem;
-  background: #ffffff;
-  color: #000000;
+  background: #332c3b;
+  color: #ffffff;
   font-family: sans-serif;
+
 }
 .header {
-  font-size: 2rem;
+  font-size: 40px;
   margin-bottom: 1.5rem;
+  margin-left: 50px;
 }
 .table {
   width: 100%;
@@ -24,6 +26,7 @@
   border-bottom: 1px solid #333;
   cursor: pointer;
 }
+
 .titleCell {
   white-space: nowrap;
   overflow: hidden;
@@ -32,6 +35,8 @@
 .dateCell {
   color: #888;
   width: 120px;
+  margin-top: 30px;
+  margin-left: 50px;
 }
 .row:hover {
   background: rgba(255, 255, 255, 0.05);
@@ -54,4 +59,26 @@
   background: #fff;
   color: #000;
   border: none;
+}
+.tbody{
+    margin-top: 30px;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 15px;
+    width: 920px;
+    margin-left: 50px;
+}
+.listbutton{
+    margin-bottom: 1rem;
+          background: transparent;
+          border: none;
+          color: #bbb;
+          cursor: pointer;
+          outline:none;
+}
+.listbutton:hover{
+color:  #b8aed6;
+}
+.listbutton:focus{
+  outline: none;
 }

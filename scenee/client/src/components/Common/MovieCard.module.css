@@ -1,5 +1,27 @@
+
+.ResultSection{
+ width: 1920px;
+  margin: 0 auto;
+  padding: 20px 40px;  /* 적절한 여백 추가 */
+  font-family: 'Pretendard', system-ui, sans-serif;
+  display: flex;
+  flex-wrap: wrap;  /* 아이템들을 여러 줄로 배치 */
+ 
+}
+
+.ResultTitle{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+   text-align: center;  /* 제목 중앙 정렬 */
+   margin-bottom: 50px;
+   font-size: 40px;
+   margin-top: 20px;
+   margin-right: 100px;
+   color: #ffffff;
+}
 .card {
-  width: 160px;
+  width: 260px;
   margin: 0.5rem;
   background-color: #fff;
   border-radius: 12px;
@@ -7,6 +29,17 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s ease;
+  padding: 0 auto;
+
+  }
+.grid{
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center; 
+  margin-right: 100px;
+  
 }
 
 .card:hover {

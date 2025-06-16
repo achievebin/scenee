@@ -1,12 +1,15 @@
 /* src/components/Home/EventBoard.module.css */
 .container {
-  padding: 2rem;
   background: #332c3b;
   color: #fff;
+  margin-left: 110px;
+  font-family: 'Pretendard', system-ui, sans-serif;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .header {
-  font-size: 2rem;
+  font-size: 50px;
   cursor: pointer;
 }
 
@@ -17,15 +20,21 @@
 
 .listItem {
   padding: 1rem;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #585858;
   cursor: pointer;
+  width: 920px;
 }
 
-.eventTitle {
-  font-size: 1.25rem;
+
+.eventTitle{
+  font-size: 20px;
   color: #fff;
+ 
 }
-
+.eventTitle:hover{
+  color: #b8aed6;
+}
 .date {
-  color: #bbb;
+  color: #8b8b8b;
+  margin-left: 500px;
 }

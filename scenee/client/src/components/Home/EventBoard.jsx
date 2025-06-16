@@ -25,7 +25,7 @@ const EventBoard = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.header} onClick={() => navigate("/events")}>
-        🎁 이벤트 목록
+       이벤트  🎁 
       </h1>
       <ul className={styles.list}>
         {events.map(({ id, title, event_date }) => (

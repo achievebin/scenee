@@ -2,9 +2,9 @@
 .container {
   min-height: 100vh;
   padding: 2rem;
-  background: #ffffff;
-  color: #000000;
-  font-family: sans-serif;
+  background: #332c3b;
+  color: #ffffff;
+   font-family: 'Pretendard', system-ui, sans-serif;
 }
 .backButton {
   margin-bottom: 1rem;
@@ -13,9 +13,18 @@
   color: #bbb;
   cursor: pointer;
 }
+.backButton:hover{
+  color: #b8aed6;
+}
+.backButton:focus{
+  outline: none;
+}
+
 .title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 40px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-top: 60px;
 }
 .date {
   color: #888;
@@ -30,4 +39,5 @@
   white-space: pre-wrap;
   line-height: 1.6;
   color: #ddd;
+  margin-left: 50px;
 }
