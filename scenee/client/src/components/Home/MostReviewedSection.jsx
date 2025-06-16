@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+//import { getMoviesByCategory } from '../../api/tmdbApi';
 import styles from './MostReviewedSection.module.css';
 
 function MostReviewedSection() {
