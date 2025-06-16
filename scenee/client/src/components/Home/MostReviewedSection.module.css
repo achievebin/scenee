@@ -83,3 +83,6 @@
 .moreButton:hover{
     background: #765ebe;
 }
+.moreButton:focus{
+  outline: none;
+}

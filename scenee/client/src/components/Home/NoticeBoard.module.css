@@ -110,3 +110,6 @@
 .SelectedButton:hover{
 	background-color: #bd1c29;
 }
+.SelectedButton:focus{
+	outline: none;
+}
