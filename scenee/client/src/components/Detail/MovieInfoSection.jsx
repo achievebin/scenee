@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { fetchMovieDetails } from '../../api/tmdbApi';
-
 export default function MovieInfoSection({ movieData }) {
   return (
     <section>

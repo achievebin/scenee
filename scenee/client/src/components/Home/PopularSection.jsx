@@ -24,7 +24,7 @@ function PopularSection() {
       setHoveredIndex((i) => (i + 1) % movies.length);
     }, 4000);
     return () => clearInterval(timerRef.current);
-  }, []);
+  });
 
   // 마우스 올리면 자동 슬라이드 멈추고, 해당 카드로 변경
   const handleMouseEnter = (idx) => {

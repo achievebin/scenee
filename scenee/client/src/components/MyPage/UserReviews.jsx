@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   getUserReviews,
   deleteReview,
   reviseReview,
-} from "../../api/reviewApi";
-import { fetchMovieDetails } from "../../api/tmdbApi";
-import EditReviewModal from "../../components/Review/EditReviewModal";
-import Rating from "react-rating";
-import { Star } from "lucide-react";
-import styles from "./UserReviews.module.css";
+} from '../../api/reviewApi';
+import { fetchMovieDetails } from '../../api/tmdbApi';
+import EditReviewModal from '../../components/Review/EditReviewModal';
+import Rating from 'react-rating';
+import { Star } from 'lucide-react';
+import styles from './UserReviews.module.css';
 
 export default function UserReviews({ userId }) {
   const [boardList, setBoardList] = useState([]);
@@ -38,7 +38,7 @@ export default function UserReviews({ userId }) {
         );
         setBoardList(enriched);
       } catch (err) {
-        console.error("❌ 사용자 리뷰 조회 실패:", err);
+        console.error('❌ 사용자 리뷰 조회 실패:', err);
         setBoardList([]);
       } finally {
         setLoading(false);
@@ -46,17 +46,17 @@ export default function UserReviews({ userId }) {
     };
 
     fetchReviews();
-  }, [user]);
+  }, [userId]);
 
   //리뷰 삭제
   const handleDelete = async (reviewId) => {
-    if (!window.confirm("정말 이 리뷰를 삭제하겠습니까?")) return;
+    if (!window.confirm('정말 이 리뷰를 삭제하겠습니까?')) return;
     try {
       await deleteReview(reviewId);
       setBoardList((prev) => prev.filter((r) => r.id == reviewId));
     } catch (err) {
-      console.error("리뷰 삭제 실패", err);
-      alert("리뷰 삭제에 실패하였습니다.");
+      console.error('리뷰 삭제 실패', err);
+      alert('리뷰 삭제에 실패하였습니다.');
     }
   };
 
@@ -72,7 +72,7 @@ export default function UserReviews({ userId }) {
       );
       setFixReview(null);
     } catch (err) {
-      console.error("수정 실패", err);
+      console.error('수정 실패', err);
     }
   };
 
@@ -84,16 +84,16 @@ export default function UserReviews({ userId }) {
       ) : boardList.length === 0 ? (
         <p>작성한 리뷰가 없습니다.</p>
       ) : (
-        <ul className={styles["my-review-list__container"]}>
+        <ul className={styles['my-review-list__container']}>
           {boardList.map((review) => (
-            <li key={review.id} className={styles["my-review-list"]}>
+            <li key={review.id} className={styles['my-review-list']}>
               {review.movie && (
-                <section className={styles["my-review__container"]}>
+                <section className={styles['my-review__container']}>
                   {/* TMDB API 활용하여 이미지 출력 */}
                   <img
                     src={`https://image.tmdb.org/t/p/w200${review.movie.poster_path}`}
                     alt={review.movie.title}
-                    className={styles["my-review__thumbnail"]}
+                    className={styles['my-review__thumbnail']}
                   />
                   <article>
                     <strong>{review.movie.title}</strong>
