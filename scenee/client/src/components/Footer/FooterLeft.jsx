@@ -67,7 +67,8 @@ export default function FooterLeft() {
         <img src={Logo} alt="SCENEE Logo" className={styles.logo} />
         <div className={styles.companyText}>
           <p>
-            주식회사: SCENEE | 서울특별시 서초구 강남대로 375 | 대표: 이용범 |
+            주식회사: SCENEE | 서울특별시 서초구 강남대로 375 |
+             대표: 이용범 
             TEL: 1588-4444
           </p>
           <p>copyright Ⓒ 2025 by GLOBAL. All rights reserved.</p>

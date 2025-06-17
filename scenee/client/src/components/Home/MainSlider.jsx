@@ -46,7 +46,7 @@ function MainSlider() {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {movies.map((movie, idx) => (
-          <div className="slide" key={movie.id}>
+          <div className={styles.slide} key={movie.id}>
             <img
               src={`${TMDB_IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.backdrop_path || movie.poster_path}`}
               alt={movie.title || `슬라이드 ${idx + 1}`}

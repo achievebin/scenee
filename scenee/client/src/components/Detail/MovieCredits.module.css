@@ -1,25 +1,37 @@
 .credits {
-  padding: 20px;
+  padding: 60px 120px;
+  background: transparent;
+   font-family: 'Pretendard', system-ui, sans-serif;
+}
+.credits h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #ffffff;
 }
 
+/* 그리드 레이아웃: 자동으로 칸 맞춰줌 */
 .castList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px;
 }
 
 .castCard {
-  width: 120px;
   text-align: center;
-  font-size: 0.9rem;
 }
-
 .castCard img {
   width: 100%;
-  border-radius: 10px;
+  height: 180px;
   object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.castCard p {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: #dbdbdb;
 }
 .character {
-  color: #888;
   font-size: 0.8rem;
+  color: #666;
 }

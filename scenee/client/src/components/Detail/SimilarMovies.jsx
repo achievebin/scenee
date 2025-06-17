@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSimilarMovies } from '../../api/tmdbApi';
 import { TMDB_IMAGE_BASE_URL, S_POSTER_SIZE } from '../../constants/tmdb';
+import styles from './SimilarMovies.module.css';
 
 export default function SimilarMovies({ movieId }) {
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -18,11 +19,11 @@ export default function SimilarMovies({ movieId }) {
   }, [movieId]);
 
   return (
-    <section className="similar-movies">
+    <section className={styles['similar-movies']}>
       <h2>비슷한 영화</h2>
-      <div className="movie-grid">
+      <div className={styles['movie-grid']}>
         {similarMovies.map((movie) => (
-          <div key={movie.id} className="movie-card">
+          <div key={movie.id} className={styles['movie-card']}>
             <img
               src={`${TMDB_IMAGE_BASE_URL}${S_POSTER_SIZE}${movie.poster_path}`}
               alt={movie.title}

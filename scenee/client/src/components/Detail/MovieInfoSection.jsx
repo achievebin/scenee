@@ -1,3 +1,6 @@
+import styles from './MovieInfoSection.module.css';
+
+
 export default function MovieInfoSection({ movieData }) {
   return (
     <section>

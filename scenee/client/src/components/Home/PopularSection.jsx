@@ -22,7 +22,7 @@ function PopularSection() {
     // 3초마다 다음 인덱스로
     timerRef.current = setInterval(() => {
       setHoveredIndex((i) => (i + 1) % movies.length);
-    }, 4000);
+    }, 7000);
     return () => clearInterval(timerRef.current);
   });
 
@@ -35,7 +35,7 @@ function PopularSection() {
   const handleMouseLeave = () => {
     timerRef.current = setInterval(() => {
       setHoveredIndex((i) => (i + 1) % movies.length);
-    }, 3000);
+    }, 8000);
   };
 
   return (

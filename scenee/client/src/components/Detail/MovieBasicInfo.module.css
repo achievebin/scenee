@@ -1,0 +1,95 @@
+/* 1) overlay를 flex 컨테이너로 */
+.header .overlay {
+  display: flex;
+  align-items: center;            /* 세로 가운데 정렬 */
+  justify-content: flex-start;    /* 왼쪽 정렬 */
+  padding: 0 120px;               /* 좌우 여백 유지 */
+  box-sizing: border-box;
+ 
+}
+
+
+
+/* 2) poster와 article 나란히 */
+.header .overlay img.poster {
+  flex-shrink: 0;
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+ 
+}
+
+
+
+.header .overlay article {
+  margin-left: 60px;              /* 포스터와의 가로 간격 */
+  max-width: 800px;               /* 원하는 최대 너비 */
+  color: white;
+ 
+}
+
+/* 3) 글 요소들은 margin으로만 위치 조정 */
+.header .overlay article h1 {
+  margin: 0 0 20px 0;             /* 아래쪽에만 20px 여백 */
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.header .overlay article p {
+  margin: 0 0 12px 0;             /* 텍스트 블록 내 간격 */
+  color: #ffffff;
+  font-size: 1rem;
+   text-align: left;
+  margin-bottom: -30px; 
+}
+
+/* 4) actions도 article 내부에 두고 margin-top */
+.header .overlay article .actions {
+  margin-top: 30px;               /* 텍스트 블록 기준으로 아래로 30px 띄움 */
+  display: inline-flex;           /* 콘텐츠 크기만큼 */
+  gap: 16px;
+}
+
+.header .overlay article .actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.header .overlay article .actions button:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.actions {
+  display: flex;
+  /* 콘텐츠 너비만큼 줄이기 */
+  width: fit-content;        /* 또는 inline-flex + width:auto */
+  margin: 20px auto 0;       /* 위쪽 마진 20px, 좌우 자동(가운데), 아래 0 */
+  gap: 16px;
+  align-items: center;
+}
+
+/* 버튼 안의 아이콘도 완전 가운데 정렬 */
+.actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.actions button:hover {
+  background: rgba(255,255,255,0.4);
+}

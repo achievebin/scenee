@@ -14,7 +14,10 @@ export default function MovieBasicInfo({ movieData }) {
   return (
     <section
       className={styles.header}
-      style={{ backgroundImage: `url(${backdropUrl})` }}
+      style={{ backgroundImage: `
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url(${backdropUrl})
+    ` }}
     >
       <section className={styles.overlay}>
         <img src={posterUrl} alt={movieData.title} className={styles.poster} />
@@ -35,6 +38,12 @@ export default function MovieBasicInfo({ movieData }) {
           <p>
             <strong>평점:</strong> {movieData.vote_average}
           </p>
+            <div className={styles.actions}>
+           <button>⟳</button>
+           <button>👍</button>
+           <button>➕</button>
+           <button>⭐</button>
+         </div>
         </article>
       </section>
     </section>
