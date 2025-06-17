@@ -1,20 +1,89 @@
+/* src/components/MyPage/UserReviews.module.css */
+
+:root {
+  --bg-color: #6F637D;
+  --border-color: #ffffff;
+  --text-color: #fff;
+  --subtext-color: #aaa;
+  --accent-color: #904297;
+  --accent-hover: #db00f8;
+}
+
+/* 전체 섹션 배경과 제목 스타일 */
+:global(section) {
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--text-color);
+}
+:global(section h3) {
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 1.25rem;
+}
+
+/* 로딩/빈 메시지 */
+:global(section p) {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--subtext-color);
+}
+
+/* 리뷰 리스트 컨테이너 */
 .my-review-list__container {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
+/* 각각의 리뷰 항목 */
 .my-review-list {
-  margin-bottom: 24px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 16px;
-}
-
-.my-review__container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.my-review {
+/* 썸네일 */
+.my-review__thumbnail {
   width: 100px;
+  height: auto;
+  border-radius: 4px;
   margin-right: 16px;
+  flex-shrink: 0;
+}
+
+/* 텍스트 영역 */
+.my-review__container article {
+  flex: 1;
+}
+
+.my-review__container article strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.my-review__container article p {
+  margin: 8px 0 12px 0;
+  line-height: 1.5;
+  color: var(--subtext-color);
+}
+
+/* 버튼 스타일 */
+.my-review__container article button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 6px 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.my-review__container article button:hover {
+  background-color: var(--accent-hover);
 }

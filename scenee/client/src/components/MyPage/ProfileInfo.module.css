@@ -1,0 +1,29 @@
+/* src/components/MyPage/ProfileInfo.module.css */
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #EEE;
+  padding-bottom: 8px;
+}
+
+.field {
+  display: flex;
+  gap: 12px;
+}
+
+.label {
+  width: 60px;
+  font-weight: 500;
+  color: #666;
+}
+
+.value {
+  color: #333;
+}

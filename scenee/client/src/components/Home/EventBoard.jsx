@@ -28,18 +28,28 @@ const EventBoard = () => {
        이벤트  🎁 
       </h1>
       <ul className={styles.list}>
-        {events.map(({ id, title, event_date }) => (
-          <li
-            key={id}
-            className={styles.listItem}
-            onClick={() => navigate(`/events/${id}`)}
-          >
-            <span className={styles.eventTitle}>{title}</span>
-            <span className={styles.date}>
-              {event_date ? `${event_date.slice(0, 10)}일 남음` : "날짜 미정"}
-            </span>
-          </li>
-        ))}
+        {events.map(({ id, title, createdAt }) => {
+          const formattedDate = createdAt
+            ? new Date(createdAt).toLocaleDateString("ko-KR", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+              })
+            : "날짜 미정";
+
+          return (
+            <li
+              key={id}
+              className={styles.listItem}
+              onClick={() => navigate(`/events/${id}`)}
+            >
+              <span className={styles.eventTitle}>
+                {title}&nbsp;&nbsp;{/* 두 칸 띄우기 */}
+                <span className={styles.date}>{formattedDate}</span>
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

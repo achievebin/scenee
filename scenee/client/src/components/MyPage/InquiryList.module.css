@@ -1,0 +1,60 @@
+/* src/components/MyPage/InquiryList.module.css */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.item {
+  padding: 16px;
+  background: #6F637D;       /* 문의 항목 배경 */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s;
+}
+
+.item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;               /* 제목 흰색 */
+}
+
+.answered,
+.pending {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.answered {
+  color: #a5d6a7;
+}
+
+.pending {
+  color: #ffe082;
+}
+
+.date {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #ddd;
+}
+
+.empty {
+  text-align: center;
+  color: #ccc;
+  padding: 60px 0;
+  font-size: 1rem;
+  background: #6F637D;       /* 빈 상태 배경 */
+  border-radius: 8px;
+}

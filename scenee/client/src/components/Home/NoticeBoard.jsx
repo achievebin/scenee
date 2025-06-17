@@ -28,9 +28,13 @@ const NoticeBoard = () => {
         공지사항 📌 
       </h1>
       <ul className={styles.list}>
-        {notices.map(({ id, title, created_at }) => {
-          const formattedDate = created_at
-            ? created_at.slice(0, 10).replace(/-/g, ".")
+        {notices.map(({ id, title, createdAt }) => {
+          const formattedDate = createdAt
+            ? new Date(createdAt).toLocaleDateString("ko-KR", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+              })
             : "날짜 미정";
           return (
             <li
@@ -38,8 +42,10 @@ const NoticeBoard = () => {
               className={styles.listItem}
               onClick={() => navigate(`/notice/${id}`)}
             >
-              <span className={styles.itemTitle}>{title}</span>
-              <span className={styles.date}>{formattedDate}</span>
+              <span className={styles.itemTitle}>
+                {title}&nbsp;&nbsp;{/* 두 칸 띄우기 */}
+                <span className={styles.date}>{formattedDate}</span>
+              </span>
             </li>
           );
         })}

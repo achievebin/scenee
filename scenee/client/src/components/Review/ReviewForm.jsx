@@ -1,31 +1,38 @@
-import React, { useState } from "react";
-import { addReview } from "../../api/reviewApi";
-import Ratings from "react-rating"; // 별점 UI
-import { Star } from "lucide-react";
-import styles from "./ReviewForm.module.css";
+import React, { useState } from 'react';
+import { addReview } from '../../api/reviewApi';
+import Ratings from 'react-rating';
+import { Star } from 'lucide-react';
+import { useAuthContext } from '../../contexts/AuthContext'; // 로그인 정보
+import styles from './ReviewForm.module.css';
 
-export default function ReviewForm({ movieId }) {
+export default function ReviewForm({ movieId, onReviewSubmit }) {
   const [rating, setRating] = useState(0);
-  const [content, setContent] = useState("");
-  const [error, setError] = useState("");
+  const [content, setContent] = useState('');
+  const [error, setError] = useState('');
+
+  const { user } = useAuthContext(); // 로그인 여부
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!rating || !content.trim()) {
-      return setError("별점과 내용을 모두 입력해 주세요.");
+      return setError('별점과 내용을 모두 입력해 주세요.');
     }
 
     try {
       await addReview({ movieId, rating, content });
       setRating(0);
-      setContent("");
-      setError("");
-      // 리뷰 목록 새로고침 트리거 필요 시 상위로 콜백
+      setContent('');
+      setError('');
+      if (onReviewSubmit) onReviewSubmit(); // 상위에서 목록 갱신
     } catch (err) {
-      console.error("리뷰 작성 실패:", err);
-      setError("리뷰 작성 중 오류가 발생했습니다.");
+      console.error('리뷰 작성 실패:', err);
+      setError('로그인 상태를 확인하거나 다시 시도해 주세요.');
     }
   };
+
+  if (!user) {
+    return <p className={styles.error}>리뷰 작성을 위해 로그인해 주세요.</p>;
+  }
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -33,7 +40,7 @@ export default function ReviewForm({ movieId }) {
 
       <Ratings
         initialRating={rating}
-        onChange={(rate) => setRating(rate)}
+        onChange={setRating}
         emptySymbol={<Star color="lightgray" size={24} />}
         fullSymbol={<Star color="gold" size={24} fill="gold" />}
       />

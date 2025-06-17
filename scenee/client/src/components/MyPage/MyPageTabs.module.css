@@ -1,0 +1,31 @@
+/* src/components/MyPage/MyPageTabs.module.css */
+.tabs {
+  display: flex;
+  background: #F5F5F5;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.tab:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.tab:last-child {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.active {
+  background-color: #6F637D;
+  color: #FFF;
+}
