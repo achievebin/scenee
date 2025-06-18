@@ -1,6 +1,12 @@
+// MostReviewedSection.jsx
 import React, { useEffect, useState } from 'react';
-//import { getMoviesByCategory } from '../../api/tmdbApi';
+import { getMostReviewedMovies } from '../../api/reviewApi';
 import styles from './MostReviewedSection.module.css';
+
+// 별 아이콘 간단 구현
+const StarIcon = ({ filled }) => (
+  <span style={{ color: filled ? '#FFD700' : '#DDD' }}>★</span>
+);
 
 function MostReviewedSection() {
   const [reviews, setReviews] = useState([]);
@@ -8,21 +14,18 @@ function MostReviewedSection() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    //존재하지 않는 api
-    // fetch('/api/reviews/popular')
-    //   .then((res) => {
-    //     if (!res.ok) throw new Error('네트워크 에러');
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //     setReviews(data);
-    //     setLoading(false);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //     setError('댓글을 불러오는 중 오류가 발생했습니다.');
-    //     setLoading(false);
-    //   });
+    const fetchData = async () => {
+      try {
+        const res = await getMostReviewedMovies(); // ✅ 서버 API
+        setReviews(res.data || []);
+      } catch (err) {
+        console.error(err);
+        setError('리뷰를 불러오는 중 오류가 발생했습니다.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -30,24 +33,27 @@ function MostReviewedSection() {
       <h1 className={styles.title}>
         최근에 달린 코멘트 <span className={styles.star}>⭐</span>
       </h1>
+
       {loading && <p className={styles.status}>로딩중…</p>}
       {error && <p className={styles.status}>{error}</p>}
 
       <div className={styles.sliderWrap}>
         <div className={styles.cardList}>
           {reviews.map((r) => (
-            <article key={r.id} className={styles.card}>
+            <article key={r.review_id} className={styles.card}>
               <header className={styles.cardHeader}>
-                <span className={styles.nickname}>{r.title}</span>
+                <span className={styles.nickname}>
+                  {r.title || '제목 없음'}
+                </span>
                 <span className={styles.stars}>
                   {Array.from({ length: 5 }).map((_, i) => (
                     <StarIcon key={i} filled={i < r.rating} />
                   ))}
                 </span>
               </header>
-              <p className={styles.text}>댓글 수: {r.commentCount}개</p>
+              <p className={styles.text}>댓글 수: {r.commentCount || 0}개</p>
               <footer className={styles.cardFooter}>
-                <a href={`/reviews/${r.id}`} className={styles.detailLink}>
+                <a href={`/movie/${r.movie_id}`} className={styles.detailLink}>
                   자세히 보기
                 </a>
               </footer>

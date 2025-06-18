@@ -1,6 +1,6 @@
 //models: 데이터를 저장하고 관리하는 역할을 맡으며, 데이터베이스와 직접 상호작용함
 //리뷰 관련 sql문 처리
-import pool from '../config/db.js'
+import pool from '../config/db.js';
 //mariaDB와 연결하는 객체 호출
 
 //영화 ID를 기준 삼아 리뷰 조회
@@ -14,12 +14,12 @@ export const bringReviewsByMovieId = async (movieId) => {
     );
     return Array.isArray(rows) ? rows : [];
   } catch (error) {
-    console.error("bringReviewsByMovieId 오류:", error);
+    console.error('bringReviewsByMovieId 오류:', error);
     throw error;
   } finally {
     conn.release();
   }
-}
+};
 
 //이용자 ID를 기준 삼아 리뷰 조회
 export const bringReviewsByUserId = async (userId) => {
@@ -32,12 +32,24 @@ export const bringReviewsByUserId = async (userId) => {
     );
     return Array.isArray(rows) ? rows : [];
   } catch (error) {
-    console.error("getReviewsByUserId 오류:", error);
+    console.error('getReviewsByUserId 오류:', error);
     throw error;
   } finally {
     conn.release();
   }
-}
+};
+
+//리뷰 수가 많은 영화 댓글 중 댓글 수가 많은 리뷰를 하나 반환
+export const getMostReviewedMoviesWithCommentCount = async () => {
+  let conn;
+  try {
+    conn = await pool.getConnection();
+    const result = await conn.query(
+      'SELECT r.*, COUNT(c.id) AS commentCount FROM reviews r LEFT JOIN comments c ON r.id = c.review_id GROUP BY r.id ORDER BY commentCount DESC LIMIT 1'
+    );
+    return result;
+  } catch (error) {}
+};
 
 //리뷰 생성
 export const createReview = async (userId, movieId, rating, content) => {
