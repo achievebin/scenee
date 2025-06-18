@@ -68,14 +68,14 @@
 
 .popularSubtitle {
   color: white;
-  font-size: 0px;
+  font-size: 16px;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-family: 'Pretendard', system-ui, sans-serif;
   opacity: 0;
   visibility: hidden;
   text-align: center;
-  bottom: -158px; /* 카드 하단에 위치하도록 설정 */
+  bottom: -50px; /* 카드 하단에 위치하도록 설정 */
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
   transform-origin: center;
   left: 50%;
