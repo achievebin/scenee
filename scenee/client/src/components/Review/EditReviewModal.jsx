@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Rating from "react-rating";
-import { Star } from "lucide-react";
+import React, { useEffect, useState } from 'react';
+import Rating from 'react-rating';
+import { Star } from 'lucide-react';
 
 //Modal(모달): 새 창을 띄우는 팝업과 달리 브라우저 내부에 상위 레이어를 띄우는 방식
 export default function EditReviewModal({ isOpen, onClose, review, onSubmit }) {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('');
   const [rating, setRating] = useState(5);
 
   useEffect(() => {
     if (review) {
-      setContent(review.content || "");
+      setContent(review.content || '');
       setRating(review.rating || 5);
     }
   }, [review]);
