@@ -1,46 +1,86 @@
-/* src/pages/EventPage.module.css */
+/* 1. 컨테이너: 공지사항 페이지와 동일하게 */
 .container {
   min-height: 100vh;
   padding: 2rem;
-  background: #ffffff;
-  color: #000000;
-  font-family: sans-serif;
+  background: #332c3b;
+  color: #ffffff;
+  font-family: 'Pretendard', system-ui, sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+
+/* 2. 헤더 */
 .header {
-  font-size: 2rem;
+  font-size: 40px;
   margin-bottom: 1.5rem;
 }
-.table {
+
+/* 3. 내부 패널 (tbody 역할) */
+.tbody {
+  background: #fafafa;
+  border-radius: 15px;
   width: 100%;
-  border-collapse: collapse;
+  max-width: 920px;
+  margin: 0 auto 2rem;
+  box-sizing: border-box;
+  padding: 1rem;
 }
-.th {
-  text-align: left;
+
+/* 4. 헤더 행을 flex 컨테이너로 */
+.thead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #444;
-  color: #bbb;
 }
-.td {
+
+/* 5. 데이터 행도 같은 flex 스타일 */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #333;
   cursor: pointer;
 }
-.row:hover {
-  background: rgba(255, 255, 255, 0.05);
+.row:last-child {
+  border-bottom: none;
 }
+
+/* 6. 컬럼별 flex 비율 */
+/* - 번호: 고정폭 */
+.noCell {
+  flex: 0 0 60px;
+  color: #888;
+}
+
+/* - 제목: 가변폭 */
 .titleCell {
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #000;
 }
+
+/* - 날짜: 고정폭, 우측 정렬 */
 .dateCell {
+  flex: 0 0 120px;
+  text-align: right;
   color: #888;
-  width: 120px;
 }
+
+/* 7. hover 효과 */
+.row:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* 8. 페이지네이션 */
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   gap: 0.5rem;
 }
 .pageButton {

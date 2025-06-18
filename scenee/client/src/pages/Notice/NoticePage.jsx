@@ -1,4 +1,3 @@
-// src/pages/NoticePage.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getNoticeBoards } from '../../api/noticeApi.js';
@@ -25,34 +24,33 @@ const NoticePage = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>📌 공지사항</h1>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th className={styles.th}>번호</th>
-            <th className={styles.th}>제목</th>
-            <th className={styles.th}>등록일</th>
-          </tr>
-        </thead>
-        <tbody>
-          {paged.map(({ id, title, created_at, createdAt }) => {
-            const dateRaw = created_at ?? createdAt ?? '';
-            return (
-              <tr
-                key={id}
-                className={styles.row}
-                onClick={() => navigate(`/notice/${id}`)}
-              >
-                <td className={styles.td}>{id}</td>
-                <td className={`${styles.td} ${styles.titleCell}`}>{title}</td>
-                <td className={`${styles.td} ${styles.dateCell}`}>
-                  {fmt(dateRaw)}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
 
+      <div className={styles.tbody}>
+        {/* 헤더 행 */}
+        <div className={styles.thead}>
+          <span className={styles.noCell}>번호</span>
+          <span className={styles.titleCell}>제목</span>
+          <span className={styles.dateCell}>등록일</span>
+        </div>
+
+        {/* 데이터 행 */}
+        {paged.map(({ id, title, created_at, createdAt }) => {
+          const dateRaw = created_at ?? createdAt ?? '';
+          return (
+            <div
+              key={id}
+              className={styles.row}
+              onClick={() => navigate(`/notice/${id}`)}
+            >
+              <span className={styles.noCell}>{id}</span>
+              <span className={styles.titleCell}>{title}</span>
+              <span className={styles.dateCell}>{fmt(dateRaw)}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 페이지 네비게이션 */}
       {totalPages > 1 && (
         <div className={styles.pagination}>
           {pages.map((p) => (
