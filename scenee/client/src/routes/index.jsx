@@ -1,22 +1,22 @@
-import { Routes, Route } from "react-router-dom";
-import HomePage from "../pages/Home/HomePage";
-import SearchResultPage from "../pages/Search/SearchResultPage";
-import LoginPage from "../pages/Login/LoginPage";
-import RegisterPage from "../pages/Register/RegisterPage";
-import MyPage from "../pages/MyPage/MyPage";
-import DetailPage from "../pages/Detail/DetailPage";
-import NotFound from "../pages/NotFound/NotFound";
-import FindIdPage from "../pages/Login/FindIdPage";
-import FindPwRequestPage from "../pages/Login/FindPwRequestPage";
-import ResetPasswordPage from "../pages/Login/ResetPasswordPage";
-import ProtectedRoute from "../routes/ProtectedRoute";
-import MainLayout from "../layouts/MainLayout";
-import AuthLayout from "../layouts/AuthLayout";
-import ContactPage from "../components/Footer/ContactPage";
-import NoticePage from "../components/Home/NoticePage";
-import NoticeDetailPage from "../components/Home/NoticeDetailPage";
-import EventPage from "../components/Home/EventPage";
-import EventDetailPage from "../components/Home/EventDetailPage";
+import { Routes, Route } from 'react-router-dom';
+import HomePage from '../pages/Home/HomePage';
+import SearchResultPage from '../pages/Search/SearchResultPage';
+import LoginPage from '../pages/Login/LoginPage';
+import RegisterPage from '../pages/Register/RegisterPage';
+import MyPage from '../pages/MyPage/MyPage';
+import DetailPage from '../pages/Detail/DetailPage';
+import NotFound from '../pages/NotFound/NotFound';
+import FindIdPage from '../pages/Login/FindIdPage';
+import FindPwRequestPage from '../pages/Login/FindPwRequestPage';
+import ResetPasswordPage from '../pages/Login/ResetPasswordPage';
+import ProtectedRoute from '../routes/ProtectedRoute';
+import MainLayout from '../layouts/MainLayout';
+import AuthLayout from '../layouts/AuthLayout';
+import ContactPage from '../components/Footer/ContactPage';
+import NoticePage from '../pages/Notice/NoticePage';
+import NoticeDetailPage from '../pages/Notice/NoticeDetailPage';
+import EventPage from '../pages/Event/EventPage';
+import EventDetailPage from '../pages/Event/EventDetailPage';
 export default function AppRoutes() {
   return (
     <Routes>

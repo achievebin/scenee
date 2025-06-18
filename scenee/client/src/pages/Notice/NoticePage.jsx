@@ -1,8 +1,8 @@
 // src/pages/NoticePage.jsx
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getNoticeBoards } from "../../api/noticeApi.js";
-import styles from "./NoticePage.module.css";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getNoticeBoards } from '../../api/noticeApi.js';
+import styles from './NoticePage.module.css';
 
 const NoticePage = () => {
   const [notices, setNotices] = useState([]);
@@ -13,14 +13,14 @@ const NoticePage = () => {
   useEffect(() => {
     getNoticeBoards()
       .then((res) => setNotices(res.data))
-      .catch((err) => console.error("공지사항 로드 에러:", err));
+      .catch((err) => console.error('공지사항 로드 에러:', err));
   }, []);
 
   const totalPages = Math.ceil(notices.length / perPage);
   const paged = notices.slice((page - 1) * perPage, page * perPage);
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
-  const fmt = (raw) => (raw ? raw.slice(0, 10).replace(/-/g, ".") : "");
+  const fmt = (raw) => (raw ? raw.slice(0, 10).replace(/-/g, '.') : '');
 
   return (
     <div className={styles.container}>
@@ -35,7 +35,7 @@ const NoticePage = () => {
         </thead>
         <tbody>
           {paged.map(({ id, title, created_at, createdAt }) => {
-            const dateRaw = created_at ?? createdAt ?? "";
+            const dateRaw = created_at ?? createdAt ?? '';
             return (
               <tr
                 key={id}
