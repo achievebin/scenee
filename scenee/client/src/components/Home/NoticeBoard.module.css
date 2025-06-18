@@ -1,90 +1,95 @@
 /* src/components/Home/NoticeBoard.module.css */
+
 .container {
   background: #332c3b;
   color: #fff;
   margin-left: 110px;
-  font-family: 'Pretendard', system-ui, sans-serif;
   margin-top: 100px;
+  margin-bottom: 100px;
+  font-family: 'Pretendard', system-ui, sans-serif;
 }
 
 .header {
   font-size: 50px;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 
+/* 리스트 전체 컨테이너 */
 .list {
   list-style: none;
   padding: 0;
+  margin: 0;
+  max-width: 920px;    /* 한계 너비 */
 }
 
+/* 각 항목을 flex 컨테이너로 */
 .listItem {
-  padding: 1rem;
+  display: flex;
+  justify-content: space-between; /* 좌우 끝 정렬 */
+  align-items: center;            /* 수직 가운데 */
+  padding: 1rem 0;
   border-bottom: 1px solid #585858;
-  width: 920px;
   cursor: pointer;
-  
 }
 
+/* 제목 셀: 가변폭, 생략 처리 */
 .itemTitle {
+  flex: 1;
   font-size: 20px;
   color: #fff;
- 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.itemTitle:hover{
+.itemTitle:hover {
   color: #b8aed6;
 }
+
+/* 날짜 셀: 고정폭, 우측 정렬 */
 .date {
+  flex: 0 0 120px;
+  text-align: right;
   color: #8b8b8b;
-  margin-left: 500px;
 }
 
-
-.NoticeSpanTitle:hover{
-	 flex: 1;
-	 color: #d3c7f7; 
-	 font-size: 16px;
+/* 선택된 공지(상세) 스타일은 그대로 유지 */
+.Selected {
+  margin-top: 50px;
+  padding: 50px;
+  background-color: #ffffff;
+  border-radius: 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  width: 920px;
+  margin-left: 110px;
+  font-size: 16px;
+  align-items: center;
+  text-align: center;
 }
-
-.Selected{
-	 margin-top: 50px;
-     padding: 50px;
-     background-color: #ffffff;
-     border-radius: 70px;
-     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-	display: flex;
-	width: 920px;
-	margin-left: 110px;
-	font-size: 16px;
-	font-family: 'Pretendard', system-ui, sans-serif;
-	align-items: center;
-	text-align: center;
+.SelectedTitle {
+  margin: 0;
+  font-size: 20px;
+  color: #444;
 }
-.SelectedTitle{
-	 margin:0;
-	 font-size: 20px;
-	 color: #444;
-	 
+.SelectedContent {
+  white-space: pre-wrap;
+  color: #444;
+  margin: auto;
+  font-weight: normal;
 }
-
-.SelectedContent{
-	 white-space: pre-wrap;
-	  color: #444;
-	  margin: auto; 
-	  font-weight:normal;
+.SelectedButton {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #e63946;
+  color: #fff;
+  cursor: pointer;
 }
-.SelectedButton{
-	  margin-top: 0.75rem;
-     padding: 0.5rem 1rem;
-     border: none;
-     border-radius: 30px;
-     background-color: #e63946;
-      color: #fff;
-     cursor: pointer;
+.SelectedButton:hover {
+  background-color: #bd1c29;
 }
-
-.SelectedButton:hover{
-	background-color: #bd1c29;
-}
-.SelectedButton:focus{
-	outline: none;
+.SelectedButton:focus {
+  outline: none;
 }

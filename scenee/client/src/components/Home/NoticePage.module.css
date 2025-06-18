@@ -1,51 +1,87 @@
+/* 1. 컨테이너 가운데 고정폭 배치 */
 .container {
   min-height: 100vh;
   padding: 2rem;
   background: #332c3b;
   color: #ffffff;
-   font-family: 'Pretendard', system-ui, sans-serif;
-
+  font-family: 'Pretendard', system-ui, sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
+/* 2. 제목 */
 .header {
   font-size: 40px;
   margin-bottom: 1.5rem;
-  margin-left: 50px;
+  /* text-align: left; 기본값 */
 }
-.table {
+
+/* 3. 내부 패널 (tbody 역할) */
+.tbody {
+  background: #fafafa;
+  border-radius: 15px;
   width: 100%;
-  border-collapse: collapse;
+  max-width: 920px;
+  margin: 0 auto 2rem; /* 위쪽 0, 좌우 auto, 아래 2rem */
+  box-sizing: border-box;
+  padding: 1rem;
 }
-.th {
-  text-align: left;
+
+/* 4. 헤더 행을 flex 컨테이너로 */
+.thead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #444;
-  color: #bbb;
 }
-.td {
+
+/* 5. 데이터 행도 같은 flex 스타일 */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #333;
   cursor: pointer;
 }
+.row:last-child {
+  border-bottom: none;
+}
 
+/* 6. 컬럼별 flex 비율 */
+/* - 번호: 고정폭 */
+.noCell {
+  flex: 0 0 60px;     /* 필요에 따라 폭 조정 */
+  color: #888;
+}
+
+/* - 제목: 가변폭 */
 .titleCell {
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #000;
 }
+
+/* - 등록일: 고정폭, 우측 정렬 */
 .dateCell {
+  flex: 0 0 120px;
+  text-align: right;
   color: #888;
-  width: 120px;
-  margin-top: 30px;
-  margin-left: 50px;
 }
+
+/* 7. hover 효과 */
 .row:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
+
+/* 8. 페이지네이션 */
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   gap: 0.5rem;
 }
 .pageButton {
@@ -60,26 +96,4 @@
   background: #fff;
   color: #000;
   border: none;
-}
-.tbody{
-    margin-top: 30px;
-    padding: 1rem;
-    background: #fafafa;
-    border-radius: 15px;
-    width: 920px;
-    margin-left: 50px;
-}
-.listbutton{
-    margin-bottom: 1rem;
-          background: transparent;
-          border: none;
-          color: #bbb;
-          cursor: pointer;
-          outline:none;
-}
-.listbutton:hover{
-color:  #b8aed6;
-}
-.listbutton:focus{
-  outline: none;
 }
