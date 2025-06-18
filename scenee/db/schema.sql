@@ -49,6 +49,15 @@ CREATE TABLE IF NOT EXISTS notices (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
+-- 문의사항 테이블 생성 (contact_inquiries)
+CREATE TABLE IF NOT EXISTS contact_inquiries(
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    name        VARCHAR(100) NOT NULL,
+    email       VARCHAR(255) NOT NULL,
+    subject     VARCHAR(200) NOT NULL,
+    message     TEXT NOT NULL,
+    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
 -- 리뷰에 대한 댓글 기능 테이블 (comments)
 -- 리뷰와 댓글 신고 기능 테이블 (reports)

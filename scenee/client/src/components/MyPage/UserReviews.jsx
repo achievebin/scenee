@@ -78,7 +78,7 @@ export default function UserReviews({ userId }) {
   };
 
   return (
-    <section>
+    <section className={styles.background}>
       <h3>작성한 리뷰</h3>
       {loading ? (
         <p>로딩 중...</p>
@@ -104,7 +104,7 @@ export default function UserReviews({ userId }) {
                       emptySymbol={<Star color="lightgray" size={20} />}
                       fullSymbol={<Star color="gold" size={20} fill="gold" />}
                     />
-                    <p>{review.content}</p>
+                    <p className={styles.Strong}>{review.content}</p>
                     <button onClick={() => setFixReview(review)}>수정</button>
                     <button onClick={() => handleDelete(review.id)}>
                       삭제
