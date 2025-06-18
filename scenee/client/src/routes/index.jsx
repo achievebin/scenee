@@ -12,7 +12,7 @@ import ResetPasswordPage from '../pages/Login/ResetPasswordPage';
 import ProtectedRoute from '../routes/ProtectedRoute';
 import MainLayout from '../layouts/MainLayout';
 import AuthLayout from '../layouts/AuthLayout';
-import ContactPage from '../components/Footer/ContactPage';
+import ContactPage from '../pages/Contact/ContactPage';
 import NoticePage from '../pages/Notice/NoticePage';
 import NoticeDetailPage from '../pages/Notice/NoticeDetailPage';
 import EventPage from '../pages/Event/EventPage';

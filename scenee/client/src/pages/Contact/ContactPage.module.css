@@ -1,10 +1,10 @@
-/* ContactPage.module.css */
 .container {
   max-width: 960px;
   margin: 0 auto;
   padding: 40px 20px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Malgun Gothic", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Malgun Gothic',
+    sans-serif;
   background-color: #f8f9fa;
   min-height: 100vh;
 }
@@ -31,7 +31,7 @@
 
 /* Tab header effect */
 .form::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +42,7 @@
 }
 
 .form::after {
-  content: "문의 및 신고";
+  content: '문의 및 신고';
   position: absolute;
   top: 0;
   left: 50%;
