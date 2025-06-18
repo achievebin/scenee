@@ -6,11 +6,10 @@ import { useAuthContext } from '../../contexts/AuthContext'; // 로그인 정보
 import styles from './ReviewForm.module.css';
 
 export default function ReviewForm({ movieId, onReviewSubmit }) {
-  const [rating, setRating] = useState(0);
-  const [content, setContent] = useState('');
-  const [error, setError] = useState('');
-
   const { user } = useAuthContext(); // 로그인 여부
+  const [content, setContent] = useState('');
+  const [rating, setRating] = useState(0);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,9 +18,9 @@ export default function ReviewForm({ movieId, onReviewSubmit }) {
     }
 
     try {
-      await addReview({ movieId, rating, content });
-      setRating(0);
+      await addReview({ movieId, content, rating });
       setContent('');
+      setRating(0);
       setError('');
       if (onReviewSubmit) onReviewSubmit(); // 상위에서 목록 갱신
     } catch (err) {

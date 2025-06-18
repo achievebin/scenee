@@ -1,5 +1,5 @@
 // src/pages/PrivacyPage.jsx
-import React from "react";
+import React from 'react';
 
 const policyText = `
 개인정보 처리방침
@@ -73,10 +73,10 @@ const policyText = `
 const PrivacyPage = () => (
   <div
     style={{
-      whiteSpace: "pre-wrap",
-      padding: "20px",
-      maxWidth: "800px",
-      margin: "0 auto",
+      whiteSpace: 'pre-wrap',
+      padding: '20px',
+      maxWidth: '800px',
+      margin: '0 auto',
     }}
   >
     {policyText}

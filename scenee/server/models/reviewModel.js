@@ -52,13 +52,13 @@ export const getMostReviewedMoviesWithCommentCount = async () => {
 };
 
 //리뷰 생성
-export const createReview = async (userId, movieId, rating, content) => {
+export const createReview = async (userId, movieId, content, rating) => {
   let conn;
   try {
     conn = await pool.getConnection();
     const result = await conn.query(
-      'INSERT INTO reviews (user_id, movie_id, rating, content) VALUES (?, ?, ?, ?)',
-      [userId, movieId, rating, content]
+      'INSERT INTO reviews (user_id, movie_id, content, rating) VALUES (?, ?, ?, ?)',
+      [userId, movieId, content, rating]
     );
     conn.release();
     return result.insertId;

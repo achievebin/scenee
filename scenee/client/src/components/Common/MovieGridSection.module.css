@@ -1,6 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css');
 
-.popularSection {
+.section {
   background: #332c3b;
   padding-top: 40px;
   padding-bottom: 20px;
@@ -8,7 +8,7 @@
   height: 1000px;
 }
 
-.popularSectionTitle {
+.title {
   color: white;
   font-size: 50px;
   font-family: 'Pretendard', system-ui, sans-serif;
@@ -207,7 +207,7 @@
 .popularCardWrapper {
   width: 333px; /* popularItem과 동일한 너비 */
   height: 562px; /* 카드 높이 */
-  overflow: hidden; /* 내부에서 튀어나오는 skew 영역은 잘라버림 */
+  overflow: visible;
   border-radius: 12px;
   background-color: transparent;
   position: relative;
@@ -227,6 +227,7 @@
   transform: translateY(-8px) scale(1.05);
   opacity: 1;
   z-index: 10;
+
   height: 626px;
 }
 

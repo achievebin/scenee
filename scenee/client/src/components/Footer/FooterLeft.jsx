@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import Modal from "../Common/Modal";
-import TermsContent from "./terms";
-import PrivacyContent from "./PrivacyPage";
-import NoEmailContent from "./no_email";
-import Logo from "../../assets/images/logo.png";
-import styles from "./FooterLeft.module.css";
+import React, { useState } from 'react';
+import { FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import Modal from '../Common/Modal';
+import TermsContent from './TermsContent';
+import PrivacyContent from './PrivacyContent';
+import NoEmailContent from './NoEmailContent';
+import Logo from '../../assets/images/logo.png';
+import styles from './FooterLeft.module.css';
 
 export default function FooterLeft() {
   const [openModal, setOpenModal] = useState(null);
@@ -18,7 +18,7 @@ export default function FooterLeft() {
           <li>
             <button
               className={styles.linkButton}
-              onClick={() => setOpenModal("terms")}
+              onClick={() => setOpenModal('terms')}
             >
               이용약관
             </button>
@@ -26,7 +26,7 @@ export default function FooterLeft() {
           <li>
             <button
               className={styles.linkButton}
-              onClick={() => setOpenModal("privacy")}
+              onClick={() => setOpenModal('privacy')}
             >
               개인정보처리방침
             </button>
@@ -44,7 +44,7 @@ export default function FooterLeft() {
           <li>
             <button
               className={styles.linkButton}
-              onClick={() => setOpenModal("no_email")}
+              onClick={() => setOpenModal('no_email')}
             >
               이메일무단수집거부
             </button>
@@ -67,8 +67,7 @@ export default function FooterLeft() {
         <img src={Logo} alt="SCENEE Logo" className={styles.logo} />
         <div className={styles.companyText}>
           <p>
-            주식회사: SCENEE | 서울특별시 서초구 강남대로 375 |
-             대표: 이용범 
+            주식회사: SCENEE | 서울특별시 서초구 강남대로 375 | 대표: 이용범
             TEL: 1588-4444
           </p>
           <p>copyright Ⓒ 2025 by GLOBAL. All rights reserved.</p>
@@ -77,21 +76,21 @@ export default function FooterLeft() {
 
       {/* Modals */}
       <Modal
-        isOpen={openModal === "terms"}
+        isOpen={openModal === 'terms'}
         onClose={() => setOpenModal(null)}
         title="이용약관"
       >
         <TermsContent />
       </Modal>
       <Modal
-        isOpen={openModal === "privacy"}
+        isOpen={openModal === 'privacy'}
         onClose={() => setOpenModal(null)}
         title="개인정보처리방침"
       >
         <PrivacyContent />
       </Modal>
       <Modal
-        isOpen={openModal === "no_email"}
+        isOpen={openModal === 'no_email'}
         onClose={() => setOpenModal(null)}
         title="이메일무단수집거부"
       >

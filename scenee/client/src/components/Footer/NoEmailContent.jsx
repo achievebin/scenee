@@ -1,5 +1,5 @@
 // src/components/Common/NoEmailContent.jsx
-import React from "react";
+import React from 'react';
 
 const NoEmailContent = () => (
   <div className="no-email-container">

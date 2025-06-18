@@ -3,8 +3,7 @@
   padding: 2rem;
   background: #332c3b;
   color: #ffffff;
-   font-family: 'Pretendard', system-ui, sans-serif;
-
+  font-family: 'Pretendard', system-ui, sans-serif;
 }
 
 .header {
@@ -61,25 +60,25 @@
   color: #000;
   border: none;
 }
-.tbody{
-    margin-top: 30px;
-    padding: 1rem;
-    background: #fafafa;
-    border-radius: 15px;
-    width: 920px;
-    margin-left: 50px;
+.tbody {
+  margin-top: 30px;
+  padding: 1rem;
+  background: #fafafa;
+  border-radius: 15px;
+  width: 920px;
+  margin-left: 50px;
 }
-.listbutton{
-    margin-bottom: 1rem;
-          background: transparent;
-          border: none;
-          color: #bbb;
-          cursor: pointer;
-          outline:none;
+.listbutton {
+  margin-bottom: 1rem;
+  background: transparent;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+  outline: none;
 }
-.listbutton:hover{
-color:  #b8aed6;
+.listbutton:hover {
+  color: #b8aed6;
 }
-.listbutton:focus{
+.listbutton:focus {
   outline: none;
 }
